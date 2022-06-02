@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias type="com.its.bookStore.dto.MemberDTO" alias="member"></typeAlias>
+        <typeAlias type="com.its.bookStore.dto.BookDTO" alias="book"></typeAlias>
+        <typeAlias type="com.its.bookStore.dto.ReviewDTO" alias="review"></typeAlias>
+        <typeAlias type="com.its.bookStore.dto.PurchaseDTO" alias="purchase"></typeAlias>
+        <typeAlias type="com.its.bookStore.dto.ShoppingCartDTO" alias="shoppingCart"></typeAlias>
+    </typeAliases>
+</configuration>
