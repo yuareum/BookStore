@@ -1,9 +1,0 @@
-<changelist name="Uncommitted_changes_before_Update_at_2022-06-02_오후_4_30_[Changes]" date="1654155060121" recycled="false" toDelete="true">
-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-06-02_오후_4_30_[Changes]/shelved.patch" />
-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2022-06-02 오후 4:30 [Changes]" />
-  <binary>
-    <option name="BEFORE_PATH" />
-    <option name="AFTER_PATH" value="src/main/webapp/resources/img/img.jpg" />
-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-06-02_오후_4_30_[Changes]/img.jpg" />
-  </binary>
-</changelist>

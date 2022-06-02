@@ -3,5 +3,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Member">
+    <insert id="save" parameterType="member">
+        insert into book_member_table(memberId,memberPassword,memberName,memberEmail,memberMobile,memberProfileName)
+        values(#{memberId}, #{memberPassword}, #{memberName}, #{memberEmail}, #{memberMobile}, #{memberProfileName})
+    </insert>
+    <select id="duplicateCheck" parameterType="String" resultType="String">
+        select memberId from book_member_table where memberId = #{memberId}
+    </select>
 
 </mapper>
