@@ -9,8 +9,10 @@
 <html>
 <head>
     <title>관리자 페이지</title>
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 </head>
 <body>
-    <h2>관리자페이지</h2>
+    <h2>관리자 페이지</h2>
+    <button class="btn btn-outline-dark" onclick="location.href='/book/save'">도서등록</button>
 </body>
 </html>

@@ -14,6 +14,8 @@ public class BookDTO {
     private String bookWriter;
     private String bookPublisher;
     private String bookPublicationDate;
+    private String bookIntroduceContents;
+    private int bookPrice;
     private Timestamp bookCreatedDate;
     private MultipartFile bookFile;
     private String bookFileName;

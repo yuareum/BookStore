@@ -4,11 +4,11 @@
 
 <mapper namespace="Book">
     <insert id="save" parameterType="book">
-        insert into book_table(bookCounts, bookTitle,  bookAdmin, bookWriter, bookPublisher, bookPublicationDate, bookCreatedDate, bookFileName)
-        values (#{bookCounts}, #{bookTitle}, #{bookAdmin}, #{bookPublisher}, #{bookPublicationDate}, #{bookCreatedDate}, #{bookFilename})
+        insert into book_table(bookCounts, bookTitle,  bookAdmin, bookWriter, bookPublisher, bookPublicationDate, bookIntroduceContents ,bookPrice, bookCreatedDate, bookFileName)
+        values (#{bookCounts}, #{bookTitle}, #{bookAdmin},#{bookWriter}, #{bookPublisher},#{bookPublicationDate}, #{bookIntroduceContents}, #{bookPrice}, now(), #{bookFileName})
     </insert>
     <select id="bookList" parameterType="java.util.HashMap" resultType="book">
-        select * from book_table order by id desc limit #{start}, #{limit};
+        select * from book_table order by id desc limit #{start}, #{limit}
     </select>
     <select id="count" resultType="int">
         select count(id) from book_table
