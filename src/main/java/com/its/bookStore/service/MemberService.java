@@ -45,4 +45,8 @@ public class MemberService {
         return memberRepository.login(memberDTO);
 
     }
+
+    public MemberDTO findByMemberId(String memberId) {
+        return memberRepository.findByMemberId(memberId);
+    }
 }

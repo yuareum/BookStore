@@ -15,4 +15,8 @@
     <select id="login" parameterType="member" resultType="member">
         select * from book_member_table where memberId = #{memberId} and memberPassword = #{memberPassword}
     </select>
+
+    <select id="findByMemberId" parameterType="String" resultType="member">
+        select * from book_member_table where memberId = #{memberId}
+    </select>
 </mapper>

@@ -10,7 +10,7 @@ public class BookDTO {
     private Long id;
     private int bookCounts;
     private String bookTitle;
-    private String bookManager;
+    private String bookAdmin;
     private String bookWriter;
     private String bookPublisher;
     private String bookPublicationDate;

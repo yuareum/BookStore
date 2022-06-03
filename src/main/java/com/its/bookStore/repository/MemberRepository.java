@@ -23,4 +23,7 @@ public class MemberRepository {
         return sql.selectOne("Member.login", memberDTO);
     }
 
+    public MemberDTO findByMemberId(String memberId) {
+        return sql.selectOne("Member.findByMemberId", memberId);
+    }
 }
