@@ -5,6 +5,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Map;
+
 @Repository
 public class MemberRepository {
 
@@ -32,5 +35,13 @@ public class MemberRepository {
     }
     public void update(MemberDTO memberDTO) {
         sql.update("Member.update", memberDTO);
+    }
+
+    public List<MemberDTO> pagingList(Map<String, Integer> pagingParam) {
+        return sql.selectList("Member.pagingList", pagingParam);
+    }
+
+    public int memberCount() {
+        return sql.selectOne("Member.count");
     }
 }

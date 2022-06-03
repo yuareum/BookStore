@@ -14,8 +14,8 @@
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
-    <h2>도서 전체목록</h2>
     <div class="container">
+        <h2>도서 전체목록</h2>
         <div class="form-floating">
             <table>
                 <form action="/book/search" method="get">

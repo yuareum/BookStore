@@ -1,6 +1,7 @@
 package com.its.bookStore.controller;
 
 import com.its.bookStore.dto.MemberDTO;
+import com.its.bookStore.dto.PageDTO;
 import com.its.bookStore.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("member")
@@ -90,6 +92,14 @@ public class MemberController {
     public String update(@ModelAttribute MemberDTO memberDTO){
         memberService.update(memberDTO);
         return "redirect:/member/myPage?id=" + memberDTO.getId();
+    }
+    @GetMapping("/findAll")
+    public String findAll(@RequestParam(value="page", required=false, defaultValue="1") int page, Model model) {
+        List<MemberDTO> memberList = memberService.pagingList(page);
+        PageDTO paging = memberService.paging(page);
+        model.addAttribute("memberList", memberList);
+        model.addAttribute("paging", paging);
+        return "member/list";
     }
 
 }

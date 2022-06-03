@@ -27,4 +27,12 @@
     <update id="update" parameterType="member">
         update book_member_table set  memberEmail = #{memberEmail}, memberMobile=#{memberMobile} , memberProfileName = #{memberProfileName} where id= #{id}
     </update>
+
+    <select id="pagingList" parameterType="java.util.HashMap" resultType="member">
+        select * from book_member_table order by id desc limit #{start}, #{limit}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(id) from book_member_table
+    </select>
 </mapper>
