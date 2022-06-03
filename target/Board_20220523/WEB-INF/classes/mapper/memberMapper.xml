@@ -7,8 +7,12 @@
         insert into book_member_table(memberId,memberPassword,memberName,memberEmail,memberMobile,memberProfileName)
         values(#{memberId}, #{memberPassword}, #{memberName}, #{memberEmail}, #{memberMobile}, #{memberProfileName})
     </insert>
+
     <select id="duplicateCheck" parameterType="String" resultType="String">
         select memberId from book_member_table where memberId = #{memberId}
     </select>
 
+    <select id="login" parameterType="member" resultType="member">
+        select * from book_member_table where memberId = #{memberId} and memberPassword = #{memberPassword}
+    </select>
 </mapper>

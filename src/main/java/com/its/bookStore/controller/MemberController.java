@@ -4,8 +4,10 @@ import com.its.bookStore.dto.MemberDTO;
 import com.its.bookStore.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @Controller
@@ -33,6 +35,25 @@ public class MemberController {
     public @ResponseBody String duplicateCheck(@RequestParam("memberId") String memberId){
         String checkResult = memberService.duplicateCheck(memberId);
         return checkResult;
+    }
+
+    @GetMapping("/login")
+    public String loginForm(){
+        return "member/login";
+    }
+
+    @PostMapping("/login")
+    public String login(@ModelAttribute MemberDTO memberDTO, Model model, HttpSession session){
+        MemberDTO loginMember = memberService.login(memberDTO);
+        if(loginMember != null){
+            model.addAttribute("loginMember", loginMember);
+            session.setAttribute("loginMemberId", loginMember.getMemberId());
+            session.setAttribute("loginId", loginMember.getId());
+            return "redirect:/";
+        }
+        else{
+            return "member/login";
+        }
     }
 
 }

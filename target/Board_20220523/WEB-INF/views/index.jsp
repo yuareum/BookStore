@@ -17,32 +17,61 @@
             width: 100%;
         }
     </style>
+    <header>
+        <nav>
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <c:if test="${empty sessionScope.loginMemberId}">
+                        <a class="nav-link" href="/member/save">회원가입</a>
+                    </c:if>
+                </li>
+                <li class="nav-item">
+                    <c:if test="${empty sessionScope.loginMemberId}">
+                        <a class="nav-link" href="/member/login">로그인</a>
+                    </c:if>
+                </li>
+                <li class="nav-item">
+                    <c:if test="${!empty sessionScope.loginMemberId}">
+                        <a class="nav-link" href="/member/logout">로그아웃</a>
+                    </c:if>
+                </li>
+                <li class="nav-item">
+                    <c:if test="${sessionScope.loginMemberId eq 'admin'}">
+                        <a class="nav-link" href="/member/admin?memberId=${sessionScope.loginMemberId}">관리자 페이지</a>
+                    </c:if>
+                </li>
+                <li class="nav-item">
+                    <c:if test="${!empty sessionScope.loginMemberId}">
+                        <a class="nav-link" href="/member/myPage?id=${sessionScope.loginId}">My Page</a>
+                    </c:if>
+                </li>
+            </ul>
+        </nav>
+    </header>
 </head>
 <body>
-    <div class="container" style="width: 100%">
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
-                <c:if test="${empty sessionScope.loginMemberId}">
-                    <li><a href="/member/login"  class="nav-link px-2 link-dark">로그인</a></li>
-                </c:if>
-                <c:if test="${!empty sessionScope.loginMemberId}">
-                    <li><a href="/member/logout" class="nav-link px-2 link-dark">로그아웃</a></li>
-                </c:if>
-                <c:if test="${empty sessionScope.loginMemberId}">
-                    <li><a href="/member/save" class="nav-link px-2 link-dark">회원가입</a></li>
-                </c:if>
-                <c:if test="${sessionScope.loginMemberId eq 'admin'}">
-                    <li><a href="/member/admin?memberId=${sessionScope.loginMemberId}" class="nav-link px-2 link-dark">관리자 페이지</a></li>
-                </c:if>
-                <c:if test="${!empty sessionScope.loginMemberId}">
-                    <li><a href="/member/myPage?id=${sessionScope.loginId}" class="nav-link px-2 link-dark">My Page</a></li>
-                </c:if>
-            </ul>
-            <div class="col-md-3 text-end">
-                <button type="button" onclick="location.href='/board/findAll'" class="btn btn-outline-dark me-2">글 목록</button>
-            </div>
-        </header>
+<div class="container" style="width: 100%">
+    <div class="form-floating">
+        <table>
+            <form action="/book/search" method="get">
+                <tr>
+                    <td>
+                        <select class="form-select" style="width: 120px;" name="searchType">
+                        <option selected value="bookTitle">도서 제목</option>
+                        <option value="bookWriter">저자</option>
+                        <option value="bookPublisher">출판사</option>
+                        </select>
+                    </td>
+                    <td><input class="form-control me-2" type="text" name="q" style="width: 450px" placeholder="도서 검색"></td>
+                        <td><button class="btn btn-outline-success" style="width: 80px" type="submit">검색</button>
+                    </td>
+                </tr>
+            </form>
+        </table>
     </div>
+</div>
 </body>
 </html>

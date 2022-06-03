@@ -9,13 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61ff1305-73d8-4eca-a196-81037b85b2a6" name="Changes" comment="README.md">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/save.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-06-02__4_30__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-06-02_오후_4_30_[Changes]/img.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-06-02_오후_4_30_[Changes]/shelved.patch" beforeDir="false" />
+    <list default="true" id="61ff1305-73d8-4eca-a196-81037b85b2a6" name="Changes" comment="commit">
+      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/layout/hearder.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/16f8d64e-166a-437e-bbdc-f81a22767736.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/16f8d64e-166a-437e-bbdc-f81a22767736.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/controller/MemberController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/repository/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/repository/MemberRepository.java" afterDir="false" />
@@ -70,8 +68,9 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/development_yar/source/spring_framework/BookStore/src/main/webapp/resources/js",
+    "last_opened_file_path": "C:/development_yar/source/spring_framework/BookStore",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "spring.configuration.checksum": "6a40e95fc6afde52ddce203498d86b5a"
   },
@@ -190,6 +189,7 @@
       <updated>1654143288713</updated>
       <workItem from="1654143290045" duration="187000" />
       <workItem from="1654143496021" duration="5909000" />
+      <workItem from="1654211701263" duration="6000000" />
     </task>
     <task id="LOCAL-00001" summary="index.jsp 페이지 출력, 설정">
       <created>1654153762742</created>
@@ -205,7 +205,21 @@
       <option name="project" value="LOCAL" />
       <updated>1654155764131</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="회원가입 페이지 생성">
+      <created>1654157651223</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1654157651223</updated>
+    </task>
+    <task id="LOCAL-00004" summary="commit">
+      <created>1654157879188</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1654157879188</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,6 +239,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="index.jsp 페이지 출력, 설정" />
     <MESSAGE value="README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="README.md" />
+    <MESSAGE value="회원가입 페이지 생성" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
 </project>
