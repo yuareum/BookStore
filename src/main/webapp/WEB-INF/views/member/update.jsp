@@ -8,9 +8,66 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>회원 정보 수정</title>
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <style>
+        .container {
+            margin-left: 400px;
+            max-width: 1000px;
+        }
+        .form-control{
+            width: 680px;
+            height: 50px;
+        }
+
+    </style>
 </head>
 <body>
+<jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
+<div class="container">
+    <h2>My Page</h2>
+    <ul style="margin-top: 20px" class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="/member/myPage?id=${updateMember.id}">Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/member/update?id=${sessionScope.loginId}">회원 정보 수정</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/member/withdrawal?id=${sessionScope.loginId}">회원탈퇴</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/book/shoppingCart?id=${sessionScope.loginId}">장바구니</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/book/purchaseList?id=${sessionScope.loginId}">구매 도서 목록</a>
+        </li>
+    </ul>
 
+    <h3 style="margin-top: 20px;">회원 정보 수정</h3>
+    <form action="/member/update" method="post" name="updateForm">
+        <img src="${pageContext.request.contextPath}/upload/${updateMember.memberProfileName}"
+             alt="" height="200" width="200"><br>
+        Profile 사진: <input type="file" name="memberProfileName" value="${updateMember.memberProfileName}"><br>
+        회원번호: <input type="text" class="form-control" name="id" value="${updateMember.id}" readonly><br>
+        아이디: <input type="text" class="form-control" id="updateMemberId" name="memberId" value="${updateMember.memberId}" readonly><br>
+        비밀번호: <input type="password" id="password"class="form-control" name="memberPassword"><br>
+        이름: <input type="text" class="form-control" name="memberName" value="${updateMember.memberName}" readonly><br>
+        이메일: <input type="text" class="form-control" name="memberEmail" value="${updateMember.memberEmail}"><br>
+        전화번호:<input type="text" class="form-control" name="memberMobile" value="${updateMember.memberMobile}"><br>
+        <input class="btn btn-primary" type="button" style="width: 180px; height: 50px" onclick="memberUpdate()" value="정보수정">
+    </form>
+</div>
 </body>
+<script>
+    const memberUpdate = () => {
+        const password = document.getElementById("password").value;
+        if(password =="${updateMember.memberPassword}"){
+            updateForm.submit();
+        }
+        else{
+            alert("비밀번호가 일치하지 않으므로 변경할 수 없습니다.");
+        }
+    }
+</script>
 </html>

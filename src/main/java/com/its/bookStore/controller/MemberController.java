@@ -79,5 +79,17 @@ public class MemberController {
         model.addAttribute("member", memberDTO);
         return "member/myPage";
     }
+    @GetMapping("/update")
+    public String updateForm(@RequestParam("id") Long id, Model model){
+        MemberDTO memberDTO = memberService.findById(id);
+        model.addAttribute("updateMember", memberDTO);
+        return "member/update";
+    }
+
+    @PostMapping("/update")
+    public String update(@ModelAttribute MemberDTO memberDTO){
+        memberService.update(memberDTO);
+        return "redirect:/member/myPage?id=" + memberDTO.getId();
+    }
 
 }

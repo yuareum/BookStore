@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 </head>
 <body>
+    <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <h2>관리자 페이지</h2>
     <button class="btn btn-outline-dark" onclick="location.href='/book/save'">도서등록</button>
 </body>
