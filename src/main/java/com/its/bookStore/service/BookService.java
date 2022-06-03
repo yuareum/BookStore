@@ -35,7 +35,7 @@ public class BookService {
             return false;
         }
     }
-    private static final int PAGE_LIMIT = 10;
+    private static final int PAGE_LIMIT = 5;
     private static final int BLOCK_LIMIT = 5;
     public List<BookDTO> findAll(int page) {
         int pagingStart = (page-1) * PAGE_LIMIT;
@@ -60,4 +60,5 @@ public class BookService {
         paging.setMaxPage(maxPage);
         return paging;
     }
+
 }

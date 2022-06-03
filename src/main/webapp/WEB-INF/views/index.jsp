@@ -11,10 +11,10 @@
 <head>
     <title>온라인 회원제 서점</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <style>
-        .d-flex {
-            margin: 0px;
-            width: 100%;
+        body{
+         width: 100%;
         }
     </style>
     <header>
@@ -49,6 +49,7 @@
                     </c:if>
                 </li>
             </ul>
+            <button class="btn btn-outline-info" style="float: right" onclick="location.href='/book/findAll'">도서 전체 목록</button>
         </nav>
     </header>
 </head>
@@ -57,17 +58,17 @@
     <div class="form-floating">
         <table>
             <form action="/book/search" method="get">
-                <tr>
-                    <td>
-                        <select class="form-select" style="width: 120px;" name="searchType">
+                <div class="input-group mb-3">
+                    <select class="form-select" style="max-width: 120px;" name="searchType">
                         <option selected value="bookTitle">도서 제목</option>
                         <option value="bookWriter">저자</option>
                         <option value="bookPublisher">출판사</option>
-                        </select>
-                    </td>
-                    <td><input class="form-control me-2" type="text" name="q" style="width: 450px" placeholder="도서 검색"></td>
-                    <td><button class="btn btn-outline-success" style="width: 80px" type="submit">검색</button></td>
-                </tr>
+                    </select>
+                    <input type="text" class="form-control" name="q" placeholder="도서검색" style="max-width: 450px" aria-label="Book search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit">검색</button>
+                    </div>
+                </div>
             </form>
         </table>
     </div>

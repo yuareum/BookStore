@@ -49,4 +49,8 @@ public class MemberService {
     public MemberDTO findByMemberId(String memberId) {
         return memberRepository.findByMemberId(memberId);
     }
+
+    public MemberDTO findById(Long id) {
+        return memberRepository.findById(id);
+    }
 }

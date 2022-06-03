@@ -19,4 +19,8 @@
     <select id="findByMemberId" parameterType="String" resultType="member">
         select * from book_member_table where memberId = #{memberId}
     </select>
+
+    <select id="findById" parameterType="Long" resultType="member">
+        select * from book_member_table where id = #{id}
+    </select>
 </mapper>

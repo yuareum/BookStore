@@ -34,7 +34,7 @@
             도서 소개:  <textarea class="form-control" name="bookIntroduceContents" rows="5" cols="100"></textarea><br>
             도서 가격: <input type="text" class="form-control" name="bookPrice" placeholder="도서 가격"><br>
             도서 첨부파일: <input type="file" name="bookFile"><br>
-            <input type="button" class="btn btn-outline-primary" onclick="location.href='/member/admin?memberId='${sessionScope.loginMemberId}" value="취소">
+            <input type="button" class="btn btn-outline-primary" onclick="location.href='/member/admin?memberId=${sessionScope.loginMemberId}'" value="취소">
             <input type="submit" class="btn btn-primary" value="도서 등록">
         </form>
     </div>

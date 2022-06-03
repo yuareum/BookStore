@@ -2,15 +2,17 @@
   Created by IntelliJ IDEA.
   User: user
   Date: 2022-06-03
-  Time: 오전 9:59
+  Time: 오후 1:20
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>My Page</title>
+    <title>도서 상세 조회</title>
 </head>
 <body>
-    <h2>My Page</h2>
+    <div class="container">
+        <t2>도서 상세 조회</t2>
+    </div>
 </body>
 </html>

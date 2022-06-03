@@ -49,6 +49,7 @@ public class MemberController {
             model.addAttribute("loginMember", loginMember);
             session.setAttribute("loginMemberId", loginMember.getMemberId());
             session.setAttribute("loginId", loginMember.getId());
+            session.setAttribute("loginPassword", loginMember.getMemberPassword());
             return "redirect:/";
         }
         else{
@@ -56,15 +57,27 @@ public class MemberController {
         }
     }
     @GetMapping("/admin")
-    public String admin(@RequestParam("memberId") String memberId, Model model,HttpSession session) {
+    public String admin(@RequestParam("memberId") String memberId, Model model) {
         MemberDTO loginMember = memberService.findByMemberId(memberId);
-        model.addAttribute("member", loginMember);
+        model.addAttribute("admin", loginMember);
         if("admin".equals(loginMember.getMemberId())){
             return "member/admin";
         }
         else{
             return "redirect:/member/findAll";
         }
+    }
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "index";
+    }
+
+    @GetMapping("/myPage")
+    public String myPage(@RequestParam("id") Long id, Model model){
+        MemberDTO memberDTO = memberService.findById(id);
+        model.addAttribute("member", memberDTO);
+        return "member/myPage";
     }
 
 }
