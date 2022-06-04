@@ -102,4 +102,25 @@ public class MemberController {
         return "member/list";
     }
 
+    @GetMapping("/detail")
+    public String findById(@RequestParam("id") Long id, Model model,
+                           @RequestParam(value = "page", required = false, defaultValue = "1") int page){
+        MemberDTO memberDTO = memberService.findById(id);
+        PageDTO paging = memberService.paging(page);
+        model.addAttribute("member", memberDTO);
+        model.addAttribute("paging", paging);
+        return "member/detail";
+    }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id") Long id){
+        boolean deleteResult = memberService.delete(id);
+        if(deleteResult){
+            return "redirect:/member/findAll";
+        }
+        else{
+            return "deleteFail";
+        }
+    }
+
 }

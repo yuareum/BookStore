@@ -85,4 +85,14 @@ public class MemberService {
         paging.setMaxPage(maxPage);
         return paging;
     }
+
+    public boolean delete(Long id) {
+        int deleteResult = memberRepository.delete(id);
+        if(deleteResult > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }

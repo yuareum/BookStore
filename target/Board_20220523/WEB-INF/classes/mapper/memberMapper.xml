@@ -35,4 +35,8 @@
     <select id="count" resultType="int">
         select count(id) from book_member_table
     </select>
+
+    <delete id="delete" parameterType="Long">
+        delete from book_member_table where id = #{id}
+    </delete>
 </mapper>
