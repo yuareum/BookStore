@@ -61,4 +61,8 @@ public class BookService {
         return paging;
     }
 
+    public BookDTO findById(Long id) {
+        BookDTO bookDTO = bookRepository.findById(id);
+        return bookDTO;
+    }
 }

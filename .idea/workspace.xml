@@ -10,16 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61ff1305-73d8-4eca-a196-81037b85b2a6" name="Changes" comment="회원 정보 수정, 회원 목록 상세 조회 추가">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/withdrawal.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Board" beforeDir="false" afterPath="$PROJECT_DIR$/../Board" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/shoppingCart.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Board_20220523" beforeDir="false" afterPath="$PROJECT_DIR$/../Board_20220523" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/16f8d64e-166a-437e-bbdc-f81a22767736.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/16f8d64e-166a-437e-bbdc-f81a22767736.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/controller/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/myPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/myPage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/controller/MemberController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/member/myPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/member/myPage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/its/bookStore/controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/its/bookStore/controller/MemberController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/controller/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/repository/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/repository/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/repository/ReviewRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/service/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/service/ReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/bookMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/bookMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/reviewMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/reviewMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/controller/BookController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/its/bookStore/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/its/bookStore/controller/BookController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +66,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/development/source/spring_framework/BookStore",
+    "last_opened_file_path": "C:/development/source/spring_framework/Board",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "spring.configuration.checksum": "6a40e95fc6afde52ddce203498d86b5a"
   },

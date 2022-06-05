@@ -68,6 +68,7 @@
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="submit">검색</button>
                     </div>
+                    <i class="bi bi-cart3" onclick="location.href='/book/shoppingCart?id=${sessionScope.loginId}'"></i>
                 </div>
             </form>
         </table>

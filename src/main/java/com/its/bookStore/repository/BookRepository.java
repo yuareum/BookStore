@@ -20,6 +20,10 @@ public class BookRepository {
         return sql.selectList("Book.bookList", pagingParam);
     }
 
+    public BookDTO findById(Long id) {
+        return sql.selectOne("Book.findById", id);
+    }
+
     public int bookCount() {
         return sql.selectOne("Book.count");
     }

@@ -2,6 +2,7 @@ package com.its.bookStore.controller;
 
 import com.its.bookStore.dto.BookDTO;
 import com.its.bookStore.dto.PageDTO;
+import com.its.bookStore.dto.ReviewDTO;
 import com.its.bookStore.service.BookService;
 import com.its.bookStore.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.awt.print.Book;
 import java.io.IOException;
 import java.util.List;
 @Controller
@@ -45,5 +47,13 @@ public class BookController {
         model.addAttribute("bookList", bookList);
         model.addAttribute("paging", paging);
         return "book/list";
+    }
+    @GetMapping("/detail")
+    public String findById(@RequestParam("id") Long id, Model model){
+        BookDTO bookDTO = bookService.findById(id);
+        model.addAttribute("book", bookDTO);
+        List<ReviewDTO> reviewDTOList = reviewService.findAll(id);
+        model.addAttribute("reviewList", reviewDTOList);
+        return "book/detail";
     }
 }
