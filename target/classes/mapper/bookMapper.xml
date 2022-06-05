@@ -10,6 +10,9 @@
     <select id="bookList" parameterType="java.util.HashMap" resultType="book">
         select * from book_table order by id desc limit #{start}, #{limit}
     </select>
+    <select id="findById" parameterType="Long" resultType="book">
+        select * from book_table where id = #{id}
+    </select>
     <select id="count" resultType="int">
         select count(id) from book_table
     </select>
