@@ -28,13 +28,13 @@
     <h2>My Page</h2>
     <ul style="margin-top: 20px" class="nav nav-tabs">
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/member/myPage">Profile</a>
+            <a class="nav-link active" aria-current="page" href="/member/myPage?id=${sessionScope.loginId}">Profile</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/member/update?id=${sessionScope.loginId}">회원 정보 수정</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/member/withdrawal?id=${sessionScope.loginId}">회원탈퇴</a>
+            <a class="nav-link" href="/member/withdrawalForm?id=${sessionScope.loginId}">회원탈퇴</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/book/shoppingCart?id=${sessionScope.loginId}">장바구니</a>
@@ -47,7 +47,7 @@
         <img src="${pageContext.request.contextPath}/upload/${member.memberProfileName}"
              alt="" height="200" width="200"><br>
         아이디 <input type="text" class="form-control"  value="${member.memberId}" readonly><br>
-        비밀번호 <input type="text" class="form-control" value="${member.memberPassword}" readonly><br>
+        비밀번호 <input type="password" class="form-control" value="${member.memberPassword}" readonly><br>
         이름 <input type="text" class="form-control" value="${member.memberName}" readonly><br>
         이메일 <input type="text" class="form-control" value="${member.memberEmail}" readonly><br>
         전화번호 <input type="text" class="form-control" value="${member.memberMobile}" readonly><br>

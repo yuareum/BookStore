@@ -1,14 +1,14 @@
 <%--
   Created by IntelliJ IDEA.
-  User: user
-  Date: 2022-06-03
-  Time: 오전 9:59
+  User: oh023
+  Date: 2022-06-04
+  Time: 오후 11:29
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>My Page</title>
+    <title>회원 탈퇴</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <style>
         .container {
@@ -28,13 +28,13 @@
     <h2>My Page</h2>
     <ul style="margin-top: 20px" class="nav nav-tabs">
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/member/myPage?id=${sessionScope.loginId}">Profile</a>
+            <a class="nav-link" aria-current="page" href="/member/myPage?id=${sessionScope.loginId}">Profile</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/member/update?id=${sessionScope.loginId}">회원 정보 수정</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/member/withdrawalForm?id=${sessionScope.loginId}">회원탈퇴</a>
+            <a class="nav-link active" aria-current="page" href="/member/withdrawal?id=${sessionScope.loginId}">회원탈퇴</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/book/shoppingCart?id=${sessionScope.loginId}">장바구니</a>
@@ -43,14 +43,20 @@
             <a class="nav-link" href="/book/purchaseList?id=${sessionScope.loginId}">구매 도서 목록</a>
         </li>
     </ul>
-        <h3 style="margin-top: 20px">Profile</h3><br>
-        <img src="${pageContext.request.contextPath}/upload/${member.memberProfileName}"
-             alt="" height="200" width="200"><br>
-        아이디 <input type="text" class="form-control"  value="${member.memberId}" readonly><br>
-        비밀번호 <input type="password" class="form-control" value="${member.memberPassword}" readonly><br>
-        이름 <input type="text" class="form-control" value="${member.memberName}" readonly><br>
-        이메일 <input type="text" class="form-control" value="${member.memberEmail}" readonly><br>
-        전화번호 <input type="text" class="form-control" value="${member.memberMobile}" readonly><br>
+    <h3>회원 탈퇴</h3>
+    비밀번호 입력  <input type="password" id="memberPassword" class="form-control" placeholder="비밀번호">
+    <input type="button" class="btn btn-outline-danger" onclick="memberPasswordCheck()" value="회원탈퇴">
 </div>
 </body>
+<script>
+    const memberPasswordCheck = () => {
+        const memberPassword = document.getElementById("memberPassword").value;
+        if(memberPassword == "${member.memberPassword}"){
+            location.href = "/member/withdrawal?id=${member.id}";
+        }
+        else {
+            alert("비밀번호가 일치하지 않습니다. 다시 입력해주세요.");
+        }
+    }
+</script>
 </html>
