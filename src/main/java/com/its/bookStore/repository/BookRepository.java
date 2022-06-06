@@ -27,4 +27,8 @@ public class BookRepository {
     public int bookCount() {
         return sql.selectOne("Book.count");
     }
+
+    public List<BookDTO> search(Map<String, String> searchParam) {
+        return sql.selectList("Book.search",searchParam);
+    }
 }

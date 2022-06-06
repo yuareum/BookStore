@@ -7,13 +7,20 @@
         insert into book_table(bookCounts, bookTitle,  bookAdmin, bookWriter, bookPublisher, bookPublicationDate, bookIntroduceContents ,bookPrice, bookCreatedDate, bookFileName)
         values (#{bookCounts}, #{bookTitle}, #{bookAdmin},#{bookWriter}, #{bookPublisher},#{bookPublicationDate}, #{bookIntroduceContents}, #{bookPrice}, now(), #{bookFileName})
     </insert>
+
     <select id="bookList" parameterType="java.util.HashMap" resultType="book">
         select * from book_table order by id desc limit #{start}, #{limit}
     </select>
+
     <select id="findById" parameterType="Long" resultType="book">
         select * from book_table where id = #{id}
     </select>
+
     <select id="count" resultType="int">
         select count(id) from book_table
+    </select>
+
+    <select id="search" parameterType="java.util.HashMap" resultType="book">
+        select * from book_table where ${type} like concat('%', #{q}, '%') order by id desc
     </select>
 </mapper>

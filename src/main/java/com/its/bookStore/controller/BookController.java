@@ -56,4 +56,15 @@ public class BookController {
         model.addAttribute("reviewList", reviewDTOList);
         return "book/detail";
     }
+
+    @GetMapping("/search")
+    public String search(@RequestParam("searchType") String searchType,
+                         @RequestParam("q") String q, @RequestParam(value="page", required=false, defaultValue="1") int page, Model model) {
+        List<BookDTO> searchList = bookService.search(searchType, q);
+        PageDTO paging = bookService.paging(page);
+        model.addAttribute("searchList", searchList);
+        model.addAttribute("paging", paging);
+        return "book/searchList";
+    }
+
 }

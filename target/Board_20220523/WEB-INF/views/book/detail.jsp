@@ -19,84 +19,86 @@
     <div class="container">
         <img src="${pageContext.request.contextPath}/upload/${book.bookFileName}"
              alt="" height="350" width="350">
-        <h3>${book.bookTitle}</h3><br>
+        <h3 style="margin-top: 20px">${book.bookTitle}</h3><br>
         저자: ${book.bookWriter} | 출판사 : ${book.bookPublisher} | 출판일 : ${book.bookPublicationDate}<br>
         <h4>판매가 ${book.bookPrice}</h4>
         <h4>도서 소개</h4>
-        <textarea rows="10" cols="50">${book.bookIntroduceContents}</textarea>
+        <textarea rows="10" cols="50" readonly>${book.bookIntroduceContents}</textarea>
     </div>
     <div class="container">
-        리뷰 입력
+        <p>리뷰 입력</p>
         <div id="review-write" class="input-group mb-3">
             <div class="form-floating">
                 <input type="text"  id="reviewWriter" class="form-control"  value="${sessionScope.loginMemberId}" placeholder="작성자" readonly>
                 <label for="reviewWriter">작성자</label>
             </div>
-        <div class="form-floating mb-3">
-            <input type="text" onclick="reviewWriterCheck()" id="reviewContents" class="form-control" placeholder="내용">
-            <label for="reviewContents">내용</label>
+            <div class="form-floating mb-3">
+                <input type="text" onclick="reviewWriterCheck()" id="reviewContents" class="form-control" placeholder="내용">
+                <label for="reviewContents">내용</label>
+            </div>
+            <button id="review-write-btn" style="width: 100px; height: 60px" class="btn btn-primary">리뷰작성</button>
         </div>
-        <button id="review-write-btn" style="width: 100px; height: 60px" class="btn btn-primary">리뷰작성</button>
-    </div>
-    <div id="review-list">
-        <p style="margin-top: 20px">리뷰 목록</p>
-        <table class="table">
-            <tr>
-                <td>리뷰번호</td>
-                <td>작성자</td>
-                <td>내용</td>
-                <td>작성시간</td>
-            </tr>
-            <c:forEach items="${reviewList}" var="review">
+        <div id="review-list">
+            <p style="margin-top: 20px">리뷰 목록</p>
+            <table class="table">
+                <tr>
+                    <td>리뷰번호</td>
+                    <td>작성자</td>
+                    <td>내용</td>
+                    <td>작성시간</td>
+                </tr>
+                <c:forEach items="${reviewList}" var="review">
                 <tr>
                     <td>${review.id}</td>
                     <td>${review.reviewWriter}</td>
                     <td>${review.reviewContents}</td>
                     <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${review.reviewCreatedDate}"></fmt:formatDate></td>
                 </tr>
-            </c:forEach>
-        </table>
+                </c:forEach>
+            </table>
+        </div>
+        <input type="button" class="btn btn-primary" onclick="loginCheck1()" value="장바구니">
+        <input type="button" class="btn btn-outline-success" onclick="loginCheck2()" value="구매하기">
     </div>
-</div>
 </body>
 <script>
     $("#review-write-btn").click(function (){
-    const reviewWriter = document.getElementById("reviewWriter").value;
-    const reviewContents = $("#reviewContents").val();
-    const bookId = '${book.id}';
+        const reviewWriter = document.getElementById("reviewWriter").value;
+        const reviewContents = $("#reviewContents").val();
+        const bookId = '${book.id}';
         if(reviewContents != "") {
             $.ajax({
-            type: "post",
-            url: "/review/save",
-            data: {"reviewWriter": reviewWriter, "reviewContents": reviewContents, "bookId": bookId},
-            dataType: "json",
-            success: function (result) {
-            console.log(result);
-            let output = "<table class='table'>";
-                output += "<tr><th>리뷰번호</th>";
-                    output += "<th>작성자</th>";
-                    output += "<th>내용</th>";
-                    output += "<th>작성시간</th></tr>";
-                for(let i in result){
-                output += "<tr>";
-                    output += "<td>"+result[i].id+"</td>";
-                    output += "<td>"+result[i].reviewWriter+"</td>";
-                    output += "<td>"+result[i].reviewContents+"</td>";
-                    output += "<td>"+moment(result[i].reviewCreatedDate).format("YYYY-MM-DD HH:mm:ss")+"</td>";
-                    output += "</tr>";
+                type: "post",
+                url: "/review/save",
+                data: {"reviewWriter": reviewWriter, "reviewContents": reviewContents, "bookId": bookId},
+                dataType: "json",
+                success: function (result) {
+                console.log(result);
+                let output = "<table class='table'>";
+                    output += "<tr><th>리뷰번호</th>";
+                        output += "<th>작성자</th>";
+                        output += "<th>내용</th>";
+                        output += "<th>작성시간</th></tr>";
+                    for(let i in result){
+                    output += "<tr>";
+                        output += "<td>"+result[i].id+"</td>";
+                        output += "<td>"+result[i].reviewWriter+"</td>";
+                        output += "<td>"+result[i].reviewContents+"</td>";
+                        output += "<td>"+moment(result[i].reviewCreatedDate).format("YYYY-MM-DD HH:mm:ss")+"</td>";
+                        output += "</tr>";
+                    }
+                    output += "</table>";
+                    document.getElementById('review-list').innerHTML = output;
+                    document.getElementById('reviewWriter').value='${sessionScope.loginMemberId}';
+                    document.getElementById('reviewContents').value='';
+                },
+                error: function () {
+                    alert("오류");
                 }
-                output += "</table>";
-                document.getElementById('review-list').innerHTML = output;
-                document.getElementById('reviewWriter').value='${sessionScope.loginMemberId}';
-                document.getElementById('reviewContents').value='';
-            },
-            error: function () {
-                alert("오류");
-            }
             });
         }
         else{
-            alert("댓글을 작성해주세요.");
+            alert("리뷰를 작성해주세요.");
         }
     });
     const bookUpdate = () => {
@@ -119,13 +121,23 @@
         }
     }
 
-
     const reviewWriterCheck = () => {
         const reviewWriter = document.getElementById("reviewWriter").value;
         const reviewContents = document.getElementById("reviewContents");
         if(reviewWriter == ""){
             reviewContents.readOnly = true;
         }
+    }
+    const loginCheck1 = () => {
+        if(${sessionScope.loginId} != null){
+            location.href = "/book/shoppingCartSave?id=${sessionScope.loginId}";
+        }
+    }
+    const loginCheck2 = () => {
+        if(${sessionScope.loginId} != null){
+            location.href = "/book/purchase";
+        }
+
     }
 </script>
 </html>

@@ -65,4 +65,12 @@ public class BookService {
         BookDTO bookDTO = bookRepository.findById(id);
         return bookDTO;
     }
+
+    public List<BookDTO> search(String searchType, String q) {
+        Map<String, String> searchParam = new HashMap<>();
+        searchParam.put("type", searchType);
+        searchParam.put("q", q);
+        List<BookDTO> searchList = bookRepository.search(searchParam);
+        return searchList;
+    }
 }
