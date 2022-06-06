@@ -73,4 +73,8 @@ public class BookService {
         List<BookDTO> searchList = bookRepository.search(searchParam);
         return searchList;
     }
+
+    public void update(BookDTO bookDTO) {
+        bookRepository.update(bookDTO);
+    }
 }

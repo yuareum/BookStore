@@ -31,4 +31,8 @@ public class BookRepository {
     public List<BookDTO> search(Map<String, String> searchParam) {
         return sql.selectList("Book.search",searchParam);
     }
+
+    public void update(BookDTO bookDTO) {
+        sql.update("Book.update", bookDTO);
+    }
 }

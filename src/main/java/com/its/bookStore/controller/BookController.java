@@ -8,12 +8,8 @@ import com.its.bookStore.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Book;
 import java.io.IOException;
 import java.util.List;
 @Controller
@@ -65,6 +61,18 @@ public class BookController {
         model.addAttribute("searchList", searchList);
         model.addAttribute("paging", paging);
         return "book/searchList";
+    }
+
+    @GetMapping("/update")
+    public String updateForm(@RequestParam("id") Long id, Model model) {
+        BookDTO bookDTO= bookService.findById(id);
+        model.addAttribute("updateBook", bookDTO);
+        return "book/update";
+    }
+    @PostMapping("/update")
+    public String update(@ModelAttribute BookDTO bookDTO) {
+        bookService.update(bookDTO);
+        return "redirect:/book/detail?id=" + bookDTO.getId();
     }
 
 }

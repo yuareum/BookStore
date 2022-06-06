@@ -17,6 +17,11 @@
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <div class="container">
+        <c:if test="${sessionScope.loginMemberId eq 'admin'}">
+            <button class="btn btn-outline-info" style="float: right" onclick="bookUpdate()">도서 수정</button>
+            <button class="btn btn-outline-danger" style="float: right" onclick="bookDelete()">도서 삭제</button>
+        </c:if>
+
         <img src="${pageContext.request.contextPath}/upload/${book.bookFileName}"
              alt="" height="350" width="350">
         <h3 style="margin-top: 20px">${book.bookTitle}</h3><br>
@@ -129,15 +134,10 @@
         }
     }
     const loginCheck1 = () => {
-        if(${sessionScope.loginId} != null){
             location.href = "/book/shoppingCartSave?id=${sessionScope.loginId}";
-        }
     }
     const loginCheck2 = () => {
-        if(${sessionScope.loginId} != null){
             location.href = "/book/purchase";
-        }
-
     }
 </script>
 </html>

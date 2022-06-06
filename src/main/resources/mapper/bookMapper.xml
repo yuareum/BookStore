@@ -23,4 +23,8 @@
     <select id="search" parameterType="java.util.HashMap" resultType="book">
         select * from book_table where ${type} like concat('%', #{q}, '%') order by id desc
     </select>
+
+    <update id="update" parameterType="book">
+        update book_table set bookCounts = #{bookCounts}, bookIntroduceContents = #{bookIntroduceContents},bookPrice = #{bookPrice},bookFileName = #{bookFileName} where id= #{id}
+    </update>
 </mapper>
