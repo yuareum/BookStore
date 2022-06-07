@@ -11,6 +11,8 @@
     <title>장바구니</title>
 </head>
 <body>
-
+    <div class="container">
+        <h2>${sessionScope.loginMemberId} 장바구니</h2>
+    </div>
 </body>
 </html>

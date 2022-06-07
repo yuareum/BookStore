@@ -4,8 +4,7 @@
 
 <mapper namespace="Review">
     <insert id="save" parameterType="review">
-        insert into review_table(reviewWriter, reviewContents, reviewtCreatedDate, bookId)
-        values (#{reviewWriter}, #{reviewContents}, now(), #{bookId})
+        insert into review_table(reviewWriter, reviewContents, reviewCreatedDate, bookId) values (#{reviewWriter}, #{reviewContents}, now(), #{bookId})
     </insert>
 
     <select id="findAll" parameterType="Long" resultType="review">

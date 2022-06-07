@@ -122,14 +122,14 @@ public class MemberController {
             return "deleteFail";
         }
     }
-    @GetMapping("/withdrawalForm")
+    @GetMapping("/withdrawal")
     public String withdrawalForm(@RequestParam("id") Long id, Model model) {
         MemberDTO memberDTO = memberService.findById(id);
         model.addAttribute("member", memberDTO);
         return "member/withdrawal";
     }
-    @GetMapping("/withdrawal")
-    public String withdrawal(@RequestParam("id") Long id,HttpSession session){
+    @PostMapping("/withdrawal")
+    public String withdrawal(@RequestParam("id") Long id, HttpSession session){
         boolean deleteResult = memberService.delete(id);
         if(deleteResult){
             session.invalidate();

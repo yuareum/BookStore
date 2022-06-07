@@ -44,15 +44,17 @@
         </li>
     </ul>
     <h3>회원 탈퇴</h3>
+    <form action="/member/withdrawal?id=${member.id}" method="post" name="withdrawal">
     비밀번호 입력  <input type="password" id="memberPassword" class="form-control" placeholder="비밀번호">
     <input type="button" class="btn btn-outline-danger" onclick="memberPasswordCheck()" value="회원탈퇴">
+    </form>
 </div>
 </body>
 <script>
     const memberPasswordCheck = () => {
         const memberPassword = document.getElementById("memberPassword").value;
         if(memberPassword == "${member.memberPassword}"){
-            location.href = "/member/withdrawal?id=${member.id}";
+            withdrawal.submit();
         }
         else {
             alert("비밀번호가 일치하지 않습니다. 다시 입력해주세요.");

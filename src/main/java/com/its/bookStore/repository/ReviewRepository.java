@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public class ReviewRepository {
     @Autowired
-    public SqlSessionTemplate sql;
+    private SqlSessionTemplate sql;
     public void save(ReviewDTO reviewDTO) {
         sql.insert("Review.save", reviewDTO);
     }

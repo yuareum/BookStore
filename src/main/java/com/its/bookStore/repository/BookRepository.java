@@ -35,4 +35,8 @@ public class BookRepository {
     public void update(BookDTO bookDTO) {
         sql.update("Book.update", bookDTO);
     }
+
+    public void delete(Long id) {
+        sql.delete("Book.delete", id);
+    }
 }

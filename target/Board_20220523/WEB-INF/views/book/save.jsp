@@ -27,7 +27,7 @@
         <form action="/book/save" method="post" enctype="multipart/form-data">
             도서 판매 권수: <input type="text" class="form-control" name="bookCounts" placeholder="도서 판매 권수"><br>
             도서 제목:  <input type="text" class="form-control" name="bookTitle" placeholder="도서 제목"><br>
-            도서 관리자: <input type="text" class="form-control" name="bookAdmin" value="${sessionScope.loginMemberId}"><br>
+            도서 관리자: <input type="text" class="form-control" name="bookAdmin" value="${sessionScope.loginMemberId}" readonly><br>
             도서 저자 : <input type="text" class="form-control" name="bookWriter" placeholder="도서 저자"><br>
             도서 출판사: <input type="text" class="form-control" name="bookPublisher" placeholder="도서 출판사"><br>
             도서 출판일: <input type="text" class="  form-control" name="bookPublicationDate" placeholder="도서 출판일"><br>

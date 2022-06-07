@@ -65,7 +65,7 @@ public class BookController {
 
     @GetMapping("/update")
     public String updateForm(@RequestParam("id") Long id, Model model) {
-        BookDTO bookDTO= bookService.findById(id);
+        BookDTO bookDTO = bookService.findById(id);
         model.addAttribute("updateBook", bookDTO);
         return "book/update";
     }
@@ -73,6 +73,12 @@ public class BookController {
     public String update(@ModelAttribute BookDTO bookDTO) {
         bookService.update(bookDTO);
         return "redirect:/book/detail?id=" + bookDTO.getId();
+    }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id") Long id){
+        bookService.delete(id);
+        return "redirect:/book/findAll";
     }
 
 }

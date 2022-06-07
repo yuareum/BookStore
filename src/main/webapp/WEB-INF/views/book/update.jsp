@@ -25,17 +25,18 @@
     <div class="container mb-3">
         <h2>도서 정보 수정</h2>
         <form action="/book/update" method="post" name="updateForm">
+            도서 번호 <input type="text" class="form-control" name="id" value="${updateBook.id}" readonly>
             도서 판매 권수 <input type="text" class="form-control" name="bookCounts" placeholder="판매 권수"><br>
             도서 제목  <input type="text" class="form-control" name="bookTitle" value="${updateBook.bookTitle}" readonly><br>
             도서 관리자 <input type="text" class="form-control" id="bookAdmin" name="bookAdmin" value="${updateBook.bookAdmin}" readonly><br>
             도서 저자 <input type="text" class="form-control" name="bookWriter" value="${updateBook.bookWriter}" readonly><br>
             도서 출판사 <input type="text" class="form-control" name="bookPublisher" value="${updateBook.bookPublisher}" readonly><br>
             도서 출판일 <input type="text" class="  form-control" name="bookPublicationDate" value="${updateBook.bookPublicationDate}" readonly><br>
-            도서 소개  <textarea class="form-control" name="bookIntroduceContents" rows="5" cols="100" placeholder="도서 소개"></textarea><br>
+            도서 소개  <input class="form-control" name="bookIntroduceContents" rows="5" cols="100" value="${updateBook.bookIntroduceContents}" readonly><br>
             도서 가격 <input type="text" class="form-control" name="bookPrice" placeholder="도서 가격"><br>
             도서 첨부파일 <input type="file" name="bookFile"><br>
-            <input type="button" class="btn btn-outline-primary" onclick="location.href='/member/admin?memberId=${sessionScope.loginMemberId}'" value="취소">
-            <input type="submit" class="btn btn-primary" onclick="bookUpdate()" value="도서 수정">
+            <input type="button" class="btn btn-outline-primary" onclick="location.href='/book/findAll'" value="취소">
+            <input type="button" class="btn btn-primary" onclick="bookUpdate()" value="도서 수정">
         </form>
     </div>
 </body>

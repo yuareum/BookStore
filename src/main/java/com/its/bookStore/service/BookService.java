@@ -77,4 +77,8 @@ public class BookService {
     public void update(BookDTO bookDTO) {
         bookRepository.update(bookDTO);
     }
+
+    public void delete(Long id) {
+        bookRepository.delete(id);
+    }
 }

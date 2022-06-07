@@ -20,6 +20,7 @@ public class ReviewController {
 
     @PostMapping("/save")
     public @ResponseBody List<ReviewDTO> save(@ModelAttribute ReviewDTO reviewDTO){
+        System.out.println("reviewDTO" + reviewDTO);
         reviewService.save(reviewDTO);
         List<ReviewDTO> reviewDTOList = reviewService.findAll(reviewDTO.getBookId());
         return reviewDTOList;

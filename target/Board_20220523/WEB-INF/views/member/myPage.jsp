@@ -34,7 +34,7 @@
             <a class="nav-link" href="/member/update?id=${sessionScope.loginId}">회원 정보 수정</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/member/withdrawalForm?id=${sessionScope.loginId}">회원탈퇴</a>
+            <a class="nav-link" href="/member/withdrawal?id=${sessionScope.loginId}">회원탈퇴</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/book/shoppingCart?id=${sessionScope.loginId}">장바구니</a>
