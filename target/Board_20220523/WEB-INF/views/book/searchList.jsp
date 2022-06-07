@@ -12,6 +12,7 @@
 <head>
     <title>도서 조회</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
@@ -28,7 +29,7 @@
                         </select>
                         <input type="text" class="form-control" name="q" placeholder="도서검색" style="max-width: 450px" aria-label="Book search" aria-describedby="basic-addon2">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="submit">검색</button>
+                            <button class="btn btn-outline-secondary" style="height: 40px; width: 50px;" type="submit"><i class="bi bi-search"></i></button>
                         </div>
                         <i class="bi bi-cart3" onclick="location.href='/book/shoppingCart?id=${sessionScope.loginId}'"></i>
                     </div>
@@ -65,7 +66,7 @@
             <%--1페이지가 아닌 경우에는 [이전]을 클릭하면 현재 페이지보다 1 작은 페이지 요청 --%>
             <c:otherwise>
                 <li class="page-item">
-                    <a class="page-link" href="/book/search?page=${paging.page-1}">[이전]</a>
+                    <a class="page-link" href="/book/search?searchType=${searchList.searchType}&q=${searchList.q}&page=${paging.page-1}">[이전]</a>
                 </li>
             </c:otherwise>
         </c:choose>
@@ -93,7 +94,7 @@
             </c:when>
             <c:otherwise>
                 <li class="page-item">
-                    <a class="page-link" href="/book/search?page=${paging.page+1}">[다음]</a>
+                    <a class="page-link" href="/book/search?searchType=${searchList.searchType}&q=${searchList.q}&page=${paging.page+1}">[다음]</a>
                 </li>
             </c:otherwise>
         </c:choose>
