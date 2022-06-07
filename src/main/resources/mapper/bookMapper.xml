@@ -25,7 +25,7 @@
     </select>
 
     <update id="update" parameterType="book">
-        update book_table set bookCounts = #{bookCounts}, bookPrice = #{bookPrice},bookFileName = #{bookFileName} where id= #{id}
+        update book_table set bookCounts = #{bookCounts}, bookPrice = #{bookPrice}, bookFileName = #{bookFileName} where id= #{id}
     </update>
 
     <delete id="delete" parameterType="Long">
