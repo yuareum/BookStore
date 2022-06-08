@@ -4,10 +4,7 @@ import com.its.bookStore.dto.ReviewDTO;
 import com.its.bookStore.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
@@ -25,4 +22,9 @@ public class ReviewController {
         List<ReviewDTO> reviewDTOList = reviewService.findAll(reviewDTO.getBookId());
         return reviewDTOList;
     }
+//
+//    @GetMapping("/update")
+//    public ReviewDTO update(@ModelAttribute ReviewDTO reviewDTO){
+//        reviewService.update(reviewDTO);
+//    }
 }

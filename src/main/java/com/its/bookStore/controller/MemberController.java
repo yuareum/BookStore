@@ -139,9 +139,5 @@ public class MemberController {
             return "deleteFail";
         }
     }
-    @GetMapping("/shoppingCart")
-    public String shoppingCart(@RequestParam("id") Long id){
-        MemberDTO memberDTO = memberService.findById(id);
-        return "member/shoppingCart?id=" + memberDTO.getId();
-    }
+
 }

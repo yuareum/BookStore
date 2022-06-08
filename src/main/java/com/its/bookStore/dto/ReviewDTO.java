@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 public class ReviewDTO {
     private Long id;
     private Long bookId;
+    private String reviewBookTitle;
     private String reviewWriter;
     private String reviewContents;
     private Timestamp reviewCreatedDate;

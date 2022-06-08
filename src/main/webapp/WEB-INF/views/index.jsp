@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <style>
         body{
-         width: 90%;
+         width: 80%;
         }
     </style>
     <header>
@@ -49,16 +49,21 @@
                     </c:if>
                 </li>
             </ul>
-            <button class="btn btn-outline-info" style="float: right" onclick="location.href='/book/findAll'">도서 전체 목록</button>
         </nav>
     </header>
 </head>
 <body>
-<div class="container" style="width: 100%">
+<div class="container mb-3">
+    <button class="btn btn-outline-info" style="float: right" onclick="location.href='/book/findAll'">도서 전체 목록</button>
+    <c:if test="${!empty sessionScope.loginMemberId}">
+        <button type="button" class="btn btn-outline-primary" style="float: right; margin-right: 10px;" onclick="location.href='/shopping/shoppingCartList?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
+    </c:if>
+</div>
+<div class="container" style="width: 90%; position: relative; top: 10px; left: 400px">
     <div class="form-floating">
         <table>
             <form action="/book/search" method="get">
-                <div class="input-group mb-3">
+                <div class="input-group mt-5">
                     <select class="form-select" style="max-width: 120px;" name="searchType">
                         <option selected value="bookTitle">도서 제목</option>
                         <option value="bookWriter">저자</option>
@@ -68,7 +73,6 @@
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" style="height: 40px; width: 50px;" type="submit"><i class="bi bi-search"></i></button>
                     </div>
-                    <i class="bi bi-cart3" onclick="location.href='/book/shoppingCart?id=${sessionScope.loginId}'"></i>
                 </div>
             </form>
         </table>

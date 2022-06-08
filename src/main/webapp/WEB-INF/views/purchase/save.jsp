@@ -1,18 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
-  User: oh023
-  Date: 2022-06-06
-  Time: 오후 10:27
+  User: user
+  Date: 2022-06-08
+  Time: 오전 11:44
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>장바구니</title>
+    <title>Title</title>
 </head>
 <body>
-    <div class="container">
-        <h2>${sessionScope.loginMemberId} 장바구니</h2>
-    </div>
+
 </body>
 </html>

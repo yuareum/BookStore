@@ -13,11 +13,19 @@
     <title>도서 목록</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <style>
+        body{
+            width: 80%;
+        }
+    </style>
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <div class="container">
         <h2>도서 전체목록</h2>
+        <c:if test="${!empty sessionScope.loginMemberId}">
+            <button type="button" class="btn btn-outline-primary" style="float: right; margin-right: 10px;" onclick="location.href='/shopping/shoppingCartList?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
+        </c:if>
         <div class="form-floating">
             <table>
                 <form action="/book/search" method="get">

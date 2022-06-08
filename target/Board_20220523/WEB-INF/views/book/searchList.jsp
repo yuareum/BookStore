@@ -31,7 +31,6 @@
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" style="height: 40px; width: 50px;" type="submit"><i class="bi bi-search"></i></button>
                         </div>
-                        <i class="bi bi-cart3" onclick="location.href='/book/shoppingCart?id=${sessionScope.loginId}'"></i>
                     </div>
                 </form>
             </table>
@@ -66,7 +65,7 @@
             <%--1페이지가 아닌 경우에는 [이전]을 클릭하면 현재 페이지보다 1 작은 페이지 요청 --%>
             <c:otherwise>
                 <li class="page-item">
-                    <a class="page-link" href="/book/search?searchType=${searchList.searchType}&q=${searchList.q}&page=${paging.page-1}">[이전]</a>
+                    <a class="page-link" href="/book/search?page=${paging.page-1}">[이전]</a>
                 </li>
             </c:otherwise>
         </c:choose>
@@ -94,7 +93,7 @@
             </c:when>
             <c:otherwise>
                 <li class="page-item">
-                    <a class="page-link" href="/book/search?searchType=${searchList.searchType}&q=${searchList.q}&page=${paging.page+1}">[다음]</a>
+                    <a class="page-link" href="/book/search?page=${paging.page+1}">[다음]</a>
                 </li>
             </c:otherwise>
         </c:choose>

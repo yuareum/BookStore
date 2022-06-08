@@ -2,6 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="Shopping">
-
+<mapper namespace="ShoppingCart">
+    <insert id="save" parameterType="shoppingCart">
+        insert into shoppingCart_table(shoppingCartBookId,shoppingCartMemberId,shoppingCartBookTitle,shoppingCartBookWriter,shoppingCartBookPublisher,shoppingCartBookPublicationDate, shoppingCartBookPrice,shoppingCartCreatedDate,shoppingCartBookFileName)
+        values (#{shoppingCartBookId}, #{shoppingCartMemberId}, #{shoppingCartBookTitle}, #{shoppingCartBookWriter}, #{shoppingCartBookPublisher}, #{shoppingCartBookPublicationDate}, #{shoppingCartBookPrice}, now(), #{shoppingCartBookFileName})
+    </insert>
+    <select id="findByMemberId" parameterType="String" resultType="shoppingCart">
+        select * from shoppingCart_table where shoppingCartMemberId = #{shoppingCartMemberId}
+    </select>
+    <select id="findAll" parameterType="Long" resultType="shoppingCart">
+        select * from shoppingCart_table where shoppingCartBookId=#{shoppingCartBookId}
+    </select>
 </mapper>
