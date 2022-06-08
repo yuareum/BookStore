@@ -37,7 +37,7 @@
             <a class="nav-link" href="/member/withdrawal?id=${sessionScope.loginId}">회원탈퇴</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/book/shoppingCart?id=${sessionScope.loginId}">장바구니</a>
+            <a class="nav-link" href="/shoppingCart/shoppingCartList?shoppingCartMemberId=${sessionScope.loginMemberId}">장바구니</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/book/purchaseList?id=${sessionScope.loginId}">구매 도서 목록</a>

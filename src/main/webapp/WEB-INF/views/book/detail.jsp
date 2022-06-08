@@ -18,6 +18,9 @@
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <div class="container">
+        <c:if test="${!empty sessionScope.loginMemberId}">
+            <button type="button" class="btn btn-outline-primary" style="float: right; margin-right: 10px;" onclick="location.href='/shoppingCart/shoppingCartList?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
+        </c:if>
         <c:if test="${sessionScope.loginMemberId eq 'admin'}">
             <button class="btn btn-outline-info" style="float: right" onclick="bookUpdate()">도서 수정</button>
             <button class="btn btn-outline-danger" style="float: right" onclick="bookDelete()">도서 삭제</button>
@@ -25,14 +28,16 @@
 
         <img src="${pageContext.request.contextPath}/upload/${book.bookFileName}"
              alt="" height="350" width="350">
-        <h3 style="margin-top: 20px">${book.bookTitle}</h3>
+        <h2 style="margin-top: 20px">${book.bookTitle}</h2>
         저자: ${book.bookWriter} | 출판사 : ${book.bookPublisher} | 출판일 : ${book.bookPublicationDate}<br>
-        <h4>판매가 ${book.bookPrice}</h4>
-        <h4>도서 소개</h4>
+        <h4 style="margin-top: 20px">판매가 ${book.bookPrice}</h4>
+        <p>도서 소개</p>
         <textarea rows="10" cols="50" readonly>${book.bookIntroduceContents}</textarea>
     </div>
     <div class="container">
-        <button onclick="location.href='/purchase/reviewSave'">리뷰 작성</button>
+        <c:if test="${!empty sessionScope.loginMemberId}">
+            <button style="margin-top: 20px;" class="btn btn-outline-info" onclick="purchaseCheck()">리뷰 작성</button>
+        </c:if>
         <div id="review-list">
             <p style="margin-top: 20px">리뷰 목록</p>
             <table class="table">
@@ -56,9 +61,7 @@
                 </c:forEach>
             </table>
         </div>
-        <form action="/shopping/save?shoppingCartBookId=${book.id}&shoppingCartMemberId=${sessionScope.loginMemberId}" method="post">
-            <input type="submit" class="btn btn-outline-primary" value="장바구니">
-        </form>
+        <input type="button" class="btn btn-outline-primary" onclick="loginCheck1()" value="장바구니">
         <input type="button" class="btn btn-outline-success" onclick="loginCheck2()" value="구매하기">
     </div>
 </body>
@@ -91,20 +94,20 @@
         }
     }
     const loginCheck1 = () => {
-        const memberId = ${sessionScope.loginMemberId}
-        if(memberId != null){
+        const memberId = "${sessionScope.loginMemberId}";
+        if(memberId != ""){
             $.ajax({
                 type: "post",
                 url: "/shoppingCart/save",
-                data: {"shoppingCartBookId": ${book.id}, "shoppingCartMemberId": ${sessionScope.loginMemberId}, "shoppingCartBookTitle": ${book.bookTitle}, "shoppingCartBookWriter": ${book.bookWriter}, "shoppingCartBookPublisher": ${book.bookPublisher}, "shoppingCartBookPublicationDate": ${book.bookPublicationDate}, "shoppingCartBookPrice": ${book.bookPrice},"shoppingCartBookFileName": ${book.bookFileName}},
+                data: {"shoppingCartBookId": '${book.id}', "shoppingCartMemberId": '${sessionScope.loginMemberId}', "shoppingCartBookTitle": '${book.bookTitle}', "shoppingCartBookWriter": '${book.bookWriter}', "shoppingCartBookPublisher": '${book.bookPublisher}', "shoppingCartBookPublicationDate": '${book.bookPublicationDate}', "shoppingCartBookPrice": '${book.bookPrice}',"shoppingCartBookFileName": '${book.bookFileName}'},
                 dataType: "json",
                 success:function(result){
-                    if(count(result.shoppingCartMemberId) == 0){
+                    if(result.shoppingCartMemberId){
                         console.log(result);
                         alert("장바구니 저장완료");
                     }
                     else{
-                        alert("장바구니에 저장되어 있습니다.")
+                        alert("장바구니에 저장되어 있습니다.");
                     }
                 },
                 error: function (){
@@ -116,7 +119,18 @@
             alert("로그인을 해주세요.");
         }
     }
+
     const loginCheck2 = () => {
+        const memberId = '${sessionScope.loginMemberId}'
+        if(memberId != ""){
+            location.href = "/purchase/save?purchaseBookId=${book.id}"
+        }
+        else{
+            alert("로그인을 해주세요.");
+        }
+    }
+
+    const purchaseCheck = () => {
 
     }
 </script>

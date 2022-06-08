@@ -9,43 +9,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61ff1305-73d8-4eca-a196-81037b85b2a6" name="Changes" comment="도서 수정 기능">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/purchase/reivew.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/purchase/save.jsp" afterDir="false" />
+    <list default="true" id="61ff1305-73d8-4eca-a196-81037b85b2a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/controller/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/controller/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/controller/PurchaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/controller/PurchaseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/controller/ShoppingCartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/controller/ShoppingCartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/dto/ReviewDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/dto/ReviewDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/dto/ShoppingCartDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/dto/ShoppingCartDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/repository/ShoppingCartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/repository/ShoppingCartRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/service/ShoppingCartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/service/ShoppingCartService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/reviewMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/reviewMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/shoppingCartMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/shoppingCartMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/detail.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/searchList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/searchList.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/shoppingCart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/shopping/shoppingCartList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/controller/MemberController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/controller/ReviewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/controller/ReviewController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/myPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/myPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/shopping/shoppingCartList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/shoppingCart/shoppingCartList.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/controller/ShoppingCartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/controller/ShoppingCartController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/repository/ShoppingCartRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/repository/ShoppingCartRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/service/ShoppingCartService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/service/ShoppingCartService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/mapper/shoppingCartMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/mapper/shoppingCartMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/dto/ReviewDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/dto/ReviewDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/dto/ShoppingCartDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/dto/ShoppingCartDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/mapper/reviewMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/mapper/reviewMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/book/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/book/detail.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/book/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/book/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/book/searchList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/book/searchList.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/member/shoppingCart.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/its/bookStore/controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/its/bookStore/controller/MemberController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/its/bookStore/controller/ReviewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/its/bookStore/controller/ReviewController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/its/bookStore/controller/ShoppingCartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/its/bookStore/controller/ShoppingCartController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/its/bookStore/repository/ShoppingCartRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/its/bookStore/repository/ShoppingCartRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/its/bookStore/service/ShoppingCartService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/its/bookStore/service/ShoppingCartService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/shoppingCartMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/shoppingCartMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/its/bookStore/dto/ReviewDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/its/bookStore/dto/ReviewDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/its/bookStore/dto/ShoppingCartDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/its/bookStore/dto/ShoppingCartDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/reviewMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/reviewMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +70,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/development_yar/source/spring_framework/Board",
+    "last_opened_file_path": "C:/development_yar/source/spring_framework/BookStore",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "spring.configuration.checksum": "6a40e95fc6afde52ddce203498d86b5a"
   },
@@ -214,7 +197,8 @@
       <workItem from="1654559546806" duration="3112000" />
       <workItem from="1654586347538" duration="2692000" />
       <workItem from="1654608885143" duration="6117000" />
-      <workItem from="1654643342886" duration="22147000" />
+      <workItem from="1654643342886" duration="22463000" />
+      <workItem from="1654668634730" duration="6312000" />
     </task>
     <task id="LOCAL-00001" summary="index.jsp 페이지 출력, 설정">
       <created>1654153762742</created>
@@ -349,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654610985528</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="장바구니 페이지 생성,장바구니 저장 기능">
+      <created>1654668348283</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1654668348283</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,6 +373,7 @@
     <MESSAGE value="수정 기능" />
     <MESSAGE value="회원 탈퇴 기능 수정, 도서 삭제 추가" />
     <MESSAGE value="도서 수정 기능" />
-    <option name="LAST_COMMIT_MESSAGE" value="도서 수정 기능" />
+    <MESSAGE value="장바구니 페이지 생성,장바구니 저장 기능" />
+    <option name="LAST_COMMIT_MESSAGE" value="장바구니 페이지 생성,장바구니 저장 기능" />
   </component>
 </project>

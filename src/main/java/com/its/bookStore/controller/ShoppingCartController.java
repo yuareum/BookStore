@@ -25,6 +25,6 @@ public class ShoppingCartController {
     public String shoppingCartList(@RequestParam("shoppingCartMemberId") String shoppingCartMemberId, Model model){
         List<ShoppingCartDTO> shoppingCartDTOList = shoppingCartService.findByMemberId(shoppingCartMemberId);
         model.addAttribute("shoppingCartList", shoppingCartDTOList);
-        return "shopping/shoppingCartList";
+        return "shoppingCart/shoppingCartList";
     }
 }
