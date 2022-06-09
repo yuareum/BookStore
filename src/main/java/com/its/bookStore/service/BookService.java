@@ -74,7 +74,7 @@ public class BookService {
         return searchList;
     }
 
-    public void update(BookDTO bookDTO) {
+    public void update(BookDTO bookDTO) throws IOException {
         bookRepository.update(bookDTO);
     }
 

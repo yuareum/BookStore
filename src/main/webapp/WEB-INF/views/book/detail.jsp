@@ -61,7 +61,7 @@
                 </c:forEach>
             </table>
         </div>
-        <input type="button" class="btn btn-outline-primary" onclick="loginCheck1()" value="장바구니">
+        <input type="button" class="btn btn-outline-primary" onclick="loginCheck1()" value="장바구니 저장">
         <input type="button" class="btn btn-outline-success" onclick="loginCheck2()" value="구매하기">
     </div>
 </body>
@@ -99,19 +99,19 @@
             $.ajax({
                 type: "post",
                 url: "/shoppingCart/save",
-                data: {"shoppingCartBookId": '${book.id}', "shoppingCartMemberId": '${sessionScope.loginMemberId}', "shoppingCartBookTitle": '${book.bookTitle}', "shoppingCartBookWriter": '${book.bookWriter}', "shoppingCartBookPublisher": '${book.bookPublisher}', "shoppingCartBookPublicationDate": '${book.bookPublicationDate}', "shoppingCartBookPrice": '${book.bookPrice}',"shoppingCartBookFileName": '${book.bookFileName}'},
+                data: {"shoppingCartBookId": '${book.id}', "shoppingCartMemberId": '${sessionScope.loginMemberId}', "shoppingCartBookTitle": '${book.bookTitle}', "shoppingCartBookWriter": '${book.bookWriter}', "shoppingCartBookPublisher": '${book.bookPublisher}', "shoppingCartBookPublicationDate": '${book.bookPublicationDate}',
+                    "shoppingCartBookPrice": '${book.bookPrice}',"shoppingCartBookFileName": '${book.bookFileName}'},
                 dataType: "json",
-                success:function(result){
-                    if(result.shoppingCartMemberId){
-                        console.log(result);
-                        alert("장바구니 저장완료");
+                success: function (result) {
+                    if(result != null){
+                        alert("장바구니에 저장되었습니다.");
                     }
-                    else{
-                        alert("장바구니에 저장되어 있습니다.");
+                    else {
+                        alert("장바구니 저장되지않았습니다.");
                     }
                 },
                 error: function (){
-                    alert("오타 수정");
+                    alert("오타체크");
                 }
             });
         }

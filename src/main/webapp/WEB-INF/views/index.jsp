@@ -16,6 +16,15 @@
         body{
          width: 80%;
         }
+        .container{
+            max-width: 720px;
+            margin-top: 20px;
+            padding: 35px;
+        }
+        .mb-3{
+            max-width: 90%;
+            padding: 10px;
+        }
     </style>
     <header>
         <nav>
@@ -56,10 +65,10 @@
 <div class="container mb-3">
     <button class="btn btn-outline-info" style="float: right" onclick="location.href='/book/findAll'">도서 전체 목록</button>
     <c:if test="${!empty sessionScope.loginMemberId}">
-        <button type="button" class="btn btn-outline-primary" style="float: right; margin-right: 10px;" onclick="location.href='/shoppingCart/shoppingCartList?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
+        <button type="button" class="btn btn-outline-primary" style="float: right; margin-right: 10px;" onclick="location.href='/shoppingCart/shoppingCartlist?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
     </c:if>
 </div>
-<div class="container" style="width: 90%; position: relative; top: 10px; left: 400px">
+<div class="container">
     <div class="form-floating">
         <table>
             <form action="/book/search" method="get">

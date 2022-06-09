@@ -30,7 +30,7 @@ public class BookController {
     public String save(BookDTO bookDTO) throws IOException {
         boolean saveResult = bookService.save(bookDTO);
         if(saveResult){
-            return "redirect:/book/findAll";
+            return "redirect:/member/admin";
         }
         else{
             return "saveFail";
@@ -42,7 +42,7 @@ public class BookController {
         PageDTO paging = bookService.paging(page);
         model.addAttribute("bookList", bookList);
         model.addAttribute("paging", paging);
-        return "book/list";
+        return "book/bookList";
     }
     @GetMapping("/detail")
     public String findById(@RequestParam("id") Long id, Model model){
@@ -70,7 +70,7 @@ public class BookController {
         return "book/update";
     }
     @PostMapping("/update")
-    public String update(@ModelAttribute BookDTO bookDTO) {
+    public String update(@ModelAttribute BookDTO bookDTO) throws IOException {
         bookService.update(bookDTO);
         return "redirect:/book/detail?id=" + bookDTO.getId();
     }

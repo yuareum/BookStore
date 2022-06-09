@@ -26,6 +26,8 @@
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 <div class="container">
     <h2>My Page</h2>
+    <button class="btn btn-outline-primary" onclick="location.href='/shoppingCart/list?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
+    <button class="btn btn-info" onclick="location.href='/purchase/list?purchaseMemberId=${sessionScope.loginMemberId}'">구매 도서 목록</button>
     <ul style="margin-top: 20px" class="nav nav-tabs">
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/member/myPage?id=${sessionScope.loginId}">Profile</a>
@@ -35,12 +37,6 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/member/withdrawal?id=${sessionScope.loginId}">회원탈퇴</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/shoppingCart/shoppingCartList?shoppingCartMemberId=${sessionScope.loginMemberId}">장바구니</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/book/purchaseList?id=${sessionScope.loginId}">구매 도서 목록</a>
         </li>
     </ul>
         <h3 style="margin-top: 20px">Profile</h3><br>

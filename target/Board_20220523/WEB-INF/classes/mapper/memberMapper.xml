@@ -25,7 +25,7 @@
     </select>
 
     <update id="update" parameterType="member">
-        update book_member_table set  memberEmail = #{memberEmail}, memberMobile=#{memberMobile} , memberProfileName = #{memberProfileName} where id= #{id}
+        update book_member_table set  memberEmail = #{memberEmail}, memberMobile=#{memberMobile} where id= #{id}
     </update>
 
     <select id="pagingList" parameterType="java.util.HashMap" resultType="member">

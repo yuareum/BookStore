@@ -34,7 +34,7 @@
             도서 출판일 <input type="text" class="form-control" name="bookPublicationDate" value="${updateBook.bookPublicationDate}" readonly><br>
             도서 소개  <input class="form-control" name="bookIntroduceContents" rows="5" cols="100" value="${updateBook.bookIntroduceContents}" readonly><br>
             도서 가격 <input type="text" class="form-control" name="bookPrice" value="${updateBook.bookPrice}"><br>
-            도서 첨부파일 <input type="file" name="bookFileName" value="${updateBook.bookFileName}"><br>
+            도서 첨부파일 <input type="text" class="form-control" name="bookFileName" value="${updateBook.bookFileName}" readonly><br>
             <input type="button" class="btn btn-outline-primary" onclick="location.href='/book/findAll'" value="취소">
             <input type="button" class="btn btn-primary" onclick="bookUpdate()" value="도서 수정">
         </form>

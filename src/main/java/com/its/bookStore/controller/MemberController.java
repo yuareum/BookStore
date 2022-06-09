@@ -99,7 +99,7 @@ public class MemberController {
         PageDTO paging = memberService.paging(page);
         model.addAttribute("memberList", memberList);
         model.addAttribute("paging", paging);
-        return "member/list";
+        return "memberList";
     }
 
     @GetMapping("/detail")

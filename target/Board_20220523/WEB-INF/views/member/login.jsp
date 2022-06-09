@@ -13,7 +13,6 @@
     <style>
         body{
             min-height: 80vh;
-            background-color: #f2f3ff;
         }
         .container {
             max-width: 1000px;
@@ -21,7 +20,6 @@
             width: 400px;
             height: 350px;
             padding: 30px;
-            background-color: white;
             border: black;
             border-radius: 10px;
         }

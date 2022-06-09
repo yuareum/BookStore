@@ -23,7 +23,7 @@
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <div class="container">
         <c:if test="${!empty sessionScope.loginMemberId}">
-            <button type="button" class="btn btn-outline-primary" style="float: right; margin-right: 10px;" onclick="location.href='/shoppingCart/shoppingCartList?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
+            <button type="button" class="btn btn-outline-primary" style="float: right; margin-right: 10px;" onclick="location.href='/shoppingCart/list?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
         </c:if>
         <h2>도서 전체목록</h2>
         <div class="form-floating">
