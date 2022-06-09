@@ -17,9 +17,9 @@
          width: 80%;
         }
         .container{
-            max-width: 720px;
+            max-width: 700px;
             margin-top: 20px;
-            padding: 35px;
+            padding: 40px;
         }
         .mb-3{
             max-width: 90%;
@@ -28,6 +28,7 @@
     </style>
     <header>
         <nav>
+            <a class="nav-link" href="#" style="float: left; padding: 40px">BookStore</a>
             <ul class="nav justify-content-end">
                 <li class="nav-item">
                     <a class="nav-link" href="/">Home</a>
@@ -63,9 +64,9 @@
 </head>
 <body>
 <div class="container mb-3">
-    <button class="btn btn-outline-info" style="float: right" onclick="location.href='/book/findAll'">도서 전체 목록</button>
+    <button class="btn btn-outline-success" style="float: right" onclick="location.href='/book/findAll'">도서 전체 목록</button>
     <c:if test="${!empty sessionScope.loginMemberId}">
-        <button type="button" class="btn btn-outline-primary" style="float: right; margin-right: 10px;" onclick="location.href='/shoppingCart/list?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
+        <button type="button" class="btn btn-outline-primary" style="float: right; margin-right: 10px;" onclick="location.href='/shoppingCart/findByMemberId?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
     </c:if>
 </div>
 <div class="container">

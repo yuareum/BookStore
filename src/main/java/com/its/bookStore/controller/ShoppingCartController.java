@@ -23,10 +23,16 @@ public class ShoppingCartController {
         return shoppingCartDTOList;
     }
 
-    @GetMapping ("/list")
+    @GetMapping ("/findByMemberId")
     public String shoppingCartList(@RequestParam("shoppingCartMemberId") String shoppingCartMemberId, Model model){
         List<ShoppingCartDTO> shoppingCartDTOList = shoppingCartService.findByMemberId(shoppingCartMemberId);
         model.addAttribute("shoppingCartList", shoppingCartDTOList);
         return "shoppingCart/shoppingCartList";
+    }
+
+    @PostMapping("/delete")
+    public @ResponseBody String delete(@RequestParam("id") Long id){
+        shoppingCartService.delete(id);
+        return "delete";
     }
 }

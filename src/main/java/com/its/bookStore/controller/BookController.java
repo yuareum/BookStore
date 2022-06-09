@@ -30,7 +30,7 @@ public class BookController {
     public String save(BookDTO bookDTO) throws IOException {
         boolean saveResult = bookService.save(bookDTO);
         if(saveResult){
-            return "redirect:/member/admin";
+            return "redirect:/member/admin?memberId="+ bookDTO.getBookAdmin();
         }
         else{
             return "saveFail";

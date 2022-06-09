@@ -14,8 +14,32 @@
     <div class="container">
         <h2>도서 구매</h2>
         <form action="/purchase/save" method="post">
-            도서 제목<input type="text" name="purchaseBookTitle" value="${book.bookTitle}">
-            도서 저자<input type="text" name="">
+            도서 제목<input type="text" class="form-control" name="purchaseBookTitle" value="${book.bookTitle}" readonly>
+            구매자<input type="text" class="form-control" name="purchaseMemberId" value="${sessionScope.loginMemberId}" readonly>
+            <table>
+                <tr>
+                    <td>구매할 도서 가격</td>
+                    <td><input type="text" name="purchaseBookPrice" value="${book.bookPrice}"></td>
+                </tr>
+                <tr>
+                    <td>구매할 도서 수</td>
+                    <td><select id="purchaseBookCounts" name="purchaseBookCounts" onchange="purchaseBookCounts()">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select></td>
+                </tr>
+                <tr><td>총 구매가격</td>
+                    <td><input type="text" name="purchaseTotalPrice" readonly></td>
+                </tr>
+            </table>
         </form>
     </div>
 </body>

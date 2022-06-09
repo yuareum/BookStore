@@ -31,12 +31,29 @@
                         판매가: ${shoppingCart.shoppingCartBookPrice}
                     </td>
                     <td>
-                        장바구니 저장일: ${shoppingCart.shoppingCartCreatedDate}<br>
-                        <input type="button" class="btn btn-outline-danger" onclick="location.href='/shoppingCart/delete?id=${shoppingCart.shoppingCartBookId}'" value="장바구니 삭제">
+                        장바구니 저장일: <fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${shoppingCart.shoppingCartCreatedDate}"></fmt:formatDate><br>
+                        <input type="button" class="btn btn-outline-danger" onclick="shoppingCartDelete(${shoppingCart.id})" value="장바구니 삭제">
                     </td>
                 </tr>
             </table>
         </c:forEach>
     </div>
 </body>
+<script>
+    const shoppingCartDelete = (id) => {
+        $. ajax({
+            type: "post",
+            url: "/shoppingCart/delete",
+            data: {"id": id},
+            dataType: "text",
+            success: function (result){
+                alert("장바구니 삭제");
+            },
+            error: function () {
+                alert("오타 수정");
+            }
+
+        });
+    }
+</script>
 </html>

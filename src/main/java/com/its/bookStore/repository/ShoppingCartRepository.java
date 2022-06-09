@@ -23,4 +23,8 @@ public class ShoppingCartRepository {
     public List<ShoppingCartDTO> findAll(Long shoppingCartBookId) {
         return sql.selectList("ShoppingCart.findAll", shoppingCartBookId);
     }
+
+    public void delete(Long id) {
+        sql.delete("ShoppingCartList.delete", id);
+    }
 }
