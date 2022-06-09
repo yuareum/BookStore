@@ -8,9 +8,12 @@
         values (#{shoppingCartBookId}, #{shoppingCartMemberId}, #{shoppingCartBookTitle}, #{shoppingCartBookWriter}, #{shoppingCartBookPublisher}, #{shoppingCartBookPublicationDate}, #{shoppingCartBookPrice}, now(), #{shoppingCartBookFileName})
     </insert>
     <select id="findByMemberId" parameterType="String" resultType="shoppingCart">
-        select * from shoppingCart_table where shoppingCartMemberId = #{shoppingCartMemberId}
+        select * from shoppingCart_table where shoppingCartMemberId = #{shoppingCartMemberId} order by id desc;
     </select>
     <select id="findAll" parameterType="Long" resultType="shoppingCart">
         select * from shoppingCart_table where shoppingCartBookId=#{shoppingCartBookId}
     </select>
+    <delete id="delete" parameterType="Long">
+        delete from shoppingCart_table where id = #{id}
+    </delete>
 </mapper>
