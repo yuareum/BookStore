@@ -22,7 +22,7 @@
             <table style="margin-top: 20px;">
                 <tr>
                     <td><img src="${pageContext.request.contextPath}/upload/${shoppingCart.shoppingCartBookFileName}"
-                             alt="" height="120" width="100" onclick="location.href='/book/detail?id=${shoppingCart.id}'"></td>
+                             alt="" height="120" width="100" onclick="location.href='/book/detail?id=${shoppingCart.shoppingCartBookId}'"></td>
                     <td>
                         <h4><a href="/book/detail?id=${shoppingCart.shoppingCartBookId}">${shoppingCart.shoppingCartBookTitle}</a></h4>
                         저자: ${shoppingCart.shoppingCartBookWriter} |
@@ -31,7 +31,7 @@
                         판매가: ${shoppingCart.shoppingCartBookPrice}
                     </td>
                     <td>
-                        장바구니 저장일: <fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${shoppingCart.shoppingCartCreatedDate}"></fmt:formatDate><br>
+                        <input type="button" class="btn btn-outline-success"onclick="location.href='purchase/save?purchaseBookId=${shoppingCart.shoppingCartBookId}'" value="구매하기">
                         <input type="button" class="btn btn-outline-danger" onclick="shoppingCartDelete(${shoppingCart.id})" value="장바구니 삭제">
                     </td>
                 </tr>

@@ -12,19 +12,21 @@
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <style>
         body{
-            min-height: 80vh;
+            width: 100%;
         }
         .container {
-            max-width: 1000px;
+            max-width: 400px;
             margin-top: 200px;
-            width: 400px;
-            height: 350px;
+            width: 450px;
+            height: 450px;
             padding: 30px;
-            border: black;
+            border-style: solid;
+            border-width: 1px;
+            background-color: white;
             border-radius: 10px;
         }
         .form-control {
-            width: 350px;
+            width: 340px;
             height: 50px;
         }
         .login {
@@ -33,18 +35,21 @@
             font-weight: bold;
             margin-top: 20px;
         }
+        input{
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h2 class="login">Login</h2>
         <form action="/member/login" method="post">
-            <div style="font-size: 15px;">로그인 정보를 입력해주세요</div>
-            <input type="text"  id="memberId" class="form-control" name="memberId" placeholder="아이디">
+            <div style="font-size: 15px; margin-top: 15px">로그인 정보를 입력해주세요</div>
+            <input type="text" id="memberId" class="form-control" name="memberId" placeholder="아이디">
             <input type="password" id="memberPassword"class="form-control" name="memberPassword" placeholder="비밀번호"><br>
-            <input type="button" class="w-100 btn btn-lg btn-primary" onclick="location.href='/'" value="Home">
             <input type="submit" class="w-100 btn btn-lg btn-outline-primary" value="로그인">
         </form>
+        <input type="button" class="w-100 btn btn-lg btn-outline-dark" onclick="location.href='/'" value="Home">
     </div>
 </body>
 </html>

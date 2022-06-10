@@ -51,7 +51,10 @@
     const memberPasswordCheck = () => {
         const memberPassword = document.getElementById("memberPassword").value;
         if(memberPassword == "${member.memberPassword}"){
-            withdrawal.submit();
+            const withdrawalConfirm = confirm("회원을탈퇴하시겠습니까?");
+            if(withdrawalConfirm){
+                withdrawal.submit();
+            }
         }
         else {
             alert("비밀번호가 일치하지 않습니다. 다시 입력해주세요.");

@@ -52,6 +52,7 @@ public class MemberController {
             session.setAttribute("loginMemberId", loginMember.getMemberId());
             session.setAttribute("loginId", loginMember.getId());
             session.setAttribute("loginPassword", loginMember.getMemberPassword());
+            session.setAttribute("loginMobile", loginMember.getMemberMobile());
             return "redirect:/";
         }
         else{

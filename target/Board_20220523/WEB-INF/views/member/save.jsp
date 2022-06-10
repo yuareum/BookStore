@@ -12,11 +12,8 @@
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <script src="/resources/js/jquery.js"></script>
     <style>
-        body {
-            background-color: #f2f3ff;
-        }
         .btn {
-            width: 150px;
+            width: 180px;
             height: 40px;
         }
         .container{
@@ -24,7 +21,8 @@
             margin-top: 100px;
             padding: 30px;
             background-color: white;
-            border: black;
+            border-style: solid;
+            border-width: 1px;
             border-radius: 10px;
         }
         .form-floating{

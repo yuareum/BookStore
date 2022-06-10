@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <style>
         body{
-         width: 80%;
+         width: 100%;
         }
         .container{
             max-width: 700px;
@@ -27,38 +27,46 @@
         }
     </style>
     <header>
-        <nav>
-            <a class="nav-link" href="#" style="float: left; padding: 40px">BookStore</a>
-            <ul class="nav justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <c:if test="${empty sessionScope.loginMemberId}">
-                        <a class="nav-link" href="/member/save">회원가입</a>
-                    </c:if>
-                </li>
-                <li class="nav-item">
-                    <c:if test="${empty sessionScope.loginMemberId}">
-                        <a class="nav-link" href="/member/login">로그인</a>
-                    </c:if>
-                </li>
-                <li class="nav-item">
-                    <c:if test="${!empty sessionScope.loginMemberId}">
-                        <a class="nav-link" href="/member/logout">로그아웃</a>
-                    </c:if>
-                </li>
-                <li class="nav-item">
-                    <c:if test="${sessionScope.loginMemberId eq 'admin'}">
-                        <a class="nav-link" href="/member/admin?memberId=${sessionScope.loginMemberId}">관리자 페이지</a>
-                    </c:if>
-                </li>
-                <li class="nav-item">
-                    <c:if test="${!empty sessionScope.loginMemberId}">
-                        <a class="nav-link" href="/member/myPage?id=${sessionScope.loginId}">My Page</a>
-                    </c:if>
-                </li>
-            </ul>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" style="font-style: oblique">BookStore</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarsExample03">
+                    <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <c:if test="${empty sessionScope.loginMemberId}">
+                                <a class="nav-link" href="/member/save">회원가입</a>
+                            </c:if>
+                        </li>
+                        <li class="nav-item">
+                            <c:if test="${empty sessionScope.loginMemberId}">
+                                <a class="nav-link" href="/member/login">로그인</a>
+                            </c:if>
+                        </li>
+                        <li class="nav-item">
+                            <c:if test="${!empty sessionScope.loginMemberId}">
+                                <a class="nav-link" href="/member/logout">로그아웃</a>
+                            </c:if>
+                        </li>
+                        <li class="nav-item">
+                            <c:if test="${sessionScope.loginMemberId eq 'admin'}">
+                                <a class="nav-link" href="/member/admin?memberId=${sessionScope.loginMemberId}">관리자 페이지</a>
+                            </c:if>
+                        </li>
+                        <li class="nav-item">
+                            <c:if test="${!empty sessionScope.loginMemberId}">
+                                <a class="nav-link" href="/member/myPage?id=${sessionScope.loginId}">My Page</a>
+                            </c:if>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
 </head>

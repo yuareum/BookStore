@@ -16,9 +16,10 @@
         <form action="/purchase/save" method="post">
             도서 제목<input type="text" class="form-control" name="purchaseBookTitle" value="${book.bookTitle}" readonly>
             구매자<input type="text" class="form-control" name="purchaseMemberId" value="${sessionScope.loginMemberId}" readonly>
+            구매자 전화번호 <input type="text" class="form-control" name="purchaseMobile" value="${sessionScope.loginMobile}" readonly>
             <table>
                 <tr>
-                    <td>구매할 도서 가격</td>
+                    <td>도서 가격</td>
                     <td><input type="text" name="purchaseBookPrice" value="${book.bookPrice}"></td>
                 </tr>
                 <tr>
@@ -36,11 +37,23 @@
                         <option value="10">10</option>
                     </select></td>
                 </tr>
-                <tr><td>총 구매가격</td>
+                <tr><td>총 구매 가격</td>
                     <td><input type="text" name="purchaseTotalPrice" readonly></td>
                 </tr>
             </table>
         </form>
     </div>
 </body>
+<script>
+    const purchaseBookCountsCheck = () => {
+        const purchaseBookCounts = document.getElementById("purchaseBookCounts").value;
+        let totalPrice = document.getElementById("totalPrice");
+        if(purchaseBookCounts > ${book.bookCounts}){
+            alert("판매 권수가 적으므로 구매하실 수 없습니다.")
+        }
+        else{
+            totalPrice.value = purchaseBookCounts * ${book.bookPrice};
+        }
+    }
+</script>
 </html>
