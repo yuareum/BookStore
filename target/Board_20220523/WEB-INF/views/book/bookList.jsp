@@ -22,9 +22,6 @@
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <div class="container">
-        <c:if test="${!empty sessionScope.loginMemberId}">
-            <button type="button" class="btn btn-outline-primary" style="float: right; margin-right: 10px;" onclick="location.href='/shoppingCart/findByMemberId?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
-        </c:if>
         <h2 style="margin-top: 20px">도서 전체목록</h2>
         <div class="form-floating">
             <table>

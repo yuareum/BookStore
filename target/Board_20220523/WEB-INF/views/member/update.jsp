@@ -19,16 +19,20 @@
             width: 680px;
             height: 50px;
         }
+        .btn{
+            float: right;
+            margin-left: 10px;
+        }
 
     </style>
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 <div class="container">
-    <h2>회원 정보 수정</h2>
-    <button class="btn btn-outline-success" style="float: right" onclick="location.href='/book/findAll'">도서 전체 목록</button>
+    <h2 style="margin-top: 20px;">회원 정보 수정</h2>
+    <button class="btn btn-outline-success" onclick="location.href='/book/findAll'">도서 전체 목록</button>
     <button class="btn btn-outline-primary" onclick="location.href='/shoppingCart/findByMemberId?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
-    <button class="btn btn-info" onclick="location.href='/purchase/findByMemberId?purchaseMemberId=${sessionScope.loginMemberId}'">구매 도서 목록</button>
+    <button class="btn btn-dark" onclick="location.href='/purchase/findByMemberId?purchaseMemberId=${sessionScope.loginMemberId}'">구매 도서 목록</button>
     <ul style="margin-top: 20px" class="nav nav-tabs">
         <li class="nav-item">
             <a class="nav-link" href="/member/myPage?id=${sessionScope.loginId}">Profile</a>
@@ -40,11 +44,9 @@
             <a class="nav-link" href="/member/withdrawal?id=${sessionScope.loginId}">회원탈퇴</a>
         </li>
     </ul>
-
-    <h3 style="margin-top: 20px;">회원 정보 수정</h3>
     <form action="/member/update" method="post" name="updateForm">
         <img src="${pageContext.request.contextPath}/upload/${updateMember.memberProfileName}"
-             alt="" height="200" width="200"><br>
+             alt="" height="200" width="200" style="margin-bottom: 10px; margin-top: 20px;"><br>
         Profile 사진: <input type="text" name="memberProfileName" class="form-control" value="${updateMember.memberProfileName}" readonly><br>
         회원번호: <input type="text" class="form-control" name="id" value="${updateMember.id}" readonly><br>
         아이디: <input type="text" class="form-control" id="updateMemberId" name="memberId" value="${updateMember.memberId}" readonly><br>

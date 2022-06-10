@@ -50,6 +50,9 @@
                                 <a class="nav-link" href="/member/myPage?id=${sessionScope.loginId}">My Page</a>
                             </c:if>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/purchase/reviewList"></a>
+                        </li>
                     </ul>
                 </div>
             </div>

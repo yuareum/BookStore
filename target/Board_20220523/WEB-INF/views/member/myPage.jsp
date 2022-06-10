@@ -19,16 +19,20 @@
             width: 680px;
             height: 50px;
         }
+        .btn{
+            float: right;
+            margin-left: 10px;
+        }
 
     </style>
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 <div class="container">
-    <h2>My Page</h2>
-    <button class="btn btn-outline-success" style="float: right" onclick="location.href='/book/findAll'">도서 전체 목록</button>
-    <button class="btn btn-outline-primary" onclick="location.href='/shoppingCart/findByMemberId?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
-    <button class="btn btn-info" onclick="location.href='/purchase/findByMemberId?purchaseMemberId=${sessionScope.loginMemberId}'">구매 도서 목록</button>
+    <h2 style="margin-top: 20px;">My Page</h2>
+    <button class="btn btn-outline-success" onclick="location.href='/book/findAll'">도서 전체 목록</button>
+    <button class="btn btn-outline-primary"  onclick="location.href='/shoppingCart/findByMemberId?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
+    <button class="btn btn-dark" onclick="location.href='/purchase/findByMemberId?purchaseMemberId=${sessionScope.loginMemberId}'">구매 도서 목록</button>
     <ul style="margin-top: 20px" class="nav nav-tabs">
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/member/myPage?id=${sessionScope.loginId}">Profile</a>
@@ -42,7 +46,7 @@
     </ul>
         <h3 style="margin-top: 20px">Profile</h3><br>
         <img src="${pageContext.request.contextPath}/upload/${member.memberProfileName}"
-             alt="" height="200" width="200"><br>
+             alt="" height="200" width="200" style="margin-bottom: 10px;"><br>
         아이디 <input type="text" class="form-control"  value="${member.memberId}" readonly><br>
         비밀번호 <input type="password" class="form-control" value="${member.memberPassword}" readonly><br>
         이름 <input type="text" class="form-control" value="${member.memberName}" readonly><br>

@@ -17,7 +17,7 @@
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <div class="container">
-        <h2>도서 조회 결과</h2>
+        <h2 style="margin-top: 20px;">도서 조회 결과</h2>
         <div class="form-floating">
             <table>
                 <form action="/book/search" method="get">

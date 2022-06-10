@@ -14,20 +14,26 @@
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <script src="/resources/js/jquery.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <style>
+        .btn {
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <div class="container">
         <button class="btn btn-outline-success" style="float: right" onclick="location.href='/book/findAll'">도서 전체 목록</button>
         <c:if test="${!empty sessionScope.loginMemberId}">
-            <button class="btn btn-outline-primary" style="float: right; margin-right: 10px;" onclick="location.href='/shoppingCart/findByMemberId?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
+            <button class="btn btn-outline-primary" style="float: right;" onclick="location.href='/shoppingCart/findByMemberId?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
         </c:if>
         <c:if test="${sessionScope.loginMemberId eq 'admin'}">
             <button class="btn btn-outline-info" style="float: right" onclick="bookUpdate()">도서 수정</button>
             <button class="btn btn-outline-danger" style="float: right" onclick="bookDelete()">도서 삭제</button>
         </c:if>
         <img src="${pageContext.request.contextPath}/upload/${book.bookFileName}"
-             alt="" height="350" width="350">
+             alt="" height="300" width="400" style="margin-top: 20px;">
         <h2 style="margin-top: 20px">${book.bookTitle}</h2>
         저자: ${book.bookWriter} | 출판사 : ${book.bookPublisher} | 출판일 : ${book.bookPublicationDate}<br>
         <h4 style="margin-top: 20px">판매가 ${book.bookPrice}</h4>
@@ -44,14 +50,12 @@
                 <tr>
                     <td>리뷰번호</td>
                     <td>작성자</td>
-                    <td>내용</td>
                     <td>작성시간</td>
                 </tr>
                 <c:forEach items="${reviewList}" var="review">
                 <tr>
                     <td>${review.id}</td>
                     <td>${review.reviewWriter}</td>
-                    <td>${review.reviewContents}</td>
                     <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${review.reviewCreatedDate}"></fmt:formatDate></td>
                     <c:if test="${sessionScope.loginMemberId eq review.reviewWriter}">
                         <td><input type="button" class="btn btn-outline-success" onclick="reviewUpdate()" value="수정"></td>

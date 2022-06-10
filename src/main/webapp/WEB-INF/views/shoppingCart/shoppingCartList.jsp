@@ -17,7 +17,7 @@
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <div class="container">
-        <h2>장바구니 목록</h2>
+        <h3 style="margin-top: 20px;">${sessionScope.loginMemberId}회원의 장바구니 목록</h3>
         <c:forEach items="${shoppingCartList}" var="shoppingCart">
             <table style="margin-top: 20px;">
                 <tr>
@@ -31,7 +31,7 @@
                         판매가: ${shoppingCart.shoppingCartBookPrice}
                     </td>
                     <td>
-                        <input type="button" class="btn btn-outline-success"onclick="location.href='purchase/save?purchaseBookId=${shoppingCart.shoppingCartBookId}'" value="구매하기">
+                        <input type="button" class="btn btn-outline-success" onclick="location.href='purchase/save?purchaseBookId=${shoppingCart.shoppingCartBookId}'" value="구매하기">
                         <input type="button" class="btn btn-outline-danger" onclick="shoppingCartDelete(${shoppingCart.id})" value="장바구니 삭제">
                     </td>
                 </tr>

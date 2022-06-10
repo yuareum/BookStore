@@ -8,9 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>리뷰 작성</title>
 </head>
 <body>
-
+    <div class="container">
+        <h2>리뷰 작성 페이지</h2>
+    </div>
 </body>
 </html>

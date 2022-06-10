@@ -20,15 +20,20 @@
             height: 50px;
         }
 
+        .btn{
+            float: right;
+            margin-left: 10px;
+        }
+
     </style>
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 <div class="container">
-    <h2>회원탈퇴</h2>
-    <button class="btn btn-outline-success" style="float: right" onclick="location.href='/book/findAll'">도서 전체 목록</button>
+    <h2 style="margin-top: 20px">회원탈퇴</h2>
+    <button class="btn btn-outline-success" onclick="location.href='/book/findAll'">도서 전체 목록</button>
     <button class="btn btn-outline-primary" onclick="location.href='/shoppingCart/findByMemberId?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
-    <button class="btn btn-info" onclick="location.href='/purchase/findByMemberId?purchaseMemberId=${sessionScope.loginMemberId}'">구매 도서 목록</button>
+    <button class="btn btn-dark" onclick="location.href='/purchase/findByMemberId?purchaseMemberId=${sessionScope.loginMemberId}'">구매 도서 목록</button>
     <ul style="margin-top: 20px" class="nav nav-tabs">
         <li class="nav-item">
             <a class="nav-link" href="/member/myPage?id=${sessionScope.loginId}">Profile</a>
@@ -40,10 +45,9 @@
             <a class="nav-link active" aria-current="page"  href="/member/withdrawal?id=${sessionScope.loginId}">회원탈퇴</a>
         </li>
     </ul>
-    <h3>회원 탈퇴</h3>
     <form action="/member/withdrawal?id=${member.id}" method="post" name="withdrawal">
-    비밀번호 입력  <input type="password" id="memberPassword" class="form-control" placeholder="비밀번호">
-    <input type="button" class="btn btn-outline-danger" onclick="memberPasswordCheck()" value="회원탈퇴">
+        <p style="margin-top: 20px;">비밀번호 입력</p>  <input type="password" id="memberPassword" class="form-control" placeholder="비밀번호">
+        <input type="button" class="btn btn-outline-danger" onclick="memberPasswordCheck()" value="회원탈퇴">
     </form>
 </div>
 </body>

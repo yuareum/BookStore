@@ -14,6 +14,7 @@ public class PurchaseDTO {
     private String purchaseBookTitle;
     private Long purchaseBookPrice;
     private Long purchaseTotalPrice;
+    private Long purchasePrice;
     private String purchaseAddress;
     private String purchaseMobile;
     private Timestamp purchaseCreatedDate;
