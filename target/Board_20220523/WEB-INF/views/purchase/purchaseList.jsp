@@ -14,6 +14,7 @@
 <body>
     <div class="container">
         <h2>${sessionScope.loginMemberId} 구매 목록</h2>
+
     </div>
 </body>
 </html>

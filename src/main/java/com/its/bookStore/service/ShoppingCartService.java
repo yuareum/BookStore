@@ -5,7 +5,9 @@ import com.its.bookStore.repository.ShoppingCartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ShoppingCartService {
@@ -33,9 +35,9 @@ public class ShoppingCartService {
         shoppingCartRepository.delete(id);
     }
 
-    public boolean shoppingCartCheck(String shoppingCartMemberId) {
-        ShoppingCartDTO shoppingCartDTO = shoppingCartRepository.shoppingCartCheck(shoppingCartMemberId);
-        if(shoppingCartDTO == null){
+    public boolean shoppingCartCheck(ShoppingCartDTO shoppingCartDTO) {
+        ShoppingCartDTO shoppingCart = shoppingCartRepository.shoppingCartCheck(shoppingCartDTO);
+        if(shoppingCart == null){
             return true;
         }
         else{

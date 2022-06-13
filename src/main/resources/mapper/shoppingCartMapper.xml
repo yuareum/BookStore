@@ -17,7 +17,7 @@
         delete from shoppingCart_table where id = #{id}
     </delete>
 
-    <select id="check" parameterType="String" resultType="Long">
-        select shoppingCartBookId from shoppingCart_table where shoppingCartMemberId = #{shoppingCartMemberId}
+    <select id="check" parameterType="shoppingCart" resultType="shoppingCart">
+        select * from shoppingCart_table where shoppingCartMemberId = #{shoppingCartMemberId} and shoppingCartBookId = #{shoppingCartBookId}
     </select>
 </mapper>

@@ -110,14 +110,14 @@
                 success: function (result) {
                     if(result == 1){
                         console.log("result" + result);
-                        alert("장바구니에 저장되었습니다.");
+                        alert("장바구니에 담겼습니다.");
                     }
                     else {
-                        alert("장바구니 저장되지 않았습니다.");
+                        alert("이미 장바구니에 담겨져 있습니다.");
                     }
                 },
                 error: function (){
-                    alert("오타체크");
+                    alert("오타 체크");
                 }
             });
         }

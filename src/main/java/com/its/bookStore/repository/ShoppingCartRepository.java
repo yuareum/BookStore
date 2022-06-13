@@ -27,7 +27,7 @@ public class ShoppingCartRepository {
         sql.delete("ShoppingCart.delete", id);
     }
 
-    public ShoppingCartDTO shoppingCartCheck(String shoppingCartMemberId) {
-        return sql.selectOne("ShoppingCart.check", shoppingCartMemberId);
+    public ShoppingCartDTO shoppingCartCheck(ShoppingCartDTO shoppingCartDTO) {
+        return sql.selectOne("ShoppingCart.check", shoppingCartDTO);
     }
 }

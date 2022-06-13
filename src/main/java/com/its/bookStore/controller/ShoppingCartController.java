@@ -17,7 +17,7 @@ public class ShoppingCartController {
 
     @PostMapping("/save")
     public @ResponseBody int save(@ModelAttribute ShoppingCartDTO shoppingCartDTO){
-        boolean shoppingCartCheck = shoppingCartService.shoppingCartCheck(shoppingCartDTO.getShoppingCartMemberId());
+        boolean shoppingCartCheck = shoppingCartService.shoppingCartCheck(shoppingCartDTO);
         if(shoppingCartCheck){
             int shoppingResult = shoppingCartService.save(shoppingCartDTO);
             if(shoppingResult == 1){
