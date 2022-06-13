@@ -1,5 +1,4 @@
 package com.its.bookStore.controller;
-
 import com.its.bookStore.dto.ShoppingCartDTO;
 import com.its.bookStore.service.ShoppingCartService;
 
@@ -18,11 +17,17 @@ public class ShoppingCartController {
 
     @PostMapping("/save")
     public @ResponseBody int save(@ModelAttribute ShoppingCartDTO shoppingCartDTO){
-        int shoppingResult = shoppingCartService.save(shoppingCartDTO);
-        if(shoppingResult == 1){
-            return 1;
+        boolean shoppingCartCheck = shoppingCartService.shoppingCartCheck(shoppingCartDTO.getShoppingCartMemberId());
+        if(shoppingCartCheck){
+            int shoppingResult = shoppingCartService.save(shoppingCartDTO);
+            if(shoppingResult == 1){
+                return 1;
+            }
+            else{
+                return 0;
+            }
         }
-        else{
+        else {
             return 0;
         }
     }

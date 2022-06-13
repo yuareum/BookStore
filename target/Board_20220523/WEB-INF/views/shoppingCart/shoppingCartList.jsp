@@ -44,7 +44,7 @@
         $.ajax({
             type: "post",
             url: "/shoppingCart/delete",
-            data: {"id": },
+            data: "",
             dataType: "text",
 
         })

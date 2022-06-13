@@ -1,14 +1,11 @@
 package com.its.bookStore.service;
 
-import com.its.bookStore.dto.PageDTO;
 import com.its.bookStore.dto.ShoppingCartDTO;
 import com.its.bookStore.repository.ShoppingCartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class ShoppingCartService {
@@ -29,11 +26,20 @@ public class ShoppingCartService {
         }
     }
 
-    public List<ShoppingCartDTO> findAll(Long shoppingCartBookId) {
+    public List<ShoppingCartDTO> findAll(Long shoppingCartBookId, int page) {
         return shoppingCartRepository.findAll(shoppingCartBookId);
     }
-
     public void delete(Long id) {
         shoppingCartRepository.delete(id);
+    }
+
+    public boolean shoppingCartCheck(String shoppingCartMemberId) {
+        ShoppingCartDTO shoppingCartDTO = shoppingCartRepository.shoppingCartCheck(shoppingCartMemberId);
+        if(shoppingCartDTO == null){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }

@@ -5,7 +5,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.sql.PreparedStatement;
 import java.util.List;
 
 @Repository
@@ -25,6 +24,10 @@ public class ShoppingCartRepository {
     }
 
     public void delete(Long id) {
-        sql.delete("ShoppingCartList.delete", id);
+        sql.delete("ShoppingCart.delete", id);
+    }
+
+    public ShoppingCartDTO shoppingCartCheck(String shoppingCartMemberId) {
+        return sql.selectOne("ShoppingCart.check", shoppingCartMemberId);
     }
 }
