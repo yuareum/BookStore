@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>회원 정보 수정</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <style>
         .container {

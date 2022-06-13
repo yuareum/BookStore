@@ -12,11 +12,12 @@
     <title>회원 목록</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <script src="/resources/js/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 <div class="container">
-    <h2>회원목록</h2>
+    <h2 style="margin-top: 20px;">회원목록</h2>
     <table class="table">
         <tr>
             <th>회원번호</th>

@@ -16,8 +16,8 @@ public class ShoppingCartRepository {
         return sql.selectList("ShoppingCart.findByMemberId", shoppingCartMemberId);
     }
 
-    public void save(ShoppingCartDTO shoppingCartDTO) {
-        sql.insert("ShoppingCart.save", shoppingCartDTO);
+    public int save(ShoppingCartDTO shoppingCartDTO) {
+        return sql.insert("ShoppingCart.save", shoppingCartDTO);
     }
 
     public List<ShoppingCartDTO> findAll(Long shoppingCartBookId) {

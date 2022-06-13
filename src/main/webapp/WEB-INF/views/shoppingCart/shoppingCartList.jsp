@@ -12,7 +12,7 @@
 <head>
     <title>장바구니</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
@@ -31,8 +31,8 @@
                         판매가: ${shoppingCart.shoppingCartBookPrice}
                     </td>
                     <td>
-                        <input type="button" class="btn btn-outline-success" onclick="location.href='purchase/save?purchaseBookId=${shoppingCart.shoppingCartBookId}'" value="구매하기">
-                        <input type="button" class="btn btn-outline-danger" onclick="shoppingCartDelete(${shoppingCart.id})" value="장바구니 삭제">
+                        <input type="button" class="btn btn-outline-success" onclick="location.href='/purchase/save?purchaseBookId=${shoppingCart.shoppingCartBookId}'" value="구매하기">
+                        <input type="button" class="btn btn-outline-danger" onclick="shoppingCartDelete()" value="장바구니 삭제">
                     </td>
                 </tr>
             </table>
@@ -40,20 +40,14 @@
     </div>
 </body>
 <script>
-    const shoppingCartDelete = (id) => {
-        $. ajax({
+    const shoppingCartDelete = () => {
+        $.ajax({
             type: "post",
             url: "/shoppingCart/delete",
-            data: {"id": id},
+            data: {"id": },
             dataType: "text",
-            success: function (result){
-                alert("장바구니 삭제");
-            },
-            error: function () {
-                alert("오타 수정");
-            }
 
-        });
+        })
     }
 </script>
 </html>

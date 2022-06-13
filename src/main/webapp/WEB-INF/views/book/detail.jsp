@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <script src="/resources/js/jquery.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <style>
         .btn {
             margin-top: 20px;
@@ -25,7 +26,7 @@
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <div class="container">
         <button class="btn btn-outline-success" style="float: right" onclick="location.href='/book/findAll'">도서 전체 목록</button>
-        <c:if test="${!empty sessionScope.loginMemberId}">
+        <c:if test="${!empty sessionScope.loginMemberId and sessionScope.loginMemberId != 'admin'}">
             <button class="btn btn-outline-primary" style="float: right;" onclick="location.href='/shoppingCart/findByMemberId?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
         </c:if>
         <c:if test="${sessionScope.loginMemberId eq 'admin'}">
@@ -99,7 +100,7 @@
     }
     const loginCheck1 = () => {
         const memberId = "${sessionScope.loginMemberId}";
-        if(memberId != ""){
+        if(memberId != "" && memberId != "admin"){
             $.ajax({
                 type: "post",
                 url: "/shoppingCart/save",
@@ -107,11 +108,12 @@
                     "shoppingCartBookPrice": '${book.bookPrice}',"shoppingCartBookFileName": '${book.bookFileName}'},
                 dataType: "json",
                 success: function (result) {
-                    if(result != null){
+                    if(result == 1){
+                        console.log("result" + result);
                         alert("장바구니에 저장되었습니다.");
                     }
                     else {
-                        alert("장바구니 저장되지않았습니다.");
+                        alert("장바구니 저장되지 않았습니다.");
                     }
                 },
                 error: function (){
@@ -120,17 +122,17 @@
             });
         }
         else{
-            alert("로그인을 해주세요.");
+            alert("비회원 또는 관리자는 장바구니에 저장할 수 없습니다.");
         }
     }
 
     const loginCheck2 = () => {
         const memberId = '${sessionScope.loginMemberId}'
-        if(memberId != ""){
+        if(memberId != "" && memberId != "admin"){
             location.href = "/purchase/save?purchaseBookId=${book.id}"
         }
         else{
-            alert("로그인을 해주세요.");
+            alert("비회원 또는 관리자는 구매할 수 없습니다.");
         }
     }
 

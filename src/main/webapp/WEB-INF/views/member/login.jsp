@@ -36,7 +36,7 @@
             margin-top: 20px;
         }
         input{
-            margin-top: 15px;
+            margin-top: 10px;
         }
     </style>
 </head>

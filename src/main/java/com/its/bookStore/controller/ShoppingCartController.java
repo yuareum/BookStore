@@ -17,17 +17,26 @@ public class ShoppingCartController {
     private ShoppingCartService shoppingCartService;
 
     @PostMapping("/save")
-    public @ResponseBody List<ShoppingCartDTO> save(@ModelAttribute ShoppingCartDTO shoppingCartDTO){
-        shoppingCartService.save(shoppingCartDTO);
-        List<ShoppingCartDTO> shoppingCartDTOList = shoppingCartService.findAll(shoppingCartDTO.getShoppingCartBookId());
-        return shoppingCartDTOList;
+    public @ResponseBody int save(@ModelAttribute ShoppingCartDTO shoppingCartDTO){
+        int shoppingResult = shoppingCartService.save(shoppingCartDTO);
+        if(shoppingResult == 1){
+            return 1;
+        }
+        else{
+            return 0;
+        }
     }
 
     @GetMapping ("/findByMemberId")
     public String shoppingCartList(@RequestParam("shoppingCartMemberId") String shoppingCartMemberId, Model model){
         List<ShoppingCartDTO> shoppingCartDTOList = shoppingCartService.findByMemberId(shoppingCartMemberId);
-        model.addAttribute("shoppingCartList", shoppingCartDTOList);
-        return "shoppingCart/shoppingCartList";
+        if(shoppingCartMemberId == "admin"){
+            return "index";
+        }
+        else {
+            model.addAttribute("shoppingCartList", shoppingCartDTOList);
+            return "shoppingCart/shoppingCartList";
+        }
     }
 
     @PostMapping("/delete")

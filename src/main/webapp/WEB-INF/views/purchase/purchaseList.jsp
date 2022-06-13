@@ -9,10 +9,11 @@
 <html>
 <head>
     <title>구매 목록</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 </head>
 <body>
     <div class="container">
-        <h2>구매목록</h2>
+        <h2>${sessionScope.loginMemberId} 구매 목록</h2>
     </div>
 </body>
 </html>

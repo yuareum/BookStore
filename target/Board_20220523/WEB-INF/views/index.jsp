@@ -17,25 +17,28 @@
          width: 100%;
         }
         .container{
-            max-width: 700px;
+            max-width: 650px;
             margin-top: 20px;
-            padding: 40px;
+            padding: 50px;
         }
         .mb-3{
             max-width: 90%;
             padding: 10px;
         }
+        .bi {
+            font-size: 20px;
+        }
     </style>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <nav class="navbar navbar-expand-lg bg-info">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#" style="font-style: oblique">BookStore</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="#" style="font-style: oblique;"><i class="bi bi-book"></i>BookStore</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <div class="collapse navbar-collapse" id="navbarsExample03">
-                    <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
@@ -60,7 +63,7 @@
                             </c:if>
                         </li>
                         <li class="nav-item">
-                            <c:if test="${!empty sessionScope.loginMemberId}">
+                            <c:if test="${!empty sessionScope.loginMemberId and sessionScope.loginMemberId != 'admin'}">
                                 <a class="nav-link" href="/member/myPage?id=${sessionScope.loginId}">My Page</a>
                             </c:if>
                         </li>
@@ -73,7 +76,7 @@
 <body>
 <div class="container mb-3">
     <button class="btn btn-outline-success" style="float: right" onclick="location.href='/book/findAll'">도서 전체 목록</button>
-    <c:if test="${!empty sessionScope.loginMemberId}">
+    <c:if test="${!empty sessionScope.loginMemberId and sessionScope.loginMemberId != 'admin'}">
         <button type="button" class="btn btn-outline-primary" style="float: right; margin-right: 10px;" onclick="location.href='/shoppingCart/findByMemberId?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
     </c:if>
 </div>
@@ -96,5 +99,6 @@
         </table>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

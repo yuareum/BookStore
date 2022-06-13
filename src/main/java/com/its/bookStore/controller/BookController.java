@@ -20,7 +20,6 @@ public class BookController {
     @Autowired
     private ReviewService reviewService;
 
-
     @GetMapping("/save")
     public String saveForm(){
         return "/book/save";
@@ -80,5 +79,4 @@ public class BookController {
         bookService.delete(id);
         return "redirect:/book/findAll";
     }
-
 }

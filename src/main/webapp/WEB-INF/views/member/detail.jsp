@@ -10,6 +10,7 @@
 <head>
     <title>회원 상세 정보</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>

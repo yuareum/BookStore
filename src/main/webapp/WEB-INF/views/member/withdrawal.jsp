@@ -10,6 +10,7 @@
 <head>
     <title>회원탈퇴</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <style>
         .container {
             margin-left: 400px;
@@ -46,8 +47,15 @@
         </li>
     </ul>
     <form action="/member/withdrawal?id=${member.id}" method="post" name="withdrawal">
-        <p style="margin-top: 20px;">비밀번호 입력</p>  <input type="password" id="memberPassword" class="form-control" placeholder="비밀번호">
-        <input type="button" class="btn btn-outline-danger" onclick="memberPasswordCheck()" value="회원탈퇴">
+        <table style="margin-top: 20px;">
+            <tr>
+                <td>비밀번호 입력</td>
+            </tr>
+            <tr>
+                <td><input type="password" id="memberPassword" class="form-control" placeholder="비밀번호"></td>
+                <td><input type="button" class="btn btn-outline-danger" onclick="memberPasswordCheck()" value="회원탈퇴"></td>
+            </tr>
+        </table>
     </form>
 </div>
 </body>

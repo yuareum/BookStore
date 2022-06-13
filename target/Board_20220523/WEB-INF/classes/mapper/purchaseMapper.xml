@@ -3,5 +3,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Purchase">
+    <insert id="save" parameterType="purchase">
+        insert into purchase_table (purchaseBookId,purchaseBookCounts,purchaseMemberId,purchaseBookTitle,purchaseBookPrice,purchaseTotalPrice,purchasePrice,purchaseAddress,purchaseMobile,purchaseCreatedDate,purchaseBookFileName)
+        values (#{purchaseBookId}, #{purchaseBookCounts}, #{purchaseMemberId}, #{purchaseBookTitle},#{purchaseBookPrice}, #{purchaseTotalPrice}, #{purchasePrice}, #{purchaseAddress}, #{purchaseMobile}, now(), #{purchaseBookFileName})
+    </insert>
 
+    <select id="findByMemberId" parameterType="String" resultType="purchase">
+        select * from purchase_table where purchaseMemberId=#{purchaseMemberId};
+    </select>
+
+    <select id="findAll" parameterType="java.util.HashMap" resultType="purchase">
+        select * from purchase_table order by id desc limit #{start}, #{limit}
+    </select>
 </mapper>

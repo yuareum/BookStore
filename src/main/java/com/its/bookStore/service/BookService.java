@@ -2,6 +2,7 @@ package com.its.bookStore.service;
 
 import com.its.bookStore.dto.BookDTO;
 import com.its.bookStore.dto.PageDTO;
+import com.its.bookStore.dto.PurchaseDTO;
 import com.its.bookStore.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -80,5 +81,10 @@ public class BookService {
 
     public void delete(Long id) {
         bookRepository.delete(id);
+    }
+
+    public void updateCounts(PurchaseDTO purchaseDTO, BookDTO bookDTO) {
+        bookDTO.setBookCounts(bookDTO.getBookCounts()-purchaseDTO.getPurchaseBookCounts());
+        bookRepository.updateCounts(purchaseDTO.getPurchaseBookId());
     }
 }

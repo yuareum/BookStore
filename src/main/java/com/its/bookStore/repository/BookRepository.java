@@ -39,4 +39,8 @@ public class BookRepository {
     public void delete(Long id) {
         sql.delete("Book.delete", id);
     }
+
+    public void updateCounts(Long purchaseBookId) {
+        sql.update("Book.updateCounts",purchaseBookId);
+    }
 }

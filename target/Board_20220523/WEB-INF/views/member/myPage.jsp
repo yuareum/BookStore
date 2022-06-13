@@ -10,6 +10,7 @@
 <head>
     <title>My Page</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <style>
         .container {
             margin-left: 400px;

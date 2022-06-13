@@ -10,41 +10,46 @@
 <head>
     <title>도서 구매 페이지</title>
     <script src="/resources/js/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <div class="container">
-        <h2>도서 구매</h2>
+        <h2 style="margin-top: 20px;">도서 구매</h2>
         <form action="/purchase/save" method="post" name="purchase">
+            도서 번호 <input type="text" class="form-control" name="purchaseBookId" value="${book.id}">
             도서 제목 <input type="text" class="form-control" name="purchaseBookTitle" value="${book.bookTitle}" readonly>
+            판매 권수 <input type="text" class="form-control" name="saleBookCounts" value="${book.bookCounts}" readonly>
+            도서 첨부파일 명 <input type="text" name="purchaseBookFileName" value="${book.bookFileName}" style="visibility: hidden">
             구매 회원 <input type="text" class="form-control" name="purchaseMemberId" value="${sessionScope.loginMemberId}" readonly>
             구매자 전화번호 <input type="text" class="form-control" name="purchaseMobile" value="${sessionScope.loginMobile}" readonly>
-            구매자 주소<input type="text" class="form-control" name="purchaseAddress">
+            배송지<input type="text" class="form-control" id="purchaseAddress" name="purchaseAddress">
             <table style="margin-top: 20px;">
                 <tr>
                     <td>도서 가격</td>
-                    <td><input type="text" name="purchaseBookPrice" value="${book.bookPrice}"></td>
+                    <td><input type="text" class="form-control" name="purchaseBookPrice" value="${book.bookPrice}"></td>
                     <td>총 합계 가격</td>
-                    <td><input type="text" id="totalPrice" name="purchaseTotalPrice" readonly></td>
+                    <td><input type="text" class="form-control" id="totalPrice" name="purchaseTotalPrice" value=0 readonly></td>
                 </tr>
                 <tr>
                     <td>구매할 도서 수</td>
-                    <td><select id="purchaseBookCounts" name="purchaseBookCounts" onchange="purchaseBookCountsCheck()">
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
+                    <td><select id="purchaseBookCounts" class="form-select" name="purchaseBookCounts" onchange="purchaseBookCountsCheck()">
+                        <option selected value=0>0</option>
+                        <option value=1>1</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5</option>
+                        <option value=6>6</option>
+                        <option value=7>7</option>
+                        <option value=8>8</option>
+                        <option value=9>9</option>
+                        <option value=10>10</option>
                     </select></td>
                     <td>총 결제 금액</td>
-                    <td><input type="text" class="form-control" id="purchasePrice" name="purchasePrice"></td>
+                    <td><input type="text" class="form-control" id="purchasePrice" name="purchasePrice" value=0></td>
                 </tr>
-                <tr><td><input type="button" onclick="priceCheck()" value="결재하기"></td></tr>
+                <tr><td><input type="button" class="btn btn-outline-primary" onclick="priceCheck()" value="결재하기"></td></tr>
             </table>
         </form>
     </div>
@@ -64,11 +69,23 @@
     const priceCheck = () => {
         const totalPrice = document.getElementById("totalPrice").value;
         const purchasePrice = document.getElementById("purchasePrice").value;
-        if(totalPrice == purchasePrice){
-            purchase.submit();
+        const purchaseAddress = document.getElementById("purchaseAddress").value;
+        if(purchaseAddress != ""){
+            if(totalPrice == 0){
+                alert("구매할 권 수를 1개 이상 선택해주세요.")
+            }
+            else {
+                if(totalPrice == purchasePrice){
+                    confirm("${book.bookTitle}를 구매하시겠습니까?");
+                    purchase.submit();
+                }
+                else{
+                    alert("총 결재 금액과 총 구매 가격이 일치하지 않습니다.");
+                }
+            }
         }
         else{
-            alert("총 결재 금액과 총 구매 가격이 일치하지 않습니다.");
+            alert("배송지를 입력해주세요.");
         }
     }
 </script>

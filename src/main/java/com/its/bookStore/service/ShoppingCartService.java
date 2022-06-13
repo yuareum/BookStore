@@ -19,8 +19,14 @@ public class ShoppingCartService {
         return shoppingCartRepository.findByMemberId(shoppingCartMemberId);
     }
 
-    public void save(ShoppingCartDTO shoppingCartDTO) {
-        shoppingCartRepository.save(shoppingCartDTO);
+    public int save(ShoppingCartDTO shoppingCartDTO) {
+        int shoppingCartResult = shoppingCartRepository.save(shoppingCartDTO);
+        if(shoppingCartResult>0){
+            return 1;
+        }
+        else {
+            return 0;
+        }
     }
 
     public List<ShoppingCartDTO> findAll(Long shoppingCartBookId) {

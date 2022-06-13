@@ -10,8 +10,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
-    <title>도서 목록</title>
+    <title>도서 전체 목록</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <style>
         body{
@@ -22,7 +23,7 @@
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <div class="container">
-        <h2 style="margin-top: 20px">도서 전체목록</h2>
+        <h2 style="margin-top: 20px">도서 전체 목록</h2>
         <div class="form-floating">
             <table>
                 <form action="/book/search" method="get">

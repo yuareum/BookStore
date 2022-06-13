@@ -29,7 +29,11 @@
     </update>
 
     <delete id="delete" parameterType="Long">
-        delete from book_table where id = #{id};
+        delete from book_table where id = #{id}
     </delete>
+
+    <update id="updateCounts" parameterType="int">
+        update book_table set bookCounts = #{bookCounts} where id=#{id}
+    </update>
 
 </mapper>
