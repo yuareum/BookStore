@@ -33,7 +33,7 @@
                     <td>${purchase.id}</td>
                     <td><a href="/purchase/detail?id=${purchase.id}">${purchase.purchaseBookTitle}</a></td>
                     <td>${purchase.purchaseMemberId}</td>
-                    <td>><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${purchase.purchaseCreatedDate}"></fmt:formatDate></td>
+                    <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${purchase.purchaseCreatedDate}"></fmt:formatDate></td>
                 </tr>
             </c:forEach>
         </table>

@@ -95,4 +95,8 @@ public class MemberService {
             return false;
         }
     }
+
+    public void pointUpdate(MemberDTO memberDTO) {
+        memberRepository.pointUpdate(memberDTO);
+    }
 }

@@ -40,8 +40,8 @@
         <h4 style="margin-top: 20px">판매가 ${book.bookPrice}</h4>
         <p>도서 소개</p>
         <textarea rows="10" cols="50" readonly>${book.bookIntroduceContents}</textarea>
-    </div>
-    <button onclick="location.href='/review/reviewList?reviewBookId=${book.id}">리뷰목록</button>
+
+        <button class="btn btn-primary" onclick="location.href='/review/reviewList?reviewBookId=${book.id}">리뷰목록</button>
         <c:if test="${book.bookCounts != 0}">
             <input type="button" class="btn btn-outline-primary" onclick="loginCheck1()" value="장바구니 담기">
             <input type="button" class="btn btn-outline-success" onclick="loginCheck2()" value="구매하기">

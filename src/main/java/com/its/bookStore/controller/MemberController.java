@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.lang.reflect.Member;
 import java.util.List;
 
 @Controller
@@ -53,6 +54,7 @@ public class MemberController {
             session.setAttribute("loginId", loginMember.getId());
             session.setAttribute("loginPassword", loginMember.getMemberPassword());
             session.setAttribute("loginMobile", loginMember.getMemberMobile());
+            session.setAttribute("loginPoint", loginMember.getMemberPoint());
             return "redirect:/";
         }
         else{
@@ -141,4 +143,16 @@ public class MemberController {
         }
     }
 
+    @GetMapping("/pointUpdate")
+    public String pointUpdateForm(@RequestParam("id") Long id, Model model){
+        MemberDTO memberDTO = memberService.findById(id);
+        model.addAttribute("member", memberDTO);
+        return "member/pointUpdate";
+    }
+
+    @PostMapping("/pointUpdate")
+    public String pointUpdate(@ModelAttribute MemberDTO memberDTO){
+        memberService.pointUpdate(memberDTO);
+        return "redirect:/member/myPage?id=" + memberDTO.getId();
+    }
 }

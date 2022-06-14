@@ -27,8 +27,6 @@
                 <tr>
                     <td>도서 가격</td>
                     <td><input type="text" class="form-control" name="purchaseBookPrice" value="${book.bookPrice}"></td>
-                    <td>총 합계 가격</td>
-                    <td><input type="text" class="form-control" id="totalPrice" name="purchaseTotalPrice" value=0 readonly></td>
                 </tr>
                 <tr>
                     <td>구매할 도서 수</td>
@@ -45,8 +43,13 @@
                         <option value=9>9</option>
                         <option value=10>10</option>
                     </select></td>
+                </tr>
+                <tr>
+                    <td>결제내역</td>
                     <td>총 결제 금액</td>
-                    <td><input type="text" class="form-control" id="purchasePrice" name="purchasePrice" value=0></td>
+                    <td><input type="text" class="form-control" id="purchaseTotalPrice" name="purchaseTotalPrice" value=0></td>
+                    <td>사용 가능 금액</td>
+                    <td><input type="text" class="form-control" id="purchasePrice" value=""></td>
                 </tr>
                 <tr><td><input type="button" class="btn btn-outline-primary" onclick="priceCheck()" value="결재하기"></td></tr>
             </table>
@@ -67,20 +70,13 @@
     }
     const priceCheck = () => {
         const totalPrice = document.getElementById("totalPrice").value;
-        const purchasePrice = document.getElementById("purchasePrice").value;
         const purchaseAddress = document.getElementById("purchaseAddress").value;
         if(purchaseAddress != ""){
             if(totalPrice == 0){
-                alert("구매할 권 수를 1개 이상 선택해주세요.")
+                alert("구매할 권 수를 1개 이상 선택해주세요.");
             }
             else {
-                if(totalPrice == purchasePrice){
-                    confirm("${book.bookTitle}를 구매하시겠습니까?");
-                    purchase.submit();
-                }
-                else{
-                    alert("총 결재 금액과 총 구매 가격이 일치하지 않습니다.");
-                }
+
             }
         }
         else{

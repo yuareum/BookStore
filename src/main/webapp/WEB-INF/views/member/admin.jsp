@@ -16,8 +16,7 @@
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <div class="container">
         <h2 style="margin-top: 20px;">관리자 페이지</h2>
-
-        <table>
+        <table class="table">
             <tr>
                 <td colspan="4">페이지 정보</td>
             </tr>
@@ -28,19 +27,19 @@
                 <td>온라인 회원제 서점</td>
             </tr>
             <tr>
-                <td colspan=>회원관리 &nbsp;</td>
+                <td>회원관리 &nbsp;</td>
                 <td colspan="3">
                     <button class="btn btn-outline-success" onclick="location.href='/member/findAll'">회원 목록</button>
                 </td>
             </tr>
             <tr>
                 <td>도서관리 &nbsp;</td>
-                <td><button class="btn btn-outline-dark" onclick="location.href='/book/save'">도서등록</button>&nbsp;</td>
-                <td colspan="2"><button class="btn btn-outline-success" onclick="location.href='/book/findAll'">도서 전체 목록</button></td>
+                <td colspan="2"><button class="btn btn-outline-dark" onclick="location.href='/book/save'">도서등록</button>&nbsp;</td>
+                <td><button class="btn btn-outline-success" onclick="location.href='/book/findAll'">도서 전체 목록</button></td>
             </tr>
             <tr>
-                <td colspan="2">회원 구매 목록</td>
-                <td colspan="2"><button class="btn btn-dark" onclick="location.href='/purchase/findAll'">회원 구매 목록</button> </td>
+                <td>회원 구매 목록</td>
+                <td colspan="3"><button class="btn btn-dark" onclick="location.href='/purchase/findAll'">회원 구매 목록</button> </td>
             </tr>
         </table>
     </div>

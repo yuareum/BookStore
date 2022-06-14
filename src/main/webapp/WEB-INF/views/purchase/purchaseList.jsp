@@ -16,7 +16,7 @@
 </head>
 <body>
     <div class="container">
-        <h2>${sessionScope.loginMemberId} 구매 목록</h2>
+        <h2 style="margin-top: 20px">${sessionScope.loginMemberId} 구매 목록</h2>
         <table class="table">
             <tr>
                 <td>도서 첨부 파일</td>
@@ -31,6 +31,7 @@
                 <td>${purchase.id}</td>
                 <td><a href="/purchase/detail?id=${purchase.id}">${purchase.purchaseBookTitle}</a></td>
                 <td>${purchase.purchaseMemberId}</td>
+                <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${purchase.purchaseCreatedDate}"></fmt:formatDate></td>
             </tr>
         </c:forEach>
         </table>

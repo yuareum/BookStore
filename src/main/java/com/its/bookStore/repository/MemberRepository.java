@@ -48,4 +48,8 @@ public class MemberRepository {
     public int delete(Long id) {
         return sql.delete("Member.delete",id);
     }
+
+    public void pointUpdate(MemberDTO memberDTO) {
+        sql.update("Member.pointUpdate", memberDTO);
+    }
 }
