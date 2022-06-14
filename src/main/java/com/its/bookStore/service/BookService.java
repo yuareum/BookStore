@@ -83,8 +83,5 @@ public class BookService {
         bookRepository.delete(id);
     }
 
-    public void updateCounts(PurchaseDTO purchaseDTO, BookDTO bookDTO) {
-        bookDTO.setBookCounts(bookDTO.getBookCounts()-purchaseDTO.getPurchaseBookCounts());
-        bookRepository.updateCounts(purchaseDTO.getPurchaseBookId());
-    }
+
 }

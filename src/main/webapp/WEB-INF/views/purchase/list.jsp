@@ -19,13 +19,14 @@
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <div class="container">
         <h2 style="margin-top: 20px;">회원 구매 목록</h2>
-        <table class="table">
+        <table class="table" style="margin-top: 10px;">
             <tr>
                 <td>도서 첨부 파일</td>
                 <td>구매 번호</td>
                 <td>구매 도서 제목</td>
                 <td>구매 회원</td>
                 <td>구매일</td>
+                <td>구매확인</td>
             </tr>
             <c:forEach items="${purchaseList}" var="purchase">
                 <tr>
@@ -34,6 +35,7 @@
                     <td><a href="/purchase/detail?id=${purchase.id}">${purchase.purchaseBookTitle}</a></td>
                     <td>${purchase.purchaseMemberId}</td>
                     <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${purchase.purchaseCreatedDate}"></fmt:formatDate></td>
+                    <td><input type="button" class="btn btn-secondary" onclick="location.href='/purchase/completion?id=${purchase.id}" value="구매 완료"></td>
                 </tr>
             </c:forEach>
         </table>
@@ -85,4 +87,5 @@
     </ul>
 </div>
 </body>
+
 </html>

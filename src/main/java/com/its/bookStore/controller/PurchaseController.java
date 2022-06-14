@@ -1,9 +1,11 @@
 package com.its.bookStore.controller;
 
 import com.its.bookStore.dto.BookDTO;
+import com.its.bookStore.dto.MemberDTO;
 import com.its.bookStore.dto.PageDTO;
 import com.its.bookStore.dto.PurchaseDTO;
 import com.its.bookStore.service.BookService;
+import com.its.bookStore.service.MemberService;
 import com.its.bookStore.service.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +19,6 @@ import java.util.List;
 public class PurchaseController {
     @Autowired
     private PurchaseService purchaseService;
-
     @Autowired
     private BookService bookService;
 
@@ -28,7 +29,7 @@ public class PurchaseController {
         return "purchase/save";
     }
     @PostMapping("/save")
-    public String save(@ModelAttribute PurchaseDTO purchaseDTO, @ModelAttribute BookDTO bookDTO){
+    public String save(@ModelAttribute PurchaseDTO purchaseDTO, @ModelAttribute BookDTO bookDTO, @ModelAttribute MemberDTO memberDTO){
         boolean saveResult = purchaseService.save(purchaseDTO);
         if(saveResult){
             return "index";
@@ -71,4 +72,6 @@ public class PurchaseController {
         model.addAttribute("purchase",purchaseDTO);
         return "purchase/detail";
     }
+
+
 }

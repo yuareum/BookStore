@@ -93,7 +93,7 @@
                     alert("포인트가 부족합니다.");
                 }
                 else{
-                    confirm("${book.bookTitle}을 " + purchaseBookCounts +"권 구매하시겠습니까?")
+                    confirm("${book.bookTitle}을 " + purchaseBookCounts +"권 구매하시겠습니까?");
                     purchase.submit();
                 }
             }

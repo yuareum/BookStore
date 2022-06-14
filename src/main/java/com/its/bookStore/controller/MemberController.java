@@ -155,4 +155,5 @@ public class MemberController {
         memberService.pointUpdate(memberDTO);
         return "redirect:/member/myPage?id=" + memberDTO.getId();
     }
+
 }
