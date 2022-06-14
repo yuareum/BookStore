@@ -55,6 +55,7 @@
         이름: <input type="text" class="form-control" name="memberName" value="${updateMember.memberName}" readonly><br>
         이메일: <input type="text" class="form-control" name="memberEmail" value="${updateMember.memberEmail}"><br>
         전화번호:<input type="text" class="form-control" name="memberMobile" value="${updateMember.memberMobile}"><br>
+        포인트: <input type="text" class="form-control" name="memberPoint" value="${updateMember.memberPoint}" readonly><br>
         <input class="btn btn-primary" type="button" style="width: 180px; height: 50px" onclick="memberUpdate()" value="정보수정">
     </form>
 </div>

@@ -4,8 +4,8 @@
 
 <mapper namespace="Purchase">
     <insert id="save" parameterType="purchase">
-        insert into purchase_table (purchaseBookId,purchaseBookCounts,purchaseMemberId,purchaseBookTitle,purchaseBookPrice,purchaseTotalPrice,purchasePrice,purchaseAddress,purchaseMobile,purchaseCreatedDate,purchaseBookFileName)
-        values (#{purchaseBookId}, #{purchaseBookCounts}, #{purchaseMemberId}, #{purchaseBookTitle},#{purchaseBookPrice}, #{purchaseTotalPrice}, #{purchasePrice}, #{purchaseAddress}, #{purchaseMobile}, now(), #{purchaseBookFileName})
+        insert into purchase_table (purchaseBookId,purchaseBookCounts,purchaseMemberId,purchaseBookTitle,purchaseBookPrice,purchaseTotalPrice,purchaseAddress,purchaseMobile,purchaseCreatedDate,purchaseBookFileName)
+        values (#{purchaseBookId}, #{purchaseBookCounts}, #{purchaseMemberId}, #{purchaseBookTitle},#{purchaseBookPrice}, #{purchaseTotalPrice}, #{purchaseAddress}, #{purchaseMobile}, now(), #{purchaseBookFileName})
     </insert>
 
     <select id="count" resultType="int">
