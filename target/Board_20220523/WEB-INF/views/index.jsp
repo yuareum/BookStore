@@ -18,8 +18,8 @@
         }
         .container{
             max-width: 650px;
-            margin-top: 20px;
-            padding: 50px;
+            margin-top: 10px;
+            padding: 20px;
         }
         .mb-3{
             max-width: 90%;
@@ -27,6 +27,9 @@
         }
         .bi {
             font-size: 20px;
+        }
+        .form-floating{
+            padding-left: 250px;
         }
     </style>
     <header>
@@ -97,12 +100,6 @@
                 </div>
             </form>
         </table>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>

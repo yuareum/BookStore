@@ -10,11 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61ff1305-73d8-4eca-a196-81037b85b2a6" name="Changes" comment="update">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/16f8d64e-166a-437e-bbdc-f81a22767736.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/16f8d64e-166a-437e-bbdc-f81a22767736.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-06-09__6_52__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-06-09__6_52__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/repository/BookRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/repository/BookRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/service/BookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/service/BookService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/its/bookStore/repository/BookRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/its/bookStore/repository/BookRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/its/bookStore/service/BookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/its/bookStore/service/BookService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/admin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/pointUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/pointUpdate.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/withdrawal.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/withdrawal.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Board_20220523/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/controller/PurchaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/controller/PurchaseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/member/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/member/admin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/its/bookStore/controller/PurchaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/its/bookStore/controller/PurchaseController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +65,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/development_yar/source/spring_framework/BookStore/src/main/webapp/WEB-INF/views/member",
+    "last_opened_file_path": "C:/development/source/spring_framework/BookStore",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "spring.configuration.checksum": "6a40e95fc6afde52ddce203498d86b5a"
   },
@@ -80,7 +88,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Tomcat 9.0.62" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.62" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 9.0.63" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.63" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -193,6 +201,7 @@
       <workItem from="1655076063970" duration="31758000" />
       <workItem from="1655108288642" duration="39000" />
       <workItem from="1655161853720" duration="31414000" />
+      <workItem from="1655211241431" duration="2698000" />
     </task>
     <task id="LOCAL-00001" summary="index.jsp 페이지 출력, 설정">
       <created>1654153762742</created>

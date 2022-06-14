@@ -44,6 +44,9 @@
         <li class="nav-item">
             <a class="nav-link" href="/member/withdrawal?id=${sessionScope.loginId}">회원탈퇴</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/member/pointUpdate?id=${sessionScope.loginId}">포인트 충전</a>
+        </li>
     </ul>
     <form action="/member/update" method="post" name="updateForm">
         <img src="${pageContext.request.contextPath}/upload/${updateMember.memberProfileName}"
