@@ -41,33 +41,11 @@
         <p>도서 소개</p>
         <textarea rows="10" cols="50" readonly>${book.bookIntroduceContents}</textarea>
     </div>
-    <div class="container">
-        <c:if test="${!empty sessionScope.loginMemberId}">
-            <button style="margin-top: 20px;" class="btn btn-outline-info" onclick="purchaseCheck()">리뷰 작성</button>
+    <button onclick="location.href='/review/reviewList?reviewBookId=${book.id}">리뷰목록</button>
+        <c:if test="${book.bookCounts != 0}">
+            <input type="button" class="btn btn-outline-primary" onclick="loginCheck1()" value="장바구니 담기">
+            <input type="button" class="btn btn-outline-success" onclick="loginCheck2()" value="구매하기">
         </c:if>
-        <div id="review-list">
-            <p style="margin-top: 20px">리뷰 목록</p>
-            <table class="table">
-                <tr>
-                    <td>리뷰번호</td>
-                    <td>작성자</td>
-                    <td>작성시간</td>
-                </tr>
-                <c:forEach items="${reviewList}" var="review">
-                <tr>
-                    <td>${review.id}</td>
-                    <td>${review.reviewWriter}</td>
-                    <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${review.reviewCreatedDate}"></fmt:formatDate></td>
-                    <c:if test="${sessionScope.loginMemberId eq review.reviewWriter}">
-                        <td><input type="button" class="btn btn-outline-success" onclick="reviewUpdate()" value="수정"></td>
-                        <td><input type="button" class="btn btn-outline-danger" onclick="reviewDelete()" value="삭제"></td>
-                    </c:if>
-                </tr>
-                </c:forEach>
-            </table>
-        </div>
-        <input type="button" class="btn btn-outline-primary" onclick="loginCheck1()" value="장바구니 저장">
-        <input type="button" class="btn btn-outline-success" onclick="loginCheck2()" value="구매하기">
     </div>
 </body>
 <script>
@@ -88,14 +66,6 @@
         }
         else{
             alert("관리자가 아니므로 도서를 삭제할 수 없습니다.");
-        }
-    }
-
-    const reviewWriterCheck = () => {
-        const reviewWriter = document.getElementById("reviewWriter").value;
-        const reviewContents = document.getElementById("reviewContents");
-        if(reviewWriter == ""){
-            reviewContents.readOnly = true;
         }
     }
     const loginCheck1 = () => {
@@ -136,8 +106,6 @@
         }
     }
 
-    const purchaseCheck = () => {
 
-    }
 </script>
 </html>

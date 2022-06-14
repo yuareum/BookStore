@@ -2,11 +2,10 @@ package com.its.bookStore.service;
 
 import com.its.bookStore.dto.PageDTO;
 import com.its.bookStore.dto.PurchaseDTO;
-import com.its.bookStore.repository.BookRepository;
+import com.its.bookStore.dto.ReviewDTO;
 import com.its.bookStore.repository.PurchaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.HashMap;
 import java.util.List;
@@ -53,5 +52,20 @@ public class PurchaseService {
         paging.setEndPage(endPage);
         paging.setMaxPage(maxPage);
         return paging;
+    }
+
+    public boolean purchaseCheck(PurchaseDTO purchaseDTO) {
+        PurchaseDTO purchase = purchaseRepository.purchaseCheck(purchaseDTO);
+        if(purchase != null){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public PurchaseDTO findById(Long id) {
+        PurchaseDTO purchaseDTO = purchaseRepository.findById(id);
+        return purchaseDTO;
     }
 }

@@ -19,7 +19,6 @@
         <form action="/purchase/save" method="post" name="purchase">
             도서 번호 <input type="text" class="form-control" name="purchaseBookId" value="${book.id}">
             도서 제목 <input type="text" class="form-control" name="purchaseBookTitle" value="${book.bookTitle}" readonly>
-            판매 권수 <input type="text" class="form-control" name="saleBookCounts" value="${book.bookCounts}" readonly>
             도서 첨부파일 명 <input type="text" name="purchaseBookFileName" value="${book.bookFileName}" style="visibility: hidden">
             구매 회원 <input type="text" class="form-control" name="purchaseMemberId" value="${sessionScope.loginMemberId}" readonly>
             구매자 전화번호 <input type="text" class="form-control" name="purchaseMobile" value="${sessionScope.loginMobile}" readonly>

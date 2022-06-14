@@ -8,11 +8,23 @@
         values (#{purchaseBookId}, #{purchaseBookCounts}, #{purchaseMemberId}, #{purchaseBookTitle},#{purchaseBookPrice}, #{purchaseTotalPrice}, #{purchasePrice}, #{purchaseAddress}, #{purchaseMobile}, now(), #{purchaseBookFileName})
     </insert>
 
+    <select id="count" resultType="int">
+        select count(id) from purchase_table
+    </select>
+
     <select id="findByMemberId" parameterType="String" resultType="purchase">
         select * from purchase_table where purchaseMemberId=#{purchaseMemberId};
     </select>
 
     <select id="findAll" parameterType="java.util.HashMap" resultType="purchase">
         select * from purchase_table order by id desc limit #{start}, #{limit}
+    </select>
+
+    <select id="check" parameterType="purchase" resultType="purchase">
+        select * from purchase_table where purchaseBookId = #{purchaseBookId} and purchaseMemberId = #{purchaseMemberId}
+    </select>
+
+    <select id="findById" parameterType="Long" resultType="purchase">
+        select * from purchase_table where id=#{id};
     </select>
 </mapper>

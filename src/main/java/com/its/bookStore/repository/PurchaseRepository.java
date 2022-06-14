@@ -27,4 +27,12 @@ public class PurchaseRepository {
     public int purchaseCount() {
         return sql.selectOne("Purchase.count");
     }
+
+    public PurchaseDTO purchaseCheck(PurchaseDTO purchaseDTO) {
+        return sql.selectOne("Purchase.check", purchaseDTO);
+    }
+
+    public PurchaseDTO findById(Long id) {
+        return sql.selectOne("Purchase.findById", id);
+    }
 }

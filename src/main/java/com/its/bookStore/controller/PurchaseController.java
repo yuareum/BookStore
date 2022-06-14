@@ -53,4 +53,22 @@ public class PurchaseController {
         model.addAttribute("paging", paging);
         return "purchase/list";
     }
+
+    @PostMapping("purchaseCheck")
+    public @ResponseBody int purchaseCheck(@ModelAttribute PurchaseDTO purchaseDTO){
+        boolean purchaseCheck = purchaseService.purchaseCheck(purchaseDTO);
+        if(purchaseCheck) {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    }
+
+    @GetMapping("detail")
+    public String detail (@RequestParam("id") Long id, Model model){
+        PurchaseDTO purchaseDTO = purchaseService.findById(id);
+        model.addAttribute("purchase",purchaseDTO);
+        return "purchase/detail";
+    }
 }
