@@ -10,9 +10,11 @@
 <head>
     <title>도서 구매 페이지</title>
     <script src="/resources/js/jquery.js"></script>
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+
     <style>
         input {
             margin-top: 10px;
@@ -61,21 +63,8 @@
                 </tr>
             </table>
             <input type="button" class="btn btn-secondary" onclick="location.href='/book/detail?id=${book.id}'" value="취소하기">
-
-            <div class="card-body bg-white mt-0 shadow">
-                <p style="font-weight: bold">카카오페이 현재 사용가능</p>
-                <label class="box-radio-input"><input type="radio" name="cp_item" value="5000"><span>5,000원</span></label>
-                <label class="box-radio-input"><input type="radio" name="cp_item" value="10000"><span>10,000원</span></label>
-                <label class="box-radio-input"><input type="radio" name="cp_item" value="15000"><span>15,000원</span></label>
-                <label class="box-radio-input"><input type="radio" name="cp_item" value="20000"><span>20,000원</span></label>
-                <label class="box-radio-input"><input type="radio" name="cp_item" value="25000"><span>25,000원</span></label>
-                <label class="box-radio-input"><input type="radio" name="cp_item" value="30000"><span>30,000원</span></label>
-                <label class="box-radio-input"><input type="radio" name="cp_item" value="35000"><span>35,000원</span></label>
-                <label class="box-radio-input"><input type="radio" name="cp_item" value="40000"><span>40,000원</span></label>
-                <label class="box-radio-input"><input type="radio" name="cp_item" value="50000"><span>50,000원</span></label>
-                <p  style="color: #ac2925; margin-top: 30px">카카오페이의 최소 충전금액은 5,000원이며 <br/>최대 충전금액은 50,000원 입니다.</p>
-                <button type="button" class="btn btn-lg btn-block  btn-custom" id="charge_kakao">충 전 하 기</button>
-            </div>
+            <input type="button" class="btn btn-outline-primary" id="button" onclick="payment()" value="결제하기">
+            <input type="button" class="btn btn-outline-danger" onclick="purchaseComplete()" value="구매완료">
         </form>
     </div>
 </body>
@@ -91,53 +80,68 @@
             purchaseTotalPrice.value = purchaseBookCounts * ${book.bookPrice};
         }
     }
-
-    $('#charge_kakao').click(function () {
+    const payment = () => {
+        const purchaseAddress = document.getElementById("purchaseAddress").value;
+        const purchaseBookCounts = document.getElementById("purchaseBookCounts").value;
         const purchaseTotalPrice = document.getElementById("purchaseTotalPrice").value;
-        // getter
-        var IMP = window.IMP;
-        IMP.init('imp43569804');
-        var money = $('input[name="cp_item"]:checked').val();
-        console.log(money);
-
-        IMP.request_pay({
-            pg: 'kakao',
-            merchant_uid: 'merchant_' + new Date().getTime(),
-
-            name: '포인트 충전',
-            amount: money,
-            buyer_memberId: '${sessionScope.loginMemberId}',
-            buyer_mobile: '${sessionScope.loginMobile}',
-            buyer_address: document.getElementById("purchaseAddress").value,
-        }, function (rsp) {
-            console.log(rsp);
-            if (rsp.success) {
-                var msg = '결제가 완료되었습니다.';
-                msg += '고유ID : ' + rsp.imp_uid;
-                msg += '상점 거래ID : ' + rsp.merchant_uid;
-                msg += '결제 금액 : ' + rsp.paid_amount;
-                console.log("결제성공" + msg);
-                $.ajax({
-                    type: "post",
-                    url: "/user/mypage/charge/point",
-                    data: {
-                        "amount": money
-                    },
-                });
-            } else {
-                var msg = '결제에 실패하였습니다.';
-                msg += '에러내용 : ' + rsp.error_msg;
+        if(purchaseAddress != ""){
+            if(purchaseBookCounts != 0){
+                if(purchaseTotalPrice > ${sessionScope.loginPoint}){
+                    alert("포인트가 부족합니다.");
+                }
+                else{
+                    const purchaseResult = confirm("${book.bookTitle}을" + purchaseBookCounts + "권 구매하시겠습니까?");
+                    if(purchaseResult) {
+                        $.ajax({
+                            type: "post",
+                            url: "/member/purchaseUpdate",
+                            data: {"id": '${sessionScope.loginId}', "memberPoint": ${sessionScope.loginPoint}-purchaseTotalPrice},
+                            dataType: "json",
+                            success:function (result){
+                                if(result == 1){
+                                    document.getElementById("button").disabled = true;
+                                }
+                                else{
+                                    alert("결제가 되지 않았습니다.");
+                                }
+                            },
+                            error: function (){
+                                alert("오타체크");
+                            }
+                        });
+                    }else{
+                        alert("구매를 취소합니다.");
+                    }
+                }
             }
-            alert(msg);
-            document.location.href = "/member/myPage"; //alert창 확인 후 이동할 url 설정
-        });
-    });
-    const paymentCheck = () => {
-        const button = document.getElementById("button");
-        if(button.disabled){
+            else{
+                alert("구매 권 수를 1권 이상 선택해주세요.");
+            }
+        }
+        else {
+            alert("배송지를 입력해주세요.");
+        }
+    }
+    const purchaseComplete = () => {
+        const purchaseBookCounts = document.getElementById("purchaseBookCounts").value;
+        if(document.getElementById("button").clicked == true){
             $.ajax({
-
-            })
+                type: "post",
+                url: "/book/bookCountsUpdate",
+                data: {"id": '${book.id}', "bookCounts": '${book.bookCounts}'-purchaseBookCounts},
+                dataType: "json",
+                success: function (result){
+                    if(result == 1){
+                        purchase.submit();
+                        alert("구매완료");
+                    }else{
+                        alert("구매 실패");
+                    }
+                },
+                error: function (){
+                    alert("오타체크");
+                }
+            });
         }
         else {
             alert("결제를 완료해주세요.");

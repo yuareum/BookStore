@@ -13,7 +13,6 @@
     <title>도서 전체 목록</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <style>
         body{
             width: 100%;
@@ -24,7 +23,7 @@
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <div class="container">
         <h2 style="margin-top: 20px">도서 전체 목록</h2>
-        <div class="form-floating">
+        <div class="form-floating" style="padding-left: 250px;">
             <table>
                 <form action="/book/search" method="get">
                     <div class="input-group mb-3">

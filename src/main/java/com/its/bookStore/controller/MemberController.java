@@ -54,7 +54,7 @@ public class MemberController {
             session.setAttribute("loginId", loginMember.getId());
             session.setAttribute("loginPassword", loginMember.getMemberPassword());
             session.setAttribute("loginMobile", loginMember.getMemberMobile());
-            session.setAttribute("loginPoint", loginMember.getMemberPoint());
+            session.setAttribute("loginAmount", loginMember.getAmount());
             return "redirect:/";
         }
         else{
@@ -111,12 +111,9 @@ public class MemberController {
     }
 
     @GetMapping("/detail")
-    public String findById(@RequestParam("id") Long id, Model model,
-                           @RequestParam(value = "page", required = false, defaultValue = "1") int page){
+    public String findById(@RequestParam("id") Long id, Model model){
         MemberDTO memberDTO = memberService.findById(id);
-        PageDTO paging = memberService.paging(page);
         model.addAttribute("member", memberDTO);
-        model.addAttribute("paging", paging);
         return "member/detail";
     }
 
@@ -147,28 +144,4 @@ public class MemberController {
             return "deleteFail";
         }
     }
-
-    @PostMapping("/pointUpdate")
-    public String pointUpdate(@ModelAttribute MemberDTO memberDTO, HttpSession session){
-        memberService.pointUpdate(memberDTO);
-        if(session.getAttribute("loginPoint") != memberDTO.getMemberPoint()){
-            session.removeAttribute("loginPoint");
-            session.setAttribute("loginPoint", memberDTO.getMemberPoint());
-        }
-        return "redirect:/member/myPage?id=" + memberDTO.getId();
-    }
-
-    @PostMapping("purchaseUpdate")
-    public @ResponseBody int purchaseUpdate(@ModelAttribute MemberDTO memberDTO,HttpSession session){
-        boolean purchaseUpdateResult = memberService.purchaseUpdate(memberDTO);
-        if(purchaseUpdateResult){
-            session.removeAttribute("loginPoint");
-            session.setAttribute("loginPoint", memberDTO.getMemberPoint());
-            return 1;
-        }
-        else{
-            return 0;
-        }
-    }
-
 }

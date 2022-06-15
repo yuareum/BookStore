@@ -19,8 +19,8 @@
         .btn {
             margin-top: 20px;
             margin-left: 10px;
-            width: 180px;
-            height: 50px;
+            width: 150px;
+            height: 40px;
         }
     </style>
 </head>
@@ -36,7 +36,7 @@
             <button class="btn btn-outline-danger" style="float: right" onclick="bookDelete()">도서 삭제</button>
         </c:if>
     </div>
-    <div class="container">
+    <div class="container" style="margin-top: 20px;">
         <table>
             <tr>
                 <td>
@@ -50,9 +50,9 @@
             </tr>
             <tr>
                 <td> <h2 style="margin-top: 20px">${book.bookTitle}</h2></td>
-                <td><input type="button" style="float: right;" class="btn btn-outline-primary" onclick="loginCheck1()" value="장바구니 담기">
+                <td><input type="button" class="btn btn-outline-primary" style="margin-left: 100px;" onclick="loginCheck1()" value="장바구니 담기">
                     <c:if test="${book.bookCounts != 0}">
-                        <input type="button"  style="float: right;" class="btn btn-outline-success" onclick="loginCheck2()" value="구매하기">
+                        <input type="button" class="btn btn-outline-success" onclick="loginCheck2()" value="구매하기">
                     </c:if></td>
             </tr>
             <tr>
@@ -89,7 +89,6 @@
                 </c:forEach>
             </table>
         </div>
-
     </div>
 </body>
 <script>

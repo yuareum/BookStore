@@ -34,6 +34,7 @@
     <button class="btn btn-outline-success" onclick="location.href='/book/findAll'">도서 전체 목록</button>
     <button class="btn btn-outline-primary"  onclick="location.href='/shoppingCart/findByMemberId?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
     <button class="btn btn-dark" onclick="location.href='/purchase/findByMemberId?purchaseMemberId=${sessionScope.loginMemberId}'">구매 도서 목록</button>
+    <button class="btn btn-outline-dark" onclick="location.href='/member/pointUpdate?id=${sessionScope.loginId}'">포인트 충전</button>
     <ul style="margin-top: 20px" class="nav nav-tabs">
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/member/myPage?id=${sessionScope.loginId}">Profile</a>
@@ -43,9 +44,6 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/member/withdrawal?id=${sessionScope.loginId}">회원탈퇴</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/member/pointUpdate?id=${sessionScope.loginId}">포인트 충전</a>
         </li>
     </ul>
         <h3 style="margin-top: 20px">Profile</h3><br>
