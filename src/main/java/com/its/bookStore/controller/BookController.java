@@ -79,4 +79,15 @@ public class BookController {
         bookService.delete(id);
         return "redirect:/book/findAll";
     }
+
+    @PostMapping("/bookCountsUpdate")
+    public @ResponseBody int bookCountsUpdate(@ModelAttribute BookDTO bookDTO){
+        boolean bookCountsUpdateResult =bookService.bookCountsUpdate(bookDTO);
+        if(bookCountsUpdateResult){
+            return 1;
+        }
+        else
+            return 0;
+    }
+
 }

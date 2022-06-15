@@ -85,15 +85,20 @@ public class MemberController {
         return "member/myPage";
     }
     @GetMapping("/update")
-    public String updateForm(@RequestParam("id") Long id, Model model){
+    public String updateForm(@RequestParam("id") Long id, Model model,HttpSession session){
         MemberDTO memberDTO = memberService.findById(id);
         model.addAttribute("updateMember", memberDTO);
+        if(session.getAttribute("loginMobile") != memberDTO.getMemberMobile()){
+            session.removeAttribute("loginMobile");
+            session.setAttribute("loginMobile",  memberDTO.getMemberMobile());
+        }
         return "member/update";
     }
 
     @PostMapping("/update")
-    public String update(@ModelAttribute MemberDTO memberDTO){
+    public String update(@ModelAttribute MemberDTO memberDTO,HttpSession session){
         memberService.update(memberDTO);
+        session.setAttribute("loginMobile", memberDTO.getMemberMobile());
         return "redirect:/member/myPage?id=" + memberDTO.getId();
     }
     @GetMapping("/findAll")
@@ -143,17 +148,27 @@ public class MemberController {
         }
     }
 
-    @GetMapping("/pointUpdate")
-    public String pointUpdateForm(@RequestParam("id") Long id, Model model){
-        MemberDTO memberDTO = memberService.findById(id);
-        model.addAttribute("member", memberDTO);
-        return "member/pointUpdate";
+    @PostMapping("/pointUpdate")
+    public String pointUpdate(@ModelAttribute MemberDTO memberDTO, HttpSession session){
+        memberService.pointUpdate(memberDTO);
+        if(session.getAttribute("loginPoint") != memberDTO.getMemberPoint()){
+            session.removeAttribute("loginPoint");
+            session.setAttribute("loginPoint", memberDTO.getMemberPoint());
+        }
+        return "redirect:/member/myPage?id=" + memberDTO.getId();
     }
 
-    @PostMapping("/pointUpdate")
-    public String pointUpdate(@ModelAttribute MemberDTO memberDTO){
-        memberService.pointUpdate(memberDTO);
-        return "redirect:/member/myPage?id=" + memberDTO.getId();
+    @PostMapping("purchaseUpdate")
+    public @ResponseBody int purchaseUpdate(@ModelAttribute MemberDTO memberDTO,HttpSession session){
+        boolean purchaseUpdateResult = memberService.purchaseUpdate(memberDTO);
+        if(purchaseUpdateResult){
+            session.removeAttribute("loginPoint");
+            session.setAttribute("loginPoint", memberDTO.getMemberPoint());
+            return 1;
+        }
+        else{
+            return 0;
+        }
     }
 
 }

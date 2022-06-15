@@ -40,7 +40,11 @@
         delete from book_member_table where id = #{id}
     </delete>
 
-    <update id="pointUpdate" parameterType="Long" >
-        update book_member_table set memberPoint = #{memberPoint}
+    <update id="pointUpdate" parameterType="member">
+        update book_member_table set memberPoint = #{memberPoint} where id=#{id}
+    </update>
+
+    <update id="purchaseUpdate" parameterType="member">
+        update book_member_table set memberPoint = #{memberPoint} where id=#{id}
     </update>
 </mapper>

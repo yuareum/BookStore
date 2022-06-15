@@ -5,6 +5,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.lang.reflect.Member;
 import java.util.List;
 import java.util.Map;
 
@@ -51,5 +52,9 @@ public class MemberRepository {
 
     public void pointUpdate(MemberDTO memberDTO) {
         sql.update("Member.pointUpdate", memberDTO);
+    }
+
+    public int purchaseUpdate(MemberDTO memberDTO) {
+        return sql.update("Member.purchaseUpdate", memberDTO);
     }
 }

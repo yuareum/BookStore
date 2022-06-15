@@ -19,6 +19,8 @@
         .btn {
             margin-top: 20px;
             margin-left: 10px;
+            width: 180px;
+            height: 50px;
         }
     </style>
 </head>
@@ -33,19 +35,61 @@
             <button class="btn btn-outline-info" style="float: right" onclick="bookUpdate()">도서 수정</button>
             <button class="btn btn-outline-danger" style="float: right" onclick="bookDelete()">도서 삭제</button>
         </c:if>
-        <img src="${pageContext.request.contextPath}/upload/${book.bookFileName}"
-             alt="" height="300" width="400" style="margin-top: 20px;">
-        <h2 style="margin-top: 20px">${book.bookTitle}</h2>
-        저자: ${book.bookWriter} | 출판사 : ${book.bookPublisher} | 출판일 : ${book.bookPublicationDate}<br>
-        <h4 style="margin-top: 20px">판매가 ${book.bookPrice}</h4>
-        <p>도서 소개</p>
-        <textarea rows="10" cols="50" readonly>${book.bookIntroduceContents}</textarea>
+    </div>
+    <div class="container">
+        <table>
+            <tr>
+                <td>
+                    <img src="${pageContext.request.contextPath}/upload/${book.bookFileName}"
+                         alt="" height="300" width="400" style="margin-top: 20px;">
+                </td>
+                <td>
+                    <p style="margin-top: 20px; margin-left: 100px;">도서 소개</p>
+                    <textarea rows="10" cols="50" style="margin-left: 100px;" class="form-control" readonly>${book.bookIntroduceContents}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td> <h2 style="margin-top: 20px">${book.bookTitle}</h2></td>
+                <td><input type="button" style="float: right;" class="btn btn-outline-primary" onclick="loginCheck1()" value="장바구니 담기">
+                    <c:if test="${book.bookCounts != 0}">
+                        <input type="button"  style="float: right;" class="btn btn-outline-success" onclick="loginCheck2()" value="구매하기">
+                    </c:if></td>
+            </tr>
+            <tr>
+                <td>저자: ${book.bookWriter} | 출판사 : ${book.bookPublisher} | 출판일 : ${book.bookPublicationDate}<br></td>
+            </tr>
+            <tr>
+                <td><h4 style="margin-top: 20px">판매가 ${book.bookPrice}</h4></td>
+            </tr>
+        </table>
 
-        <button class="btn btn-primary" onclick="location.href='/review/reviewList?reviewBookId=${book.id}">리뷰목록</button>
-        <c:if test="${book.bookCounts != 0}">
-            <input type="button" class="btn btn-outline-primary" onclick="loginCheck1()" value="장바구니 담기">
-            <input type="button" class="btn btn-outline-success" onclick="loginCheck2()" value="구매하기">
-        </c:if>
+        <div id="review-write" class="container">
+            <p style="margin-top: 30px;">리뷰작성</p>
+            작성자<input type="text" class="form-control" id="reviewWriter" name="reviewWriter" value="${sessionScope.loginMemberId}" readonly>
+            내용<textarea class="form-control" rows="10" cols="20" id="reviewContents" name="reviewContents" onclick="purchaseCheck()"></textarea>
+            <button class="btn btn-outline-info" style="float: right" onclick="reviewSave()">리뷰작성</button>
+        </div>
+
+        <div id="review-list"  class="container" style="margin-top: 80px;">
+            <p>작성된 리뷰</p>
+            <table class="table">
+                <tr>
+                    <td>리뷰번호</td>
+                    <td>작성자</td>
+                    <td>내용</td>
+                    <td>작성시간</td>
+                </tr>
+                <c:forEach items="${reviewList}" var="review">
+                    <tr>
+                        <td>${review.id}</td>
+                        <td>${review.reviewWriter}</td>
+                        <td>${review.reviewContents}</td>
+                        <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${review.reviewCreatedDate}"></fmt:formatDate></td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+
     </div>
 </body>
 <script>
@@ -106,6 +150,47 @@
         }
     }
 
+    const purchaseCheck = () => {
+        const reviewContents = document.getElementById("reviewContents");
+        $.ajax({
+            type: "post",
+            url: "/purchase/purchaseCheck",
+            data:{"purchaseMemberId": '${sessionScope.loginMemberId}', "purchaseBookId": '${book.id}'},
+            dataType: "json",
+            success: function (result){
+                if(result == 1){
+                    console.log(result);
+                }
+                else{
+                    reviewContents.readOnly = true;
+                }
+            },
+            error: function (){
+                alert("오타체크");
+            }
+        });
+    }
 
+    const reviewSave = () => {
+        const reviewWriter = document.getElementById("reviewWriter").value;
+        const reviewContents = document.getElementById("reviewContents").value;
+        if(reviewContents == ""){
+            alert("리뷰를 작성해주세요.")
+        }
+        else{
+            $.ajax({
+                type: "post",
+                url: "review/save",
+                data: {"bookId": '${book.id}', "reviewBookTitle": '${book.bookTitle}', "reviewWriter": reviewWriter, "reviewContents": reviewContents},
+                dataType: "json",
+                success: function (result){
+                    console.log(result);
+                },
+                error: function () {
+                    alert("오류");
+                }
+            });
+        }
+    }
 </script>
 </html>

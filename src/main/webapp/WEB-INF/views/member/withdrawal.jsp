@@ -45,9 +45,6 @@
         <li class="nav-item">
             <a class="nav-link active" aria-current="page"  href="/member/withdrawal?id=${sessionScope.loginId}">회원탈퇴</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/member/pointUpdate?id=${sessionScope.loginId}">포인트 충전</a>
-        </li>
     </ul>
     <form action="/member/withdrawal?id=${member.id}" method="post" name="withdrawal">
         <table style="margin-top: 20px;">

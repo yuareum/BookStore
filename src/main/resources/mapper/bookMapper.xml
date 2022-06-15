@@ -32,7 +32,7 @@
         delete from book_table where id = #{id}
     </delete>
 
-    <update id="updateCounts" parameterType="int">
+    <update id="bookCountsUpdate" parameterType="book">
         update book_table set bookCounts = #{bookCounts} where id=#{id}
     </update>
 
