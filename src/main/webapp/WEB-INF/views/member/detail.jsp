@@ -15,7 +15,7 @@
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <div class="container mb-3">
-        <h2>회원 상세 정보</h2>
+        <h2 style="margin-top: 20px;">회원 상세 정보</h2>
         <button class="btn btn-info" style="float: right;" onclick="location.href='/member/findAll'">회원목록</button>
         <table class="table">
             <tr>

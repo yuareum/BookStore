@@ -31,10 +31,7 @@
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 <div class="container">
     <h2 style="margin-top: 20px;">My Page</h2>
-    <button class="btn btn-outline-success" onclick="location.href='/book/findAll'">도서 전체 목록</button>
-    <button class="btn btn-outline-primary"  onclick="location.href='/shoppingCart/findByMemberId?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
     <button class="btn btn-dark" onclick="location.href='/purchase/findByMemberId?purchaseMemberId=${sessionScope.loginMemberId}'">구매 도서 목록</button>
-    <button class="btn btn-outline-dark" onclick="location.href='/member/pointUpdate?id=${sessionScope.loginId}'">포인트 충전</button>
     <ul style="margin-top: 20px" class="nav nav-tabs">
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/member/myPage?id=${sessionScope.loginId}">Profile</a>
@@ -54,7 +51,6 @@
         이름 <input type="text" class="form-control" value="${member.memberName}" readonly><br>
         이메일 <input type="text" class="form-control" value="${member.memberEmail}" readonly><br>
         전화번호 <input type="text" class="form-control" value="${member.memberMobile}" readonly><br>
-        포인트 <input type="text" class="form-control" value="${member.memberPoint}" readonly>
 </div>
 </body>
 </html>

@@ -18,7 +18,7 @@
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <div class="container">
-        <h2 style="margin-top: 20px;">회원 구매 목록</h2>
+        <h2 style="margin-top: 20px;">회원 전체 구매 목록</h2>
         <table class="table" style="margin-top: 10px;">
             <tr>
                 <td>도서 첨부 파일</td>

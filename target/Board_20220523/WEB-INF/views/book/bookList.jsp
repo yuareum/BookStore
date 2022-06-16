@@ -42,7 +42,7 @@
         </div>
         <div class="form-floating">
             <c:forEach items="${bookList}" var="book">
-                <table style="margin-top: 20px">
+                <table style="margin-top: 20px" class="table">
                     <tr>
                         <td><img src="${pageContext.request.contextPath}/upload/${book.bookFileName}"
                                   alt="" height="120" width="100" onclick="location.href='/book/detail?page=${paging.page}&id=${book.id}'"></td>

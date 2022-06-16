@@ -31,8 +31,6 @@
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 <div class="container">
     <h2 style="margin-top: 20px;">회원 정보 수정</h2>
-    <button class="btn btn-outline-success" onclick="location.href='/book/findAll'">도서 전체 목록</button>
-    <button class="btn btn-outline-primary" onclick="location.href='/shoppingCart/findByMemberId?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
     <button class="btn btn-dark" onclick="location.href='/purchase/findByMemberId?purchaseMemberId=${sessionScope.loginMemberId}'">구매 도서 목록</button>
     <ul style="margin-top: 20px" class="nav nav-tabs">
         <li class="nav-item">
@@ -55,7 +53,6 @@
         이름: <input type="text" class="form-control" name="memberName" value="${updateMember.memberName}" readonly><br>
         이메일: <input type="text" class="form-control" name="memberEmail" value="${updateMember.memberEmail}"><br>
         전화번호:<input type="text" class="form-control" name="memberMobile" value="${updateMember.memberMobile}"><br>
-        포인트: <input type="text" class="form-control" name="memberPoint" value="${updateMember.memberPoint}" readonly><br>
         <input class="btn btn-primary" type="button" style="width: 180px; height: 50px" onclick="memberUpdate()" value="정보수정">
     </form>
 </div>

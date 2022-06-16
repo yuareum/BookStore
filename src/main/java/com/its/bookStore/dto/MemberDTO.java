@@ -11,7 +11,6 @@ public class MemberDTO {
     private String memberName;
     private String memberEmail;
     private String memberMobile;
-    private Long amount;
     private MultipartFile memberProfile;
     private String memberProfileName;
 }

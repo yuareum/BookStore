@@ -24,10 +24,6 @@ public class ShoppingCartService {
             return 0;
         }
     }
-
-    public List<ShoppingCartDTO> findAll(Long shoppingCartBookId, int page) {
-        return shoppingCartRepository.findAll(shoppingCartBookId);
-    }
     public void delete(Long id) {
         shoppingCartRepository.delete(id);
     }

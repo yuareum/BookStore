@@ -19,10 +19,6 @@ public class ShoppingCartRepository {
         return sql.insert("ShoppingCart.save", shoppingCartDTO);
     }
 
-    public List<ShoppingCartDTO> findAll(Long shoppingCartBookId) {
-        return sql.selectList("ShoppingCart.findAll", shoppingCartBookId);
-    }
-
     public void delete(Long id) {
         sql.delete("ShoppingCart.delete", id);
     }

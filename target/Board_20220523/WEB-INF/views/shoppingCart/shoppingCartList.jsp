@@ -19,7 +19,7 @@
     <div class="container">
         <h3 style="margin-top: 20px;">${sessionScope.loginMemberId}회원의 장바구니 목록</h3>
         <c:forEach items="${shoppingCartList}" var="shoppingCart">
-            <table style="margin-top: 20px;">
+            <table style="margin-top: 20px;" class="table">
                 <tr>
                     <td><img src="${pageContext.request.contextPath}/upload/${shoppingCart.shoppingCartBookFileName}"
                              alt="" height="120" width="100" onclick="location.href='/book/detail?id=${shoppingCart.shoppingCartBookId}'"></td>
@@ -31,23 +31,14 @@
                         판매가: ${shoppingCart.shoppingCartBookPrice}
                     </td>
                     <td>
-                        <input type="button" class="btn btn-outline-success" onclick="location.href='/purchase/save?purchaseBookId=${shoppingCart.shoppingCartBookId}'" value="구매하기">
-                        <input type="button" class="btn btn-outline-danger" onclick="shoppingCartDelete()" value="장바구니 삭제">
+                        <input style="margin-top: 30px;" type="button" class="btn btn-outline-success" onclick="location.href='/purchase/save?purchaseBookId=${shoppingCart.shoppingCartBookId}'" value="구매하기"><br>
+                    </td>
+                    <td>
+                        <input style="margin-top: 30px;" type="button" class="btn btn-outline-danger" onclick="location.href='/shoppingCart/delete?id=${shoppingCart.id}'" value="장바구니 삭제">
                     </td>
                 </tr>
             </table>
         </c:forEach>
     </div>
 </body>
-<script>
-    const shoppingCartDelete = () => {
-        $.ajax({
-            type: "post",
-            url: "/shoppingCart/delete",
-            data: "",
-            dataType: "text",
-
-        })
-    }
-</script>
 </html>

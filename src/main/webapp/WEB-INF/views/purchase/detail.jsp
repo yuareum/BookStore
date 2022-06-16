@@ -12,6 +12,7 @@
 </head>
 <body>
     <div class="container">
+        <h2>구매 내역 상세 정보</h2>
 
     </div>
 </body>

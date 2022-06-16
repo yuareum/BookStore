@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -44,9 +45,10 @@ public class ShoppingCartController {
         }
     }
 
-    @PostMapping("/delete")
-    public @ResponseBody String delete(@RequestParam("id") Long id){
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id") Long id, HttpSession session){
         shoppingCartService.delete(id);
-        return "delete";
+        String loginMemberId = (String) session.getAttribute("loginMemberId");
+        return "redirect:/shoppingCart/findByMemberId?shoppingCartMemberId="+ loginMemberId;
     }
 }

@@ -27,10 +27,6 @@
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <div class="container">
-        <button class="btn btn-outline-success" style="float: right" onclick="location.href='/book/findAll'">도서 전체 목록</button>
-        <c:if test="${!empty sessionScope.loginMemberId and sessionScope.loginMemberId != 'admin'}">
-            <button class="btn btn-outline-primary" style="float: right;" onclick="location.href='/shoppingCart/findByMemberId?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
-        </c:if>
         <c:if test="${sessionScope.loginMemberId eq 'admin'}">
             <button class="btn btn-outline-info" style="float: right" onclick="bookUpdate()">도서 수정</button>
             <button class="btn btn-outline-danger" style="float: right" onclick="bookDelete()">도서 삭제</button>

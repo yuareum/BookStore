@@ -70,6 +70,14 @@
                                 <a class="nav-link" href="/member/myPage?id=${sessionScope.loginId}">My Page</a>
                             </c:if>
                         </li>
+                        <li class="nav-item">
+                            <c:if test="${!empty sessionScope.loginMemberId and sessionScope.loginMemberId != 'admin'}">
+                                <a class="nav-link" href="/shoppingCart/findByMemberId?shoppingCartMemberId=${sessionScope.loginMemberId}">장바구니</a>
+                            </c:if>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/book/findAll">도서 전체 목록</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -77,12 +85,7 @@
     </header>
 </head>
 <body>
-<div class="container mb-3">
-    <button class="btn btn-outline-success" style="float: right" onclick="location.href='/book/findAll'">도서 전체 목록</button>
-    <c:if test="${!empty sessionScope.loginMemberId and sessionScope.loginMemberId != 'admin'}">
-        <button type="button" class="btn btn-outline-primary" style="float: right; margin-right: 10px;" onclick="location.href='/shoppingCart/findByMemberId?shoppingCartMemberId=${sessionScope.loginMemberId}'">장바구니</button>
-    </c:if>
-</div>
+
 <div class="container">
     <div class="form-floating">
         <table>
