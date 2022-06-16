@@ -11,11 +11,15 @@ import java.util.List;
 public class ReviewRepository {
     @Autowired
     private SqlSessionTemplate sql;
-    public void save(ReviewDTO reviewDTO) {
-        sql.insert("Review.save", reviewDTO);
+    public int save(ReviewDTO reviewDTO) {
+        return sql.insert("Review.save", reviewDTO);
     }
 
     public List<ReviewDTO> findAll(Long bookId){
         return sql.selectList("Review.findAll", bookId);
+    }
+
+    public ReviewDTO findById(Long id) {
+        return sql.selectOne("Review.findById",id);
     }
 }

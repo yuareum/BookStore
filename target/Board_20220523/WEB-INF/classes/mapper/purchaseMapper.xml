@@ -13,7 +13,7 @@
     </select>
 
     <select id="findByMemberId" parameterType="String" resultType="purchase">
-        select * from purchase_table where purchaseMemberId=#{purchaseMemberId};
+        select * from purchase_table where purchaseMemberId=#{purchaseMemberId} order by id desc
     </select>
 
     <select id="findAll" parameterType="java.util.HashMap" resultType="purchase">
@@ -25,6 +25,6 @@
     </select>
 
     <select id="findById" parameterType="Long" resultType="purchase">
-        select * from purchase_table where id=#{id};
+        select * from purchase_table where id=#{id}
     </select>
 </mapper>

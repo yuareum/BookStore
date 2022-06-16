@@ -84,13 +84,9 @@ public class MemberController {
         return "member/myPage";
     }
     @GetMapping("/update")
-    public String updateForm(@RequestParam("id") Long id, Model model,HttpSession session){
+    public String updateForm(@RequestParam("id") Long id, Model model){
         MemberDTO memberDTO = memberService.findById(id);
         model.addAttribute("updateMember", memberDTO);
-        if(session.getAttribute("loginMobile") != memberDTO.getMemberMobile()){
-            session.removeAttribute("loginMobile");
-            session.setAttribute("loginMobile",  memberDTO.getMemberMobile());
-        }
         return "member/update";
     }
 
@@ -106,7 +102,7 @@ public class MemberController {
         PageDTO paging = memberService.paging(page);
         model.addAttribute("memberList", memberList);
         model.addAttribute("paging", paging);
-        return "member/memberList";
+        return "member/list";
     }
 
     @GetMapping("/detail")

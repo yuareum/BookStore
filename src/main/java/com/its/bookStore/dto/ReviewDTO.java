@@ -9,6 +9,7 @@ public class ReviewDTO {
     private Long id;
     private Long bookId;
     private String reviewWriter;
+    private String reviewTitle;
     private String reviewContents;
     private Timestamp reviewCreatedDate;
 }

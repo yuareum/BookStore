@@ -41,7 +41,7 @@ public class BookController {
         PageDTO paging = bookService.paging(page);
         model.addAttribute("bookList", bookList);
         model.addAttribute("paging", paging);
-        return "book/bookList";
+        return "book/list";
     }
     @GetMapping("/detail")
     public String findById(@RequestParam("id") Long id, Model model){

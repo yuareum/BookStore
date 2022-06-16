@@ -4,10 +4,15 @@
 
 <mapper namespace="Review">
     <insert id="save" parameterType="review">
-        insert into review_table(reviewBookTitle, reviewWriter, reviewContents, reviewCreatedDate, bookId) values (#{reviewBookTitle}, #{reviewWriter}, #{reviewContents}, now(), #{bookId})
+        insert into review_table(reviewWriter,reviewTitle, reviewContents, reviewCreatedDate, bookId)
+        values (#{reviewWriter}, #{reviewTitle}, #{reviewContents}, now(), #{bookId})
     </insert>
 
     <select id="findAll" parameterType="Long" resultType="review">
         select  * from review_table where bookId=#{bookId} order by id desc
+    </select>
+
+    <select id="findById" parameterType="Long" resultType="review">
+        select * from review_table where id=#{id}
     </select>
 </mapper>

@@ -12,10 +12,20 @@ public class ReviewService {
     @Autowired
     private ReviewRepository reviewRepository;
 
-    public void save(ReviewDTO reviewDTO) {
-        reviewRepository.save(reviewDTO);
+    public boolean save(ReviewDTO reviewDTO) {
+        int saveResult = reviewRepository.save(reviewDTO);
+        if(saveResult > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     public List<ReviewDTO> findAll(Long bookId) {
         return reviewRepository.findAll(bookId);
+    }
+
+    public ReviewDTO findById(Long id) {
+        return reviewRepository.findById(id);
     }
 }

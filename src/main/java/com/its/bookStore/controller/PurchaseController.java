@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @Controller
@@ -27,10 +26,10 @@ public class PurchaseController {
         return "purchase/save";
     }
     @PostMapping("/save")
-    public String save(@ModelAttribute PurchaseDTO purchaseDTO, @ModelAttribute BookDTO bookDTO){
+    public String save(@ModelAttribute PurchaseDTO purchaseDTO){
         boolean saveResult = purchaseService.save(purchaseDTO);
         if(saveResult){
-            return "index";
+            return "/purchase/findByMemberId?purchaseMemberId=" + purchaseDTO.getPurchaseMemberId();
         }
         else{
             return "purchaseFail";
@@ -53,7 +52,7 @@ public class PurchaseController {
         return "purchase/list";
     }
 
-    @PostMapping("purchaseCheck")
+    @PostMapping("/check")
     public @ResponseBody int purchaseCheck(@ModelAttribute PurchaseDTO purchaseDTO){
         boolean purchaseCheck = purchaseService.purchaseCheck(purchaseDTO);
         if(purchaseCheck) {

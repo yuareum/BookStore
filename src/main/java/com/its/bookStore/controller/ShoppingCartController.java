@@ -41,7 +41,7 @@ public class ShoppingCartController {
         }
         else {
             model.addAttribute("shoppingCartList", shoppingCartDTOList);
-            return "shoppingCart/shoppingCartList";
+            return "shoppingCart/list";
         }
     }
 

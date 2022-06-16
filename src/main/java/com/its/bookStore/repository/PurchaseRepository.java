@@ -28,8 +28,8 @@ public class PurchaseRepository {
         return sql.selectOne("Purchase.count");
     }
 
-    public PurchaseDTO purchaseCheck(PurchaseDTO purchaseDTO) {
-        return sql.selectOne("Purchase.check", purchaseDTO);
+    public List<PurchaseDTO> purchaseCheck(PurchaseDTO purchaseDTO) {
+        return sql.selectList("Purchase.check", purchaseDTO);
     }
 
     public PurchaseDTO findById(Long id) {

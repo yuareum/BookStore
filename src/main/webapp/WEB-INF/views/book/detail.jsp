@@ -21,6 +21,10 @@
             margin-left: 10px;
             width: 150px;
             height: 40px;
+            float: right;
+        }
+        .table{
+            border-color: white;
         }
     </style>
 </head>
@@ -28,28 +32,29 @@
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <div class="container">
         <c:if test="${sessionScope.loginMemberId eq 'admin'}">
-            <button class="btn btn-outline-info" style="float: right" onclick="bookUpdate()">도서 수정</button>
-            <button class="btn btn-outline-danger" style="float: right" onclick="bookDelete()">도서 삭제</button>
+            <button class="btn btn-outline-info" onclick="bookUpdate()">도서 수정</button>
+            <button class="btn btn-outline-danger" onclick="bookDelete()">도서 삭제</button>
         </c:if>
     </div>
     <div class="container" style="margin-top: 20px;">
-        <table>
+        <input type="button" class="btn btn-outline-primary" onclick="loginCheck1()" value="장바구니 담기">
+        <input type="button" class="btn btn-outline-info" onclick="purchaseCheck()" value="리뷰작성">
+        <c:if test="${book.bookCounts != 0}">
+            <input type="button" class="btn btn-outline-success" onclick="loginCheck2()" value="구매하기">
+        </c:if>
+        <table class="table">
             <tr>
                 <td>
                     <img src="${pageContext.request.contextPath}/upload/${book.bookFileName}"
                          alt="" height="300" width="400" style="margin-top: 20px;">
                 </td>
                 <td>
-                    <p style="margin-top: 20px; margin-left: 100px;">도서 소개</p>
-                    <textarea rows="10" cols="50" style="margin-left: 100px;" class="form-control" readonly>${book.bookIntroduceContents}</textarea>
+                    <p style="margin-top: 20px;">도서 소개</p>
+                    <textarea rows="10" cols="50" class="form-control" readonly>${book.bookIntroduceContents}</textarea>
                 </td>
             </tr>
             <tr>
-                <td> <h2 style="margin-top: 20px">${book.bookTitle}</h2></td>
-                <td><input type="button" class="btn btn-outline-primary" style="margin-left: 100px;" onclick="loginCheck1()" value="장바구니 담기">
-                    <c:if test="${book.bookCounts != 0}">
-                        <input type="button" class="btn btn-outline-success" onclick="loginCheck2()" value="구매하기">
-                    </c:if></td>
+                <td> <h2 style="margin-top: 20px;">${book.bookTitle}</h2></td>
             </tr>
             <tr>
                 <td>저자: ${book.bookWriter} | 출판사 : ${book.bookPublisher} | 출판일 : ${book.bookPublicationDate}<br></td>
@@ -58,28 +63,20 @@
                 <td><h4 style="margin-top: 20px">판매가 ${book.bookPrice}</h4></td>
             </tr>
         </table>
-
-        <div id="review-write" class="container">
-            <p style="margin-top: 30px;">리뷰작성</p>
-            작성자<input type="text" class="form-control" id="reviewWriter" name="reviewWriter" value="${sessionScope.loginMemberId}" readonly>
-            내용<textarea class="form-control" rows="10" cols="20" id="reviewContents" name="reviewContents" onclick="purchaseCheck()"></textarea>
-            <button class="btn btn-outline-info" style="float: right" onclick="reviewSave()">리뷰작성</button>
-        </div>
-
-        <div id="review-list"  class="container" style="margin-top: 80px;">
-            <p>작성된 리뷰</p>
+        <div id="review-list">
+            <p style="margin-top: 20px">작성된 리뷰 목록</p>
             <table class="table">
                 <tr>
                     <td>리뷰번호</td>
                     <td>작성자</td>
-                    <td>내용</td>
+                    <td>리뷰제목</td>
                     <td>작성시간</td>
                 </tr>
                 <c:forEach items="${reviewList}" var="review">
                     <tr>
                         <td>${review.id}</td>
                         <td>${review.reviewWriter}</td>
-                        <td>${review.reviewContents}</td>
+                        <td><a href="/review/detail?id=${review.id}">${review.reviewTitle}</a></td>
                         <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${review.reviewCreatedDate}"></fmt:formatDate></td>
                     </tr>
                 </c:forEach>
@@ -144,48 +141,24 @@
             alert("비회원 또는 관리자는 구매할 수 없습니다.");
         }
     }
-
-    const purchaseCheck = () => {
-        const reviewContents = document.getElementById("reviewContents");
+    const purchaseCheck = () =>{
         $.ajax({
-            type: "post",
-            url: "/purchase/purchaseCheck",
-            data:{"purchaseMemberId": '${sessionScope.loginMemberId}', "purchaseBookId": '${book.id}'},
-            dataType: "json",
-            success: function (result){
-                if(result == 1){
-                    console.log(result);
-                }
-                else{
-                    reviewContents.readOnly = true;
-                }
-            },
-            error: function (){
-                alert("오타체크");
-            }
+           type: "post",
+           url: "/purchase/check",
+           data: {"purchaseBookId": '${book.id}', "purchaseMemberId": '${sessionScope.loginMemberId}'},
+           dataType: "json",
+           success: function (result){
+               if(result == 1){
+                   location.href="/review/save?bookId=${book.id}";
+               }
+               else{
+                   alert("해당 도서를 구매하지 않았으므로, 리뷰를 작성할 수 없습니다.");
+               }
+           },
+           error: function (){
+               alert("오타체크");
+           }
         });
-    }
-
-    const reviewSave = () => {
-        const reviewWriter = document.getElementById("reviewWriter").value;
-        const reviewContents = document.getElementById("reviewContents").value;
-        if(reviewContents == ""){
-            alert("리뷰를 작성해주세요.")
-        }
-        else{
-            $.ajax({
-                type: "post",
-                url: "review/save",
-                data: {"bookId": '${book.id}', "reviewBookTitle": '${book.bookTitle}', "reviewWriter": reviewWriter, "reviewContents": reviewContents},
-                dataType: "json",
-                success: function (result){
-                    console.log(result);
-                },
-                error: function () {
-                    alert("오류");
-                }
-            });
-        }
     }
 </script>
 </html>

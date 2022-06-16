@@ -29,6 +29,7 @@
                 <td>구매번호</td>
                 <td>구매 도서 제목</td>
                 <td>구매일</td>
+                <td>도서 상세 조회</td>
             </tr>
         <c:forEach items="${purchaseList}" var="purchase">
             <tr>
@@ -36,6 +37,7 @@
                 <td>${purchase.id}</td>
                 <td><a href="/purchase/detail?id=${purchase.id}">${purchase.purchaseBookTitle}</a></td>
                 <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${purchase.purchaseCreatedDate}"></fmt:formatDate></td>
+                <td><button class="btn btn-secondary" onclick="location.href='/book/detail?id=${purchase.purchaseBookId}'">도서 상세 조회</button></td>
             </tr>
         </c:forEach>
         </table>

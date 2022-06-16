@@ -40,11 +40,6 @@
                         </c:if>
                     </li>
                     <li class="nav-item">
-                        <c:if test="${!empty sessionScope.loginMemberId}">
-                            <a class="nav-link" href="/member/logout">로그아웃</a>
-                        </c:if>
-                    </li>
-                    <li class="nav-item">
                         <c:if test="${sessionScope.loginMemberId eq 'admin'}">
                             <a class="nav-link" href="/member/admin?memberId=${sessionScope.loginMemberId}">관리자 페이지</a>
                         </c:if>
@@ -52,6 +47,19 @@
                     <li class="nav-item">
                         <c:if test="${!empty sessionScope.loginMemberId and sessionScope.loginMemberId != 'admin'}">
                             <a class="nav-link" href="/member/myPage?id=${sessionScope.loginId}">My Page</a>
+                        </c:if>
+                    </li>
+                    <li class="nav-item">
+                        <c:if test="${!empty sessionScope.loginMemberId and sessionScope.loginMemberId != 'admin'}">
+                            <a class="nav-link" href="/shoppingCart/findByMemberId?shoppingCartMemberId=${sessionScope.loginMemberId}">장바구니</a>
+                        </c:if>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/book/findAll">도서 전체 목록</a>
+                    </li>
+                    <li class="nav-item">
+                        <c:if test="${!empty sessionScope.loginMemberId}">
+                            <a class="nav-link" href="/member/logout">로그아웃</a>
                         </c:if>
                     </li>
                 </ul>

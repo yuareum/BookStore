@@ -1,11 +1,14 @@
 package com.its.bookStore.controller;
 
+import com.its.bookStore.dto.BookDTO;
 import com.its.bookStore.dto.PageDTO;
 import com.its.bookStore.dto.PurchaseDTO;
 import com.its.bookStore.dto.ReviewDTO;
+import com.its.bookStore.service.BookService;
 import com.its.bookStore.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,11 +20,31 @@ public class ReviewController {
     @Autowired
     private ReviewService reviewService;
 
-    @PostMapping("save")
-    public @ResponseBody List<ReviewDTO> save(@ModelAttribute ReviewDTO reviewDTO){
-        reviewService.save(reviewDTO);
-        List<ReviewDTO> reviewDTOList = reviewService.findAll(reviewDTO.getBookId());
-        return reviewDTOList;
+    @Autowired
+    private BookService bookService;
+    @GetMapping("/save")
+    public String saveForm(@RequestParam("bookId") Long bookId, Model model) {
+        BookDTO bookDTO = bookService.findById(bookId);
+        model.addAttribute("book", bookDTO);
+        return "review/save";
+    }
+
+    @PostMapping("/save")
+    public String save(@ModelAttribute ReviewDTO reviewDTO){
+        boolean saveResult = reviewService.save(reviewDTO);
+        if(saveResult){
+            return "redirect:/book/detail?id=" + reviewDTO.getBookId();
+        }
+        else{
+            return "saveFail";
+        }
+    }
+
+    @GetMapping("/detail")
+    public String detail(@RequestParam("id") Long id,Model model){
+        ReviewDTO reviewDTO = reviewService.findById(id);
+        model.addAttribute("review", reviewDTO);
+        return "/review/detail";
     }
 
 }
