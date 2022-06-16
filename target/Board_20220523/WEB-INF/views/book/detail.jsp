@@ -35,13 +35,13 @@
             <button class="btn btn-outline-info" onclick="bookUpdate()">도서 수정</button>
             <button class="btn btn-outline-danger" onclick="bookDelete()">도서 삭제</button>
         </c:if>
-    </div>
-    <div class="container" style="margin-top: 20px;">
         <input type="button" class="btn btn-outline-primary" onclick="loginCheck1()" value="장바구니 담기">
-        <input type="button" class="btn btn-outline-info" onclick="purchaseCheck()" value="리뷰작성">
+        <input type="button" class="btn btn-outline-info" onclick="location.href='/review/save?bookId=${book.id}'" value="review 작성">
         <c:if test="${book.bookCounts != 0}">
             <input type="button" class="btn btn-outline-success" onclick="loginCheck2()" value="구매하기">
         </c:if>
+    </div>
+    <div class="container" style="margin-top: 20px;">
         <table class="table">
             <tr>
                 <td>
@@ -64,13 +64,15 @@
             </tr>
         </table>
         <div id="review-list">
-            <p style="margin-top: 20px">작성된 리뷰 목록</p>
+            <p style="margin-top: 20px">review 목록</p>
             <table class="table">
                 <tr>
-                    <td>리뷰번호</td>
+                    <td>review 번호</td>
                     <td>작성자</td>
-                    <td>리뷰제목</td>
+                    <td>review 제목</td>
                     <td>작성시간</td>
+                    <td><p style="visibility: hidden;">수정</p></td>
+                    <td><p style="visibility: hidden;">삭제</p></td>
                 </tr>
                 <c:forEach items="${reviewList}" var="review">
                     <tr>
@@ -78,6 +80,10 @@
                         <td>${review.reviewWriter}</td>
                         <td><a href="/review/detail?id=${review.id}">${review.reviewTitle}</a></td>
                         <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${review.reviewCreatedDate}"></fmt:formatDate></td>
+                        <c:if test="${sessionScope.loginMemberId eq review.reviewWriter}">
+                            <td><a href="/review/update?id=${review.id}">수정</a></td>
+                            <td><a href="/review/delete?id=${review.id}">삭제</a></td>
+                        </c:if>
                     </tr>
                 </c:forEach>
             </table>
@@ -140,25 +146,6 @@
         else{
             alert("비회원 또는 관리자는 구매할 수 없습니다.");
         }
-    }
-    const purchaseCheck = () =>{
-        $.ajax({
-           type: "post",
-           url: "/purchase/check",
-           data: {"purchaseBookId": '${book.id}', "purchaseMemberId": '${sessionScope.loginMemberId}'},
-           dataType: "json",
-           success: function (result){
-               if(result == 1){
-                   location.href="/review/save?bookId=${book.id}";
-               }
-               else{
-                   alert("해당 도서를 구매하지 않았으므로, 리뷰를 작성할 수 없습니다.");
-               }
-           },
-           error: function (){
-               alert("오타체크");
-           }
-        });
     }
 </script>
 </html>

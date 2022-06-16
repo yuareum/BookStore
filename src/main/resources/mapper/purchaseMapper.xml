@@ -20,8 +20,8 @@
         select * from purchase_table order by id desc limit #{start}, #{limit}
     </select>
 
-    <select id="check" parameterType="purchase" resultType="purchase">
-        select * from purchase_table where purchaseBookId = #{purchaseBookId} and purchaseMemberId = #{purchaseMemberId}
+    <select id="check" parameterType="purchase" resultType="int">
+        select count(purchaseBookId) from purchase_table where purchaseBookId = #{purchaseBookId} and purchaseMemberId = #{purchaseMemberId}
     </select>
 
     <select id="findById" parameterType="Long" resultType="purchase">

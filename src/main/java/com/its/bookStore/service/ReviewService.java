@@ -28,4 +28,8 @@ public class ReviewService {
     public ReviewDTO findById(Long id) {
         return reviewRepository.findById(id);
     }
+
+    public void update(ReviewDTO reviewDTO) {
+        reviewRepository.update(reviewDTO);
+    }
 }

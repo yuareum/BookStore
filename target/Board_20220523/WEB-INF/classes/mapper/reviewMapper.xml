@@ -15,4 +15,8 @@
     <select id="findById" parameterType="Long" resultType="review">
         select * from review_table where id=#{id}
     </select>
+
+    <update id="update" parameterType="review">
+        update review_table set reviewTitle = #{reviewTitle}, reviewContents  = #{reviewContents} where id=#{id}
+    </update>
 </mapper>

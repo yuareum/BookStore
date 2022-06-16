@@ -55,8 +55,8 @@ public class PurchaseService {
     }
 
     public boolean purchaseCheck(PurchaseDTO purchaseDTO) {
-        List<PurchaseDTO> purchase = purchaseRepository.purchaseCheck(purchaseDTO);
-        if(purchase != null){
+        int purchase = purchaseRepository.purchaseCheck(purchaseDTO);
+        if(purchase > 0){
             return true;
         }
         else{

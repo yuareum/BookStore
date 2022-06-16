@@ -1,17 +1,15 @@
 package com.its.bookStore.controller;
 
 import com.its.bookStore.dto.BookDTO;
-import com.its.bookStore.dto.PageDTO;
-import com.its.bookStore.dto.PurchaseDTO;
 import com.its.bookStore.dto.ReviewDTO;
 import com.its.bookStore.service.BookService;
 import com.its.bookStore.service.ReviewService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @Controller
 @RequestMapping("/review")
@@ -47,4 +45,16 @@ public class ReviewController {
         return "/review/detail";
     }
 
+    @GetMapping("/update")
+    public String updateForm(@RequestParam("id") Long id, Model model){
+        ReviewDTO reviewDTO = reviewService.findById(id);
+        model.addAttribute("reviewUpdate", reviewDTO);
+        return "/review/update";
+    }
+
+    @PostMapping("/update")
+    public String update(@ModelAttribute ReviewDTO reviewDTO){
+        reviewService.update(reviewDTO);
+        return "/review/detail?id=" + reviewDTO.getId();
+    }
 }

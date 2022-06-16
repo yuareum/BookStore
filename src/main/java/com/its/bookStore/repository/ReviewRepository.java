@@ -22,4 +22,8 @@ public class ReviewRepository {
     public ReviewDTO findById(Long id) {
         return sql.selectOne("Review.findById",id);
     }
+
+    public void update(ReviewDTO reviewDTO) {
+        sql.update("Review.update", reviewDTO);
+    }
 }
