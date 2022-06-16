@@ -29,7 +29,7 @@ public class PurchaseController {
     public String save(@ModelAttribute PurchaseDTO purchaseDTO){
         boolean saveResult = purchaseService.save(purchaseDTO);
         if(saveResult){
-            return "/purchase/findByMemberId?purchaseMemberId=" + purchaseDTO.getPurchaseMemberId();
+            return "redirect:/purchase/findByMemberId?purchaseMemberId=" + purchaseDTO.getPurchaseMemberId();
         }
         else{
             return "purchaseFail";

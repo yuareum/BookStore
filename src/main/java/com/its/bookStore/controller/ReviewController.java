@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/review")
 public class ReviewController {
-
     @Autowired
     private ReviewService reviewService;
 
@@ -55,6 +54,12 @@ public class ReviewController {
     @PostMapping("/update")
     public String update(@ModelAttribute ReviewDTO reviewDTO){
         reviewService.update(reviewDTO);
-        return "/review/detail?id=" + reviewDTO.getId();
+        return "redirect:/review/detail?id=" + reviewDTO.getId();
+    }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id") Long id,@RequestParam("bookId") Long bookId){
+        reviewService.delete(id);
+        return "redirect:/book/detail?id=" + bookId;
     }
 }

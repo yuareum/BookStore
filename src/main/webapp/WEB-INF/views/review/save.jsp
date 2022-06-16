@@ -32,11 +32,11 @@
         <h2>review 작성</h2>
         <form action="/review/save" method="post" name="reviewForm">
             review 도서 번호 <input type="text" class="form-control" name="bookId" value="${book.id}" readonly>
-            review 제목 <input type="text" class="form-control" name="reviewTitle" onclick="purchaseCheck()" id="reviewTitle" placeholder="review 제목">
+            review 제목 <input type="text" class="form-control" name="reviewTitle" onclick="purchaseCheck()" id="reviewTitle">
             review 작성자 <input type="text" class="form-control" id="reviewWriter" name="reviewWriter" value="${sessionScope.loginMemberId}" readonly>
             review 내용 <textarea class="form-control" cols="20" rows="10" id="reviewContents" name="reviewContents"></textarea>
             <input type="button" class="btn btn-outline-dark" onclick="location.href='/book/detail?id=${book.id}'" value="취소">
-            <input type="submit" class="btn btn-primary" value="review 작성">
+            <input type="button" class="btn btn-primary" onclick="reviewCheck()" value="review 작성">
         </form>
     </div>
 </body>
@@ -60,6 +60,19 @@
                 alert("오타체크");
             }
         });
+    }
+    const reviewCheck  = () => {
+        if(document.getElementById("reviewWriter").value==""){
+            alert("review 제목을 작성해 주세요.");
+        }
+        else{
+            if(document.getElementById("reviewContents").value==""){
+                alert("review 내용을 작성해주세요.");
+            }
+            else{
+                reviewForm.submit();
+            }
+        }
     }
 </script>
 </html>

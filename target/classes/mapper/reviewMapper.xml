@@ -19,4 +19,7 @@
     <update id="update" parameterType="review">
         update review_table set reviewTitle = #{reviewTitle}, reviewContents  = #{reviewContents} where id=#{id}
     </update>
+    <delete id="delete" parameterType="Long">
+        delete from review_table where id=#{id}
+    </delete>
 </mapper>

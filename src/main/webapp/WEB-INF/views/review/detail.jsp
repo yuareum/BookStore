@@ -17,27 +17,27 @@
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <div class="container">
         <button style="margin-top: 20px; float: right;" class="btn btn-outline-secondary" onclick="location.href='/book/detail?id=${review.bookId}'">도서 상세 조회</button>
-        <h2 style="margin-top: 20px">리뷰 상세 조회</h2>
+        <h2 style="margin-top: 20px">review 상세 조회</h2>
         <table class="table">
             <tr>
-            <td>리뷰번호 &nbsp;
+            <td>review번호 &nbsp;
                 ${review.id}
             </td>
             </tr>
             <tr>
-                <td>리뷰 작성자 &nbsp;
+                <td>review 작성자 &nbsp;
                     ${review.reviewWriter} &nbsp;
-                    리뷰 작성일 &nbsp;
+                    review 작성일 &nbsp;
                     <fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${review.reviewCreatedDate}"></fmt:formatDate>
                 </td>
             </tr>
             <tr>
-                <td>리뷰 제목 &nbsp;
+                <td>review 제목 &nbsp;
                     ${review.reviewTitle}
                 </td>
             </tr>
             <tr>
-                <td>리뷰내용</td>
+                <td>review 내용</td>
             </tr>
             <tr>
                 <td><textarea class="form-control" rows="10" cols="20">${review.reviewContents}</textarea></td>

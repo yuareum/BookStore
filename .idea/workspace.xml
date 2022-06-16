@@ -9,34 +9,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61ff1305-73d8-4eca-a196-81037b85b2a6" name="Changes" comment="css, 리뷰 작성, 조회 기능 추가">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/review/update.jsp" afterDir="false" />
+    <list default="true" id="61ff1305-73d8-4eca-a196-81037b85b2a6" name="Changes" comment="리뷰 작성 update, 리뷰 수정 페이지 생성">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/controller/PurchaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/controller/PurchaseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/controller/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/repository/PurchaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/repository/PurchaseRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/repository/ReviewRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/service/PurchaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/service/PurchaseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/its/bookStore/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/its/bookStore/service/ReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/purchaseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/purchaseMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/reviewMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/reviewMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/detail.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/review/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/review/detail.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/review/save.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/review/save.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/controller/PurchaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/controller/PurchaseController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/controller/ReviewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/controller/ReviewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/repository/PurchaseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/repository/PurchaseRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/repository/ReviewRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/repository/ReviewRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/service/PurchaseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/service/PurchaseService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/service/ReviewService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/com/its/bookStore/service/ReviewService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/mapper/purchaseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/mapper/purchaseMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/mapper/reviewMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/classes/mapper/reviewMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/book/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/book/detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/review/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/review/detail.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/review/save.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/review/save.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/its/bookStore/controller/PurchaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/its/bookStore/controller/PurchaseController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/its/bookStore/controller/ReviewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/its/bookStore/controller/ReviewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/its/bookStore/repository/PurchaseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/its/bookStore/repository/PurchaseRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/its/bookStore/repository/ReviewRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/its/bookStore/repository/ReviewRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/its/bookStore/service/PurchaseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/its/bookStore/service/PurchaseService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/its/bookStore/service/ReviewService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/its/bookStore/service/ReviewService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/purchaseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/purchaseMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mapper/reviewMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/reviewMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -451,7 +445,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655361309415</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="리뷰 작성 update, 리뷰 수정 페이지 생성">
+      <created>1655366994435</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1655366994435</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -469,7 +470,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="README.md" />
     <MESSAGE value="회원가입 페이지 생성" />
     <MESSAGE value="commit" />
     <MESSAGE value="로그인 페이지, header 추가" />
@@ -494,6 +494,7 @@
     <MESSAGE value="포인트 페이지 수정, update" />
     <MESSAGE value="결제 페이지(api), 장바구니 삭제 기능" />
     <MESSAGE value="css, 리뷰 작성, 조회 기능 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="css, 리뷰 작성, 조회 기능 추가" />
+    <MESSAGE value="리뷰 작성 update, 리뷰 수정 페이지 생성" />
+    <option name="LAST_COMMIT_MESSAGE" value="리뷰 작성 update, 리뷰 수정 페이지 생성" />
   </component>
 </project>

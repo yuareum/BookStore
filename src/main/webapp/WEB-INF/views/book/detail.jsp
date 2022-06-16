@@ -82,7 +82,7 @@
                         <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${review.reviewCreatedDate}"></fmt:formatDate></td>
                         <c:if test="${sessionScope.loginMemberId eq review.reviewWriter}">
                             <td><a href="/review/update?id=${review.id}">수정</a></td>
-                            <td><a href="/review/delete?id=${review.id}">삭제</a></td>
+                            <td><a href="/review/delete?id=${review.id}&bookId=${review.bookId}">삭제</a></td>
                         </c:if>
                     </tr>
                 </c:forEach>
