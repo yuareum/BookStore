@@ -28,13 +28,13 @@ public class ShoppingCartService {
         shoppingCartRepository.delete(id);
     }
 
-    public boolean shoppingCartCheck(ShoppingCartDTO shoppingCartDTO) {
+    public int shoppingCartCheck(ShoppingCartDTO shoppingCartDTO) {
         ShoppingCartDTO shoppingCart = shoppingCartRepository.shoppingCartCheck(shoppingCartDTO);
         if(shoppingCart == null){
-            return true;
+            return 1;
         }
         else{
-            return false;
+            return 0;
         }
     }
 }

@@ -84,13 +84,13 @@ public class BookService {
     }
 
 
-    public boolean bookCountsUpdate(BookDTO bookDTO) {
+    public int bookCountsUpdate(BookDTO bookDTO) {
         int bookCountsUpdate = bookRepository.bookCountsUpdate(bookDTO);
         if(bookCountsUpdate>0){
-            return true;
+            return 1;
         }
         else{
-            return false;
+            return 0;
         }
     }
 }

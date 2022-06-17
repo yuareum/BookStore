@@ -54,13 +54,8 @@ public class PurchaseController {
 
     @PostMapping("/check")
     public @ResponseBody int purchaseCheck(@ModelAttribute PurchaseDTO purchaseDTO){
-        boolean purchaseCheck = purchaseService.purchaseCheck(purchaseDTO);
-        if(purchaseCheck) {
-            return 1;
-        }
-        else {
-            return 0;
-        }
+        int purchaseCheck = purchaseService.purchaseCheck(purchaseDTO);
+        return purchaseCheck;
     }
 
     @GetMapping("detail")

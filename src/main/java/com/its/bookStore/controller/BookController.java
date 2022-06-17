@@ -29,7 +29,7 @@ public class BookController {
     public String save(BookDTO bookDTO) throws IOException {
         boolean saveResult = bookService.save(bookDTO);
         if(saveResult){
-            return "redirect:/member/admin?memberId="+ bookDTO.getBookAdmin();
+            return "redirect:/book/findAll";
         }
         else{
             return "saveFail";
@@ -54,11 +54,9 @@ public class BookController {
 
     @GetMapping("/search")
     public String search(@RequestParam("searchType") String searchType,
-                         @RequestParam("q") String q, @RequestParam(value="page", required=false, defaultValue="1") int page, Model model) {
+                         @RequestParam("q") String q, Model model) {
         List<BookDTO> searchList = bookService.search(searchType, q);
-        PageDTO paging = bookService.paging(page);
         model.addAttribute("searchList", searchList);
-        model.addAttribute("paging", paging);
         return "book/searchList";
     }
 
@@ -82,12 +80,8 @@ public class BookController {
 
     @PostMapping("/bookCountsUpdate")
     public @ResponseBody int bookCountsUpdate(@ModelAttribute BookDTO bookDTO){
-        boolean bookCountsUpdateResult =bookService.bookCountsUpdate(bookDTO);
-        if(bookCountsUpdateResult){
-            return 1;
-        }
-        else
-            return 0;
+        int bookCountsUpdateResult =bookService.bookCountsUpdate(bookDTO);
+        return bookCountsUpdateResult;
     }
 
 }

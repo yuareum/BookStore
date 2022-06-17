@@ -54,13 +54,13 @@ public class PurchaseService {
         return paging;
     }
 
-    public boolean purchaseCheck(PurchaseDTO purchaseDTO) {
-        int purchase = purchaseRepository.purchaseCheck(purchaseDTO);
-        if(purchase > 0){
-            return true;
+    public int purchaseCheck(PurchaseDTO purchaseDTO) {
+        int checkResult = purchaseRepository.purchaseCheck(purchaseDTO);
+        if(checkResult > 0){
+            return 1;
         }
         else{
-            return false;
+            return 0;
         }
     }
 

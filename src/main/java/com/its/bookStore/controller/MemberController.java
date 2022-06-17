@@ -52,9 +52,8 @@ public class MemberController {
             model.addAttribute("loginMember", loginMember);
             session.setAttribute("loginMemberId", loginMember.getMemberId());
             session.setAttribute("loginId", loginMember.getId());
-            session.setAttribute("loginPassword", loginMember.getMemberPassword());
             session.setAttribute("loginMobile", loginMember.getMemberMobile());
-            return "redirect:/";
+            return "index";
         }
         else{
             return "member/login";
@@ -68,7 +67,7 @@ public class MemberController {
             return "member/admin";
         }
         else{
-            return "redirect:/member/findAll";
+            return "index";
         }
     }
     @GetMapping("/logout")

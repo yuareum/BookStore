@@ -18,15 +18,10 @@ public class ShoppingCartController {
 
     @PostMapping("/save")
     public @ResponseBody int save(@ModelAttribute ShoppingCartDTO shoppingCartDTO){
-        boolean shoppingCartCheck = shoppingCartService.shoppingCartCheck(shoppingCartDTO);
-        if(shoppingCartCheck){
-            int shoppingResult = shoppingCartService.save(shoppingCartDTO);
-            if(shoppingResult == 1){
-                return 1;
-            }
-            else{
-                return 0;
-            }
+        int shoppingCartCheck = shoppingCartService.shoppingCartCheck(shoppingCartDTO);
+        if(shoppingCartCheck == 1){
+            int saveResult = shoppingCartService.save(shoppingCartDTO);
+            return saveResult;
         }
         else {
             return 0;

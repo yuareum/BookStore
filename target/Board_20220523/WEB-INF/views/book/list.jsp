@@ -16,6 +16,7 @@
         body{
             width: 100%;
         }
+
     </style>
 </head>
 <body>
@@ -41,11 +42,11 @@
         </div>
         <div class="form-floating">
             <c:forEach items="${bookList}" var="book">
-                <table style="margin-top: 20px" class="table">
+                <table style="margin-top: 20px" >
                     <tr>
                         <td><img src="${pageContext.request.contextPath}/upload/${book.bookFileName}"
-                                  alt="" height="120" width="100" onclick="location.href='/book/detail?page=${paging.page}&id=${book.id}'"></td>
-                        <td>
+                                  alt="" height="120" width="150" onclick="location.href='/book/detail?page=${paging.page}&id=${book.id}'"></td>
+                        <td style="padding-left: 30px">
                             <h4><a href="/book/detail?page=${paging.page}&id=${book.id}">${book.bookTitle}</a></h4>
                             저자: ${book.bookWriter} |
                             출판사: ${book.bookPublisher} |

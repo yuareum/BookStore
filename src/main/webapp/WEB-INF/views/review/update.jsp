@@ -19,6 +19,8 @@
         }
         .btn{
             margin-top: 20px;
+            width: 150px;
+            height: 40px;
         }
     </style>
 </head>

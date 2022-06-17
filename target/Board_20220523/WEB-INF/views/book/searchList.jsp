@@ -19,7 +19,7 @@
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
     <div class="container">
         <h2 style="margin-top: 20px;">도서 조회 결과</h2>
-        <div class="form-floating">
+        <div class="form-floating" style="padding-left: 250px;">
             <table>
                 <form action="/book/search" method="get">
                     <div class="input-group mb-3">
@@ -35,70 +35,25 @@
                     </div>
                 </form>
             </table>
-            <div class="form-floating">
-                <c:forEach items="${searchList}" var="search">
-                    <table style="margin-top: 20px">
-                        <tr>
-                            <td><img src="${pageContext.request.contextPath}/upload/${search.bookFileName}"
-                                     alt="" height="120" width="100" onclick="location.href='/book/detail?page=${paging.page}&id=${search.id}'"></td>
-                            <td>
-                                <h4><a href="/book/detail?page=${paging.page}&id=${search.id}">${search.bookTitle}</a></h4>
-                                저자: ${search.bookWriter} |
-                                출판사: ${search.bookPublisher} |
-                                출판일: ${search.bookPublicationDate}<br>
-                                판매가: ${search.bookPrice}
-                            </td>
-                        </tr>
-                    </table>
-                </c:forEach>
-            </div>
+        </div>
+
+        <div class="form-floating">
+            <c:forEach items="${searchList}" var="search">
+                <table style="margin-top: 20px">
+                    <tr>
+                        <td><img src="${pageContext.request.contextPath}/upload/${search.bookFileName}"
+                                 alt="" height="120" width="150" onclick="location.href='/book/detail?id=${search.id}'"></td>
+                        <td style="padding-left: 30px;">
+                            <h4><a href="/book/detail?&id=${search.id}">${search.bookTitle}</a></h4>
+                            저자: ${search.bookWriter} |
+                            출판사: ${search.bookPublisher} |
+                            출판일: ${search.bookPublicationDate}<br>
+                            판매가: ${search.bookPrice}
+                        </td>
+                    </tr>
+                </table>
+            </c:forEach>
         </div>
     </div>
-<div class="container">
-    <ul class="pagination justify-content-center">
-        <c:choose>
-            <%-- 현재 페이지가 1페이지면 이전 글자만 보여줌. --%>
-            <c:when test="${paging.page<=1}">
-                <li class="page-item disabled">
-                    <a class="page-link">[이전]</a>
-                </li>
-            </c:when>
-            <%--1페이지가 아닌 경우에는 [이전]을 클릭하면 현재 페이지보다 1 작은 페이지 요청 --%>
-            <c:otherwise>
-                <li class="page-item">
-                    <a class="page-link" href="/book/search?page=${paging.page-1}">[이전]</a>
-                </li>
-            </c:otherwise>
-        </c:choose>
-        <%-- for(int i=startPage; i<=endPage; i++ --%>
-        <c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="i" step="1">
-            <c:choose>
-                <%-- 요청한 페이지에 있는 경우 현재 페이지 번호는 텍스트만 보이게 test:조건식,jsp 문법 ${} eq=equals 같은지--%>
-                <c:when test="${i eq paging.page}">
-                    <li class="page-item active">
-                        <a class="page-link">${i}</a>
-                    </li>
-                </c:when>
-                <c:otherwise>
-                    <li class="page-item">
-                        <a class="page-link" href="/book/search?page=${i}">${i}</a>
-                    </li>
-                </c:otherwise>
-            </c:choose>
-        </c:forEach>
-        <c:choose>
-            <c:when test="${paging.page>=paging.maxPage}">
-                <li class="page-item disabled">
-                    <a class="page-link">[다음]</a>
-                </li>
-            </c:when>
-            <c:otherwise>
-                <li class="page-item">
-                    <a class="page-link" href="/book/search?page=${paging.page+1}">[다음]</a>
-                </li>
-            </c:otherwise>
-        </c:choose>
-    </ul>
-</div>
 </body>
 </html>

@@ -20,6 +20,12 @@
         input {
             margin-top: 10px;
         }
+        .btn{
+            float: right;
+            width: 150px;
+            height: 40px;
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
@@ -27,13 +33,27 @@
     <div class="container">
         <h2 style="margin-top: 20px;">도서 구매</h2>
         <form action="/purchase/save" method="post" name="purchase">
-            도서 제목 <input type="text" class="form-control" name="purchaseBookTitle" value="${book.bookTitle}" readonly>
-            구매 회원 <input type="text" class="form-control" name="purchaseMemberId" value="${sessionScope.loginMemberId}" readonly>
-            구매자 전화번호 <input type="text" class="form-control" name="purchaseMobile" value="${sessionScope.loginMobile}" readonly>
-            배송지<input type="text" class="form-control" id="purchaseAddress" name="purchaseAddress">
-            <input type="text" class="form-control" name="purchaseBookId" style="visibility: hidden;" value="${book.id}">
-            <input type="text" name="purchaseBookFileName" value="${book.bookFileName}" style="visibility: hidden">
             <table style="margin-top: 20px;" class="table">
+                <tr>
+                    <td>도서 제목</td>
+                    <td><input type="text" class="form-control" name="purchaseBookTitle" value="${book.bookTitle}" readonly></td>
+                </tr>
+                <tr>
+                    <td>구매 회원</td>
+                    <td><input type="text" class="form-control" name="purchaseMemberId" value="${sessionScope.loginMemberId}" readonly></td>
+                </tr>
+                <tr>
+                    <td>구매자 전화번호</td>
+                    <td><input type="text" class="form-control" name="purchaseMobile" value="${sessionScope.loginMobile}" readonly></td>
+                </tr>
+                <tr>
+                    <td>배송지</td>
+                    <td><input type="text" class="form-control" id="purchaseAddress" name="purchaseAddress"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="form-control" name="purchaseBookId" style="visibility: hidden;" value="${book.id}"></td>
+                    <td><input type="text" name="purchaseBookFileName" value="${book.bookFileName}" style="visibility: hidden"></td>
+                </tr>
                 <tr>
                     <td>도서 가격</td>
                     <td><input type="text" class="form-control" name="purchaseBookPrice" value="${book.bookPrice}" readonly></td>
@@ -63,9 +83,9 @@
                     <td><input type="text" class="form-control" id="purchaseTotalPrice" name="purchaseTotalPrice" readonly></td>
                 </tr>
             </table>
-            <input type="button" class="btn btn-secondary" id="btn" onclick="location.href='/book/detail?id=${book.id}'" value="취소하기">
-            <input type="button" class="btn btn-outline-primary" id="button" onclick="requestPay()" value="결제하기">
             <input type="button" class="btn btn-outline-danger" onclick="purchaseComplete()" value="구매완료">
+            <input type="button" class="btn btn-outline-primary" id="button" onclick="requestPay()" value="결제하기">
+            <input type="button" class="btn btn-secondary" id="btn" onclick="location.href='/book/detail?id=${book.id}'" value="취소하기">
         </form>
     </div>
     <span id="payment" style="visibility: hidden;">
@@ -89,7 +109,7 @@
         const purchaseBookCounts = document.getElementById("purchaseBookCounts").value;
         const purchaseTotalPrice = document.getElementById("purchaseTotalPrice").value;
         if(purchaseAddress != ""){
-            if(purchaseBookCounts != 0) {
+            if(purchaseBookCounts != 0 && '${book.bookCounts}' != 0) {
                 var IMP = window.IMP;
                 IMP.init('imp43569804');
 
@@ -124,7 +144,7 @@
                 });
             }
             else{
-                alert("구매 권 수를 1권 이상 선택해주세요.");
+                alert("구매 권 수를 1권 이상 선택하지 않았거나 재고가 없으므로 결제를 진행할 수 없습니다.");
             }
         }
         else {
@@ -154,7 +174,7 @@
             });
         }
         else {
-            alert("결제를 완료해주세요.");
+            alert("결제를 완료되지 않았습니다.");
         }
     }
 </script>

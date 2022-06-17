@@ -49,9 +49,10 @@
             dataType: "json",
             success: function (result){
                 if(result == 1){
-                    console.log("result" + result);
+                    console.log("result: " + result);
                 }
                 else{
+                    console.log("result: " + result);
                     document.getElementById("reviewTitle").readOnly = true;
                     document.getElementById("reviewContents").readOnly = true;
                 }
@@ -62,7 +63,7 @@
         });
     }
     const reviewCheck  = () => {
-        if(document.getElementById("reviewWriter").value==""){
+        if(document.getElementById("reviewTitle").value==""){
             alert("review 제목을 작성해 주세요.");
         }
         else{

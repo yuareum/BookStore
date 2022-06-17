@@ -35,36 +35,31 @@
             <button class="btn btn-outline-info" onclick="bookUpdate()">도서 수정</button>
             <button class="btn btn-outline-danger" onclick="bookDelete()">도서 삭제</button>
         </c:if>
-        <input type="button" class="btn btn-outline-primary" onclick="loginCheck1()" value="장바구니 담기">
-        <input type="button" class="btn btn-outline-info" onclick="location.href='/review/save?bookId=${book.id}'" value="review 작성">
-        <c:if test="${book.bookCounts != 0}">
-            <input type="button" class="btn btn-outline-success" onclick="loginCheck2()" value="구매하기">
-        </c:if>
+
     </div>
     <div class="container" style="margin-top: 20px;">
         <table class="table">
             <tr>
+                <td> <h2 style="margin-top: 20px;">${book.bookTitle}</h2>
+                저자: ${book.bookWriter} &nbsp;| &nbsp; 출판사 : ${book.bookPublisher} &nbsp;  | &nbsp; 출판일 : ${book.bookPublicationDate}<br></td>
+            </tr>
+            <tr>
                 <td>
                     <img src="${pageContext.request.contextPath}/upload/${book.bookFileName}"
-                         alt="" height="300" width="400" style="margin-top: 20px;">
+                         alt="" height="400" width="400" style="margin-top: 20px;">
                 </td>
                 <td>
-                    <p style="margin-top: 20px;">도서 소개</p>
+                    <h5 style="margin-top: 20px;">도서 소개</h5>
                     <textarea rows="10" cols="50" class="form-control" readonly>${book.bookIntroduceContents}</textarea>
+                    <h4 style="margin-top: 20px">판매가 ${book.bookPrice}</h4>
+                    <input type="button" class="btn btn-outline-primary" onclick="loginCheck1()" value="장바구니 담기">
+                    <input type="button" class="btn btn-outline-info" onclick="location.href='/review/save?bookId=${book.id}'" value="review 작성">
+                    <input type="button" class="btn btn-outline-success" onclick="loginCheck2()" value="구매하기">
                 </td>
-            </tr>
-            <tr>
-                <td> <h2 style="margin-top: 20px;">${book.bookTitle}</h2></td>
-            </tr>
-            <tr>
-                <td>저자: ${book.bookWriter} | 출판사 : ${book.bookPublisher} | 출판일 : ${book.bookPublicationDate}<br></td>
-            </tr>
-            <tr>
-                <td><h4 style="margin-top: 20px">판매가 ${book.bookPrice}</h4></td>
             </tr>
         </table>
         <div id="review-list">
-            <p style="margin-top: 20px">review 목록</p>
+            <p style="margin-top: 50px">review 목록</p>
             <table class="table">
                 <tr>
                     <td>review 번호</td>
@@ -81,8 +76,10 @@
                         <td><a href="/review/detail?id=${review.id}">${review.reviewTitle}</a></td>
                         <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${review.reviewCreatedDate}"></fmt:formatDate></td>
                         <c:if test="${sessionScope.loginMemberId eq review.reviewWriter}">
-                            <td><a href="/review/update?id=${review.id}">수정</a></td>
-                            <td><a href="/review/delete?id=${review.id}&bookId=${review.bookId}">삭제</a></td>
+                            <td><button onclick="location.href='/review/update?id=${review.id}'" >수정</button></td>
+                        </c:if>
+                        <c:if test="${sessionScope.loginMemberId eq review.reviewWriter or sessionScope.loginMemberId eq 'admin'}">
+                        <td><button onclick="location.href='/review/delete?id=${review.id}&bookId=${review.bookId}'">삭제</button></td>
                         </c:if>
                     </tr>
                 </c:forEach>
@@ -139,12 +136,17 @@
     }
 
     const loginCheck2 = () => {
-        const memberId = '${sessionScope.loginMemberId}'
-        if(memberId != "" && memberId != "admin"){
-            location.href = "/purchase/save?purchaseBookId=${book.id}"
+        const memberId = '${sessionScope.loginMemberId}';
+        if('${book.bookCounts}' == 0){
+            alert("재고가 없으므로 구매할 수 없습니다.");
         }
         else{
-            alert("비회원 또는 관리자는 구매할 수 없습니다.");
+            if(memberId != "" && memberId != "admin"){
+                location.href = "/purchase/save?purchaseBookId=${book.id}"
+            }
+            else{
+                alert("비회원 또는 관리자는 구매할 수 없습니다.");
+            }
         }
     }
 </script>
