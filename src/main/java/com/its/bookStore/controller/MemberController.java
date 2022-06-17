@@ -61,9 +61,9 @@ public class MemberController {
     }
     @GetMapping("/admin")
     public String admin(@RequestParam("memberId") String memberId, Model model) {
-        MemberDTO loginMember = memberService.findByMemberId(memberId);
-        model.addAttribute("admin", loginMember);
-        if("admin".equals(loginMember.getMemberId())){
+        MemberDTO member = memberService.findByMemberId(memberId);
+        model.addAttribute("admin", member);
+        if("admin".equals(member.getMemberId())){
             return "member/admin";
         }
         else{
