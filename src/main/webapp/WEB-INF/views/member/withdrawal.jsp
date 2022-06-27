@@ -47,7 +47,7 @@
     <form action="/member/withdrawal?id=${member.id}" method="post" name="withdrawal">
         <table style="margin-top: 20px;">
             <tr>
-                <td>비밀번호 입력</td>
+                <th>비밀번호 입력</th>
             </tr>
             <tr>
                 <td><input type="password" id="memberPassword" class="form-control" placeholder="비밀번호"></td>

@@ -35,19 +35,19 @@
         <form action="/purchase/save" method="post" name="purchase">
             <table style="margin-top: 20px;" class="table">
                 <tr>
-                    <td>도서 제목</td>
+                    <th>도서 제목</th>
                     <td><input type="text" class="form-control" name="purchaseBookTitle" value="${book.bookTitle}" readonly></td>
                 </tr>
                 <tr>
-                    <td>구매 회원</td>
+                    <th>구매 회원</th>
                     <td><input type="text" class="form-control" name="purchaseMemberId" value="${sessionScope.loginMemberId}" readonly></td>
                 </tr>
                 <tr>
-                    <td>구매자 전화번호</td>
+                    <th>구매자 전화번호</th>
                     <td><input type="text" class="form-control" name="purchaseMobile" value="${sessionScope.loginMobile}" readonly></td>
                 </tr>
                 <tr>
-                    <td>배송지</td>
+                    <th>배송지</th>
                     <td><input type="text" class="form-control" id="purchaseAddress" name="purchaseAddress"></td>
                 </tr>
                 <tr>
@@ -55,15 +55,15 @@
                     <td><input type="text" name="purchaseBookFileName" value="${book.bookFileName}" style="visibility: hidden"></td>
                 </tr>
                 <tr>
-                    <td>도서 가격</td>
+                    <th>도서 가격</th>
                     <td><input type="text" class="form-control" name="purchaseBookPrice" value="${book.bookPrice}" readonly></td>
                 </tr>
                 <tr>
-                    <td>판매 도서 권수</td>
+                    <th>판매 도서 권수</th>
                     <td><input type="text" class="form-control" id=bookCounts value="${book.bookCounts}" readonly></td>
                 </tr>
                 <tr>
-                    <td>구매할 도서 권수</td>
+                    <th>구매할 도서 권수</th>
                     <td><select id="purchaseBookCounts" class="form-select" name="purchaseBookCounts" onchange="purchaseBookCountsCheck()">
                         <option selected value=0>0</option>
                         <option value=1>1</option>
@@ -79,7 +79,7 @@
                     </select></td>
                 </tr>
                 <tr>
-                    <td>총 결제 금액</td>
+                    <th>총 결제 금액</th>
                     <td><input type="text" class="form-control" id="purchaseTotalPrice" name="purchaseTotalPrice" readonly></td>
                 </tr>
             </table>

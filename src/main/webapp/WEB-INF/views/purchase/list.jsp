@@ -21,11 +21,11 @@
         <h2 style="margin-top: 20px;">회원 전체 구매 목록</h2>
         <table class="table" style="margin-top: 10px;">
             <tr>
-                <td>도서 첨부 파일</td>
-                <td>구매 번호</td>
-                <td>구매 도서 제목</td>
-                <td>구매 회원</td>
-                <td>구매일</td>
+                <th>도서 첨부 파일</th>
+                <th>구매 번호</th>
+                <th>구매 도서 제목</th>
+                <th>구매 회원</th>
+                <th>구매일</th>
             </tr>
             <c:forEach items="${purchaseList}" var="purchase">
                 <tr>
