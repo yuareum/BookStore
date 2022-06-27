@@ -22,7 +22,7 @@ public class BookController {
 
     @GetMapping("/save")
     public String saveForm(){
-        return "/book/save";
+        return "book/save";
     }
 
     @PostMapping("/save")

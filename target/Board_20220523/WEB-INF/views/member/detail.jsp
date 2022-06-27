@@ -19,13 +19,13 @@
         <button class="btn btn-info" style="float: right;" onclick="location.href='/member/findAll'">회원목록</button>
         <table class="table">
             <tr>
-                <td>회원번호</td>
-                <td>아이디</td>
-                <td>비밀번호</td>
-                <td>이름</td>
-                <td>이메일</td>
-                <td>전화번호</td>
-                <td>프로필사진</td>
+                <th>회원번호</th>
+                <th>아이디</th>
+                <th>비밀번호</th>
+                <th>이름</th>
+                <th>이메일</th>
+                <th>전화번호</th>
+                <th>프로필사진</th>
             </tr>
             <tr>
                 <td>${member.id}</td>

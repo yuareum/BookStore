@@ -25,11 +25,11 @@
         <h2>${sessionScope.loginMemberId}회원의 구매 목록</h2>
         <table class="table">
             <tr>
-                <td>도서 첨부 파일</td>
-                <td>구매번호</td>
-                <td>구매 도서 제목</td>
-                <td>구매일</td>
-                <td>도서 상세 조회</td>
+                <th>도서 첨부 파일</th>
+                <th>구매번호</th>
+                <th>구매 도서 제목</th>
+                <th>구매일</th>
+                <th>도서 상세 조회</th>
             </tr>
         <c:forEach items="${purchaseList}" var="purchase">
             <tr>

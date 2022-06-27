@@ -41,14 +41,14 @@ public class ReviewController {
     public String detail(@RequestParam("id") Long id,Model model){
         ReviewDTO reviewDTO = reviewService.findById(id);
         model.addAttribute("review", reviewDTO);
-        return "/review/detail";
+        return "review/detail";
     }
 
     @GetMapping("/update")
     public String updateForm(@RequestParam("id") Long id, Model model){
         ReviewDTO reviewDTO = reviewService.findById(id);
         model.addAttribute("reviewUpdate", reviewDTO);
-        return "/review/update";
+        return "review/update";
     }
 
     @PostMapping("/update")

@@ -20,16 +20,16 @@
         <h2 style="margin: 20px;">구매 내역 상세 조회</h2>
         <table class="table">
             <tr>
-                <td><p style="visibility: hidden">구매 도서 첨부파일</p></td>
-                <td>구매 번호</td>
-                <td>구매 도서 제목</td>
-                <td>구매 회원</td>
-                <td>구매 도서 권수</td>
-                <td>도서 가격</td>
-                <td>총 결재 가격</td>
-                <td>배송지</td>
-                <td>구매 회원 전화번호</td>
-                <td>구매일</td>
+                <th><p style="visibility: hidden">구매 도서 첨부파일</p></th>
+                <th>구매 번호</th>
+                <th>구매 도서 제목</th>
+                <th>구매 회원</th>
+                <th>구매 도서 권수</th>
+                <th>도서 가격</th>
+                <th>총 결재 가격</th>
+                <th>배송지</th>
+                <th>구매 회원 전화번호</th>
+                <th>구매일</th>
             </tr>
             <tr>
                 <td><img src="${pageContext.request.contextPath}/upload/${purchase.purchaseBookFileName}" alt="" height="100" width="100"></td>

@@ -62,12 +62,12 @@
             <p style="margin-top: 50px">review 목록</p>
             <table class="table">
                 <tr>
-                    <td>review 번호</td>
-                    <td>작성자</td>
-                    <td>review 제목</td>
-                    <td>작성시간</td>
-                    <td><p style="visibility: hidden;">수정</p></td>
-                    <td><p style="visibility: hidden;">삭제</p></td>
+                    <th>review 번호</th>
+                    <th>작성자</th>
+                    <th>review 제목</th>
+                    <th>작성시간</th>
+                    <th><p style="visibility: hidden;">수정</p></th>
+                    <th><p style="visibility: hidden;">삭제</p></th>
                 </tr>
                 <c:forEach items="${reviewList}" var="review">
                     <tr>
