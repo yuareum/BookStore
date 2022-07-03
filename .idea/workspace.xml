@@ -9,16 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61ff1305-73d8-4eca-a196-81037b85b2a6" name="Changes" comment="table 수정">
+    <list default="true" id="61ff1305-73d8-4eca-a196-81037b85b2a6" name="Changes" comment="controller 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/book/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/book/detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/member/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/member/admin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/member/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/member/detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/member/withdrawal.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/member/withdrawal.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/purchase/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/purchase/detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/purchase/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/purchase/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/purchase/purchaseList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/purchase/purchaseList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/purchase/save.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Board_20220523/WEB-INF/views/purchase/save.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,22 +47,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/development_yar/source/spring_framework/BookStore&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;6a40e95fc6afde52ddce203498d86b5a&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/development_yar/source/spring_framework/BookStore",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "spring.configuration.checksum": "6a40e95fc6afde52ddce203498d86b5a"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\development_yar\source\spring_framework\BookStore\src\main\webapp\WEB-INF\views\member" />
@@ -204,7 +196,12 @@
       <workItem from="1655420662001" duration="27802000" />
       <workItem from="1655451885477" duration="910000" />
       <workItem from="1655685840996" duration="442000" />
-      <workItem from="1656290419460" duration="1686000" />
+      <workItem from="1656290419460" duration="2409000" />
+      <workItem from="1656464436048" duration="5355000" />
+      <workItem from="1656544252710" duration="3929000" />
+      <workItem from="1656652005927" duration="3030000" />
+      <workItem from="1656663139648" duration="1372000" />
+      <workItem from="1656664689550" duration="185000" />
     </task>
     <task id="LOCAL-00001" summary="index.jsp 페이지 출력, 설정">
       <created>1654153762742</created>
@@ -465,7 +462,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656291527136</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="controller 수정">
+      <created>1656295315761</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1656295315761</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -483,7 +487,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="관리자 페이지, 도서 저장, 목록 추가" />
     <MESSAGE value="관리자 페이지, 도서 등록 페이지 추가" />
     <MESSAGE value="my page, paging 처리" />
     <MESSAGE value="회원 정보 수정 페이지 추가, css update" />
@@ -508,6 +511,7 @@
     <MESSAGE value="리뷰 삭제 기능 추가" />
     <MESSAGE value="css 추가, 기획안 수정" />
     <MESSAGE value="table 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="table 수정" />
+    <MESSAGE value="controller 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="controller 수정" />
   </component>
 </project>

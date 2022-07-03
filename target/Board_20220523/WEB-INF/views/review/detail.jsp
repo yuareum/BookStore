@@ -20,25 +20,23 @@
         <h2 style="margin-top: 20px">review 상세 조회</h2>
         <table class="table">
             <tr>
-            <td>review번호 &nbsp;
+            <td>review 번호 &nbsp;
                 ${review.id}
             </td>
             </tr>
             <tr>
-                <td>review 작성자 &nbsp;
+                <td> 작성자 &nbsp;
                     ${review.reviewWriter} &nbsp;
-                    review 작성일 &nbsp;
+                    작성일 &nbsp;
                     <fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${review.reviewCreatedDate}"></fmt:formatDate>
                 </td>
             </tr>
             <tr>
-                <td>review 제목 &nbsp;
+                <td>제목 &nbsp;
                     ${review.reviewTitle}
                 </td>
             </tr>
-            <tr>
-                <td>review 내용</td>
-            </tr>
+           
             <tr>
                 <td><textarea class="form-control" rows="10" cols="20">${review.reviewContents}</textarea></td>
             </tr>
