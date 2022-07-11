@@ -128,11 +128,11 @@ public class MemberController {
         return "member/withdrawal";
     }
     @PostMapping("/withdrawal")
-    public String withdrawal(@RequestParam("id") Long id, HttpSession session){
-        boolean deleteResult = memberService.delete(id);
+    public String withdrawal(HttpSession session){
+        boolean deleteResult = memberService.delete((Long) session.getAttribute("loginId"));
         if(deleteResult){
             session.invalidate();
-            return "index";
+            return "redirect:/";
         }
         else{
             return "deleteFail";

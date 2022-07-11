@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="db_spring_mvc@localhost">
   <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.39">
-    <root id="1">
-      <DefaultCasing>lower/lower</DefaultCasing>
-      <DefaultEngine>InnoDB</DefaultEngine>
-      <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
-      <Grants>db_spring_mvc|schema||user_spring_mvc|localhost|ALTER|G
-db_spring_mvc|schema||user_spring_mvc|localhost|ALTER ROUTINE|G
-db_spring_mvc|schema||user_spring_mvc|localhost|CREATE|G
-db_spring_mvc|schema||user_spring_mvc|localhost|CREATE ROUTINE|G
-db_spring_mvc|schema||user_spring_mvc|localhost|CREATE TEMPORARY TABLES|G
-db_spring_mvc|schema||user_spring_mvc|localhost|CREATE VIEW|G
-db_spring_mvc|schema||user_spring_mvc|localhost|DELETE|G
-db_spring_mvc|schema||user_spring_mvc|localhost|DROP|G
-db_spring_mvc|schema||user_spring_mvc|localhost|EVENT|G
-db_spring_mvc|schema||user_spring_mvc|localhost|EXECUTE|G
-db_spring_mvc|schema||user_spring_mvc|localhost|INDEX|G
-db_spring_mvc|schema||user_spring_mvc|localhost|INSERT|G
-db_spring_mvc|schema||user_spring_mvc|localhost|LOCK TABLES|G
-db_spring_mvc|schema||user_spring_mvc|localhost|REFERENCES|G
-db_spring_mvc|schema||user_spring_mvc|localhost|SELECT|G
-db_spring_mvc|schema||user_spring_mvc|localhost|SHOW VIEW|G
-db_spring_mvc|schema||user_spring_mvc|localhost|TRIGGER|G
-db_spring_mvc|schema||user_spring_mvc|localhost|UPDATE|G</Grants>
-      <ServerVersion>8.0.28</ServerVersion>
-    </root>
+    <root id="1"/>
     <collation id="2" parent="1" name="armscii8_general_ci">
       <Charset>armscii8</Charset>
       <DefaultForCharset>1</DefaultForCharset>

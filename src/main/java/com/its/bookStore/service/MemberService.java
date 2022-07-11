@@ -97,17 +97,4 @@ public class MemberService {
         }
     }
 
-    public void pointUpdate(MemberDTO memberDTO) {
-        memberRepository.pointUpdate(memberDTO);
-    }
-
-    public boolean purchaseUpdate(MemberDTO memberDTO) {
-        int purchaseUpdateResult = memberRepository.purchaseUpdate(memberDTO);
-        if(purchaseUpdateResult > 0){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
 }

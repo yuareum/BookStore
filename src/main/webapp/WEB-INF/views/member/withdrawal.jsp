@@ -44,7 +44,7 @@
             <a class="nav-link active" aria-current="page"  href="/member/withdrawal?id=${sessionScope.loginId}">회원탈퇴</a>
         </li>
     </ul>
-    <form action="/member/withdrawal?id=${member.id}" method="post" name="withdrawal">
+    <form action="/member/withdrawal" method="post" name="withdrawal">
         <table style="margin-top: 20px;">
             <tr>
                 <th>비밀번호 입력</th>
